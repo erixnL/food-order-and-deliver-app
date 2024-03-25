@@ -1,0 +1,31 @@
+.rest-card{
+  width: 100%;
+  margin: auto;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px #00000015;
+  transition: 0.3s;
+
+  .rest-image-container{
+    .rest-image{
+      width: 100%;
+      border-radius: 15px;
+      
+    }
+  }
+
+  .rest-info{
+    justify-content: space-between;
+    margin: 8px;
+
+    .rest-name{
+      font-weight: 600;
+    }
+
+    .rest-rating{
+      gap:3px;
+    }
+
+  }
+
+
+}

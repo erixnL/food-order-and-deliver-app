@@ -1,0 +1,91 @@
+:root {
+  --backgroundColor: #93DFFF;
+  --btnColor: #2C7DF7;
+  --whiteColor: hsl(00, 0%, 100%);
+  --blackColor: hsl(201, 33%, 16%);
+  --textColor: hsl(240, 4%, 36%);
+  --greyText: rgb(190, 190, 190);
+  --inputColor: rgb(239, 239, 239);
+  --bodyColor: rgb(240, 240, 246);
+  --cardBG: rgb(225, 225, 235);
+}
+
+.navbarContainer {
+  padding: 10px 30px;
+  width: 100%;
+  height: 60px;
+  background-color: #DE250C;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+}
+.navbarContainer .logo {
+  color: white;
+  font-weight: 800;
+  font-size: 22px;
+}
+.navbarContainer .searchBar {
+  width: 400px;
+  height: 38px;
+  background-color: #F1E8E8;
+  border: none;
+  border-radius: 80px;
+  padding: 5px;
+  justify-content: flex-start;
+}
+.navbarContainer .searchBar input {
+  border: none;
+  color: #000000;
+  background: transparent;
+  margin: 0 5px;
+}
+.navbarContainer .searchBar .btn {
+  background-color: #DE250C;
+  width: 72px;
+  height: 30px;
+  margin-left: auto;
+  line-height: 15px;
+}
+.navbarContainer .iconContainer {
+  justify-content: space-evenly;
+  color: white;
+  width: 200px;
+}
+.navbarContainer .iconContainer .cart {
+  justify-content: space-between;
+  position: relative;
+}
+.navbarContainer .iconContainer .cart .dot {
+  position: absolute;
+  min-width: 7px;
+  min-height: 7px;
+  background-color: yellow;
+  border-radius: 5px;
+  top: -3px;
+  right: -3px;
+}
+.navbarContainer .iconContainer .user {
+  justify-content: space-between;
+}
+.navbarContainer .iconContainer .user .text {
+  margin: 0 5px 0 0;
+}
+.navbarContainer .iconContainer .action {
+  gap: 15px;
+}
+.navbarContainer .iconContainer .action .login a {
+  font-size: 14px;
+  color: white;
+}
+.navbarContainer .iconContainer .action .signup {
+  background-color: #FBDA61;
+  padding: 2px 7px;
+  border: none;
+  border-radius: 30px;
+}
+.navbarContainer .iconContainer .action .signup a {
+  font-weight: 700;
+  color: black;
+  font-size: 13px;
+}/*# sourceMappingURL=Navbar.css.map */
