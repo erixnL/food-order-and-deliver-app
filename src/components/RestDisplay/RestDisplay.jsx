@@ -1,3 +1,4 @@
+'use client';
 import React, { useContext } from 'react'
 import "./RestDisplay.css";
 import { RestContext } from '../../Context/RestContext';

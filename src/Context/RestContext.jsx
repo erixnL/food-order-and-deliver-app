@@ -1,5 +1,6 @@
+
 import { createContext } from "react"
-import { Restaurant_list } from "../Assets/assets"
+import { Restaurant_list } from "@/public/assets/images/assets"
 
 export const RestContext = createContext(null)
 

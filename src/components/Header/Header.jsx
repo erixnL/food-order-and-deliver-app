@@ -1,8 +1,11 @@
+'use client';
 import React from 'react'
 import "./Header.css"
-import { categories } from '../../../src/Assets/assets'
+import { categories } from '@/public/assets/images/assets';
+import Image from 'next/image';
 
 const Header = ({category, setCategory}) => {
+  
   return (
     <div className="header" id="header flex">
       <div className="categories-list flex">
@@ -16,7 +19,7 @@ const Header = ({category, setCategory}) => {
               key={index} 
               className="categories-list-item"
             >
-              <img className={category===item.category_name?"active":""} 
+              <Image className={category===item.category_name?"active":""} 
                 src={item.category_image} alt="" />
               <p>{item.category_name}</p>
             </div>

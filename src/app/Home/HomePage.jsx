@@ -3,7 +3,7 @@ import "./Home.css";
 import Header from '../../Components/Header/Header';
 import RestDisplay from '../../Components/RestDisplay/RestDisplay';
 
-export const Home = () => {
+export const HomePage = () => {
   const [category, setCategory] = useState("All");
 
   return (

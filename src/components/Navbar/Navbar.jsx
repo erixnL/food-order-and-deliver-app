@@ -1,3 +1,4 @@
+'use client';
 import React,{useState } from 'react'
 import "./Navbar.css"
 import { CiSearch } from "react-icons/ci";

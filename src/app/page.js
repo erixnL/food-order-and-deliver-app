@@ -1,8 +1,26 @@
+'use client'
+import '../styles/Home.css';
+import './Home/Home.css';
+import Header from "@/components/Header/Header";
+import RestDisplay from "@/components/RestDisplay/RestDisplay";
+import { useState } from "react";
+import RestContextProvider from "@/Context/RestContext";
 
-export default function Home() {
-  return (
+const Home = () => {
+  const [category, setCategory] = useState("All");
+  
+  return ( 
     <>
-    {/* This is the home page */}
+      <RestContextProvider>
+        <Header category={category} setCategory={setCategory}/>
+        <RestDisplay category = {category} />
+      </RestContextProvider>
     </>
-  );
+  )
 }
+
+export default Home
+
+
+
+
