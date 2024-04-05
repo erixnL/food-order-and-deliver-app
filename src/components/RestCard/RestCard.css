@@ -4,6 +4,7 @@
   border-radius: 15px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.0823529412);
   transition: 0.3s;
+  cursor: pointer;
 }
 .rest-card .rest-image-container .rest-image {
   width: 100%;

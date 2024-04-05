@@ -24,6 +24,7 @@
 
 body {
   min-height: 100vh;
+  width:100%;
   padding-top: 60px;
 }
 
@@ -49,7 +50,7 @@ li {
 
 .flex {
   display: flex;
-  align-items: center;
+  align-items: stretch;
 }
 
 .btn {

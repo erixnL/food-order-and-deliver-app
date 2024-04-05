@@ -1,12 +1,12 @@
 'use client';
-import React, { useContext } from 'react'
+import React, { useContext } from 'react';
 import "./RestDisplay.css";
-import { RestContext } from '../../Context/RestContext';
 import RestCard from '../RestCard/RestCard';
+import { AppContext } from '@/Context/AppContext';
 
 const RestDisplay = ({category}) => {
 
-  const {Restaurant_list} = useContext(RestContext)
+  const {Restaurant_list} = useContext(AppContext);
    return (
     <div className='rest-display' id='rest-display'>
       <h2>{category}</h2>

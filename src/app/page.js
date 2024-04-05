@@ -1,20 +1,21 @@
 'use client'
-import '../styles/Home.css';
-import './Home/Home.css';
+import '../styles/globals.css';
 import Header from "@/components/Header/Header";
 import RestDisplay from "@/components/RestDisplay/RestDisplay";
 import { useState } from "react";
-import RestContextProvider from "@/Context/RestContext";
+import AppContextProvider from "../Context/AppContext";
 
 const Home = () => {
   const [category, setCategory] = useState("All");
   
   return ( 
     <>
-      <RestContextProvider>
-        <Header category={category} setCategory={setCategory}/>
-        <RestDisplay category = {category} />
-      </RestContextProvider>
+      <BrowserRouter>
+        <AppContextProvider>
+          <Header category={category} setCategory={setCategory}/>
+          <RestDisplay category = {category} />
+        </AppContextProvider>
+      </BrowserRouter>
     </>
   )
 }

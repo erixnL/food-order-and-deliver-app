@@ -1,7 +1,6 @@
 import React from 'react';
-import "./Login.css";
-import { MdOutlinePerson } from "react-icons/md";
-import { RiLockPasswordLine } from "react-icons/ri";
+import "./Registration.css";
+
 
 const Registration = () => {
 

@@ -13,9 +13,11 @@ const Navbar = () => {
   return (
     <header>
       <nav className="navbarContainer flex">
-        <div className="logo">
-          UOW Eats
-        </div>
+        <Link to="/">
+          <div className="logo">
+            UOW Eats
+          </div>
+        </Link>
         <div className='searchBar flex'>
           <div className="icon"><CiSearch size={20} /></div>
           <div>
@@ -24,8 +26,8 @@ const Navbar = () => {
           <button className="btn">Go</button>
         </div>
         <div className='iconContainer flex'>
-          <div className="cart flex">
-            <div className="icon"><FiShoppingBag size={28}/></div>
+          <div className="cart-icon flex">
+            <Link to="./cart"><div className="icon"><FiShoppingBag size={28}/></div></Link>
             <div className="dot"></div>
           </div>
           {Login 
@@ -36,7 +38,9 @@ const Navbar = () => {
               </div>
             : 
               <div className="action flex">
-                <div className="login"><a href="">Login</a></div>
+                <Link to="./login">
+                  <div className="login">Login</div>
+                </Link>
                 <div className="signup"><a href="">Sign Up</a></div>
               </div>
           }

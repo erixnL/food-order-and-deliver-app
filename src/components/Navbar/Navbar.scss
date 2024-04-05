@@ -39,11 +39,11 @@
 
     }
 
-    input{
+    .search-input{
       border: none;
       color: #000000;
       background: transparent;
-      margin: 0 5px;;
+      margin: 5px;
     }
 
     .btn{
@@ -59,6 +59,7 @@
     justify-content: space-evenly;
     color: white;
     width: 200px;
+    align-items: center;
 
     .cart{
       justify-content: space-between;

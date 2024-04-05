@@ -34,11 +34,11 @@
   padding: 5px;
   justify-content: flex-start;
 }
-.navbarContainer .searchBar input {
+.navbarContainer .searchBar .search-input {
   border: none;
   color: #000000;
   background: transparent;
-  margin: 0 5px;
+  margin: 5px;
 }
 .navbarContainer .searchBar .btn {
   background-color: #DE250C;
@@ -51,6 +51,7 @@
   justify-content: space-evenly;
   color: white;
   width: 200px;
+  align-items: center;
 }
 .navbarContainer .iconContainer .cart {
   justify-content: space-between;
