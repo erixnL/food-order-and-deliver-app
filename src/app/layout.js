@@ -13,6 +13,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={roboto.className}>
         <main>
+          <p>Test App</p>
           {children}
           {/* {the shared ui components with all pages} */}
           
