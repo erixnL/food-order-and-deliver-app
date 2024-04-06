@@ -1,15 +1,17 @@
 import '../styles/globals.css';
+import Link from 'next/link';
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 // import Navbar from "./Components/Navbar/Navbar"
 // import Footer from "./Components/Footer/Footer"
-import Registration from "./Registration/Registration"
+import Registration from "./Registration/page"
 import { Route, Routes } from 'react-router-dom';
-import Cart from './Cart/Cart';
+import Cart from './Cart/page';
 import FoodDisplay from '../components/FoodDisplay/FoodDisplay';
 import RestDisplay from '../components/RestDisplay/RestDisplay';
-import Login from './Login/Login';
+import Login from './Login/page';
 import Home from './page';
+
 
 
 export const metadata = {
@@ -25,14 +27,6 @@ const RootLayout = ({children}) => {
                 <Navbar />
                 <main className="app">
                     {children}
-                    <Routes>
-                      <Route path='/' element={<Home />} />
-                      <Route path='/login' element={<Login/>} />
-                      <Route path='/registration' element={<Registration />} />
-                      <Route path='/restaurant' element={<RestDisplay />} />
-                      <Route path='/cart' element={<Cart/>} />
-                      <Route path='/menu' element={<FoodDisplay />} />
-                    </Routes>
                 </main>
                 <Footer />
             </div>

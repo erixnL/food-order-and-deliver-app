@@ -1,7 +1,7 @@
 'use client';
 import React, { useContext } from 'react';
 import "./Cart.css";
-import { AppContext } from '../../Context/AppContext';
+import { AppContext } from '@/Context/AppContext';
 
 const Cart = () => {
 

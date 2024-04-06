@@ -1,12 +1,13 @@
 'use client';
 import { createContext } from "react";
 import { Restaurant_list, food_list } from "@/public/assets/images/assets";
+import { useState } from "react";
 
 export const AppContext = createContext(null);
 
 const AppContextProvider = (props) => {
 
-  const [cartItems, setCartItems] = React.useState({});
+  const [cartItems, setCartItems] = useState({});
 
   const addToCart = (itemId) => {
     if (!cartItems[itemId]) {

@@ -4,6 +4,8 @@ import "./FoodItem.css";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { CiCircleMinus } from "react-icons/ci";
 import { AppContext } from '@/Context/AppContext';
+import Image from 'next/image';
+
 
 const FoodItem = ({id, name, price, image}) => {
   const {cartItems, addToCart, removeFromCart} = useContext(AppContext);
@@ -11,7 +13,7 @@ const FoodItem = ({id, name, price, image}) => {
   return (
     <div className='food-item flex'>
        <div className="food-item-image-container">
-        <img className = 'food-item-image 'src={image} alt="" />
+        <Image className = 'food-item-image' src={image} alt="" />
       </div>
       <div className="food-item-info flex">
         <div className="food-item-name">

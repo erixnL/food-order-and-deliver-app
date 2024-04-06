@@ -4,6 +4,7 @@ import "./Navbar.css"
 import { CiSearch } from "react-icons/ci";
 import { FiShoppingBag } from "react-icons/fi";
 import { FaRegUserCircle } from "react-icons/fa";
+import Link from 'next/link';
 
 
 
@@ -13,7 +14,7 @@ const Navbar = () => {
   return (
     <header>
       <nav className="navbarContainer flex">
-        <Link to="/">
+        <Link href={'/'}>
           <div className="logo">
             UOW Eats
           </div>
@@ -27,7 +28,7 @@ const Navbar = () => {
         </div>
         <div className='iconContainer flex'>
           <div className="cart-icon flex">
-            <Link to="./cart"><div className="icon"><FiShoppingBag size={28}/></div></Link>
+            <Link href={'/Cart'}><div className="icon"><FiShoppingBag size={28}/></div></Link>
             <div className="dot"></div>
           </div>
           {Login 
@@ -38,7 +39,7 @@ const Navbar = () => {
               </div>
             : 
               <div className="action flex">
-                <Link to="./login">
+                <Link href={'/Login'}>
                   <div className="login">Login</div>
                 </Link>
                 <div className="signup"><a href="">Sign Up</a></div>
