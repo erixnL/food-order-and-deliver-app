@@ -1,0 +1,22 @@
+.rest-card {
+  width: 100%;
+  margin: auto;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.0823529412);
+  transition: 0.3s;
+  cursor: pointer;
+}
+.rest-card .rest-image-container .rest-image {
+  width: 100%;
+  border-radius: 15px;
+}
+.rest-card .rest-info {
+  justify-content: space-between;
+  margin: 8px;
+}
+.rest-card .rest-info .rest-name {
+  font-weight: 600;
+}
+.rest-card .rest-info .rest-rating {
+  gap: 3px;
+}/*# sourceMappingURL=RestCard.css.map */

@@ -1,0 +1,34 @@
+.header {
+  background-color: #F6F2F2;
+  padding: 20px 60px;
+  justify-content: center;
+  width: 100%;
+  margin: auto;
+}
+.header .categories-list {
+  justify-content: space-between;
+  gap: 30px;
+  text-align: center;
+  margin: 10px 0px;
+  overflow-x: scroll;
+}
+.header .categories-list::-webkit-scrollbar {
+  display: none;
+}
+.header .categories-list .categories-list-item Image {
+  width: 7.5vw;
+  min-width: 100px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: 0.2s;
+}
+.header .categories-list .categories-list-item p {
+  font-weight: 900;
+  font-size: max(1.4vw, 16px);
+  cursor: pointer;
+}
+.header .categories-list .categories-list-item .active {
+  border: 4px solid #FBDA61;
+  border-radius: 50%;
+  padding: 2px;
+}/*# sourceMappingURL=Header.css.map */

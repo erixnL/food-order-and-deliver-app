@@ -1,28 +1,25 @@
-'use client';
-import { useEffect } from "react";
+'use client'
+import '../styles/globals.css';
+import Header from "@/components/Header/Header";
+import RestDisplay from "@/components/RestDisplay/RestDisplay";
+import { useState } from "react";
+import AppContextProvider from '@/Context/AppContext';
 
-export default function Home() {
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    try {
-      const response = await fetch('/api/home');
-      if (response.ok) {
-        const data = await response.json();
-        console.log(data); // Log the fetched data to the console
-      } else {
-        console.error('Failed to fetch data');
-      }
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  };
+const Home = () => {
+  const [category, setCategory] = useState("All");
   
-  return (
+  return ( 
     <>
-    {/* This is the home page */}
+        <AppContextProvider>
+          <Header category={category} setCategory={setCategory}/>
+          <RestDisplay category = {category} />
+        </AppContextProvider>
     </>
-  );
+  )
 }
+
+export default Home
+
+
+
+
