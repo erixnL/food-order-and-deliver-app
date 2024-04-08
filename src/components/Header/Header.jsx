@@ -7,7 +7,7 @@ import Image from 'next/image';
 const Header = ({category, setCategory}) => {
   
   return (
-    <div className="header" id="header flex">
+    <div className="header" id="header flex" role="categories">
       <div className="categories-list flex">
         {categories.map((item, index) => {
           return (
