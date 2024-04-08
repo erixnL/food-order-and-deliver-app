@@ -23,6 +23,5 @@ jobs:
         run: npm install
       - name: Run tests
         run: npm test
-      - name: Build with Next.js
-        run: npm run build
+
 
