@@ -21,3 +21,13 @@ describe('Page', () => {
       expect(heading).toBeInTheDocument()
     })
   })
+
+describe('Page', () => {
+    it('renders restaruant list', () => {
+      render(<Page />)
+   
+      const heading = screen.getByText("Burgers")
+   
+      expect(heading).toBeInTheDocument()
+    })
+  })

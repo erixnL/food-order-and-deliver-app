@@ -19,7 +19,7 @@ const Navbar = () => {
     <header>
       <nav className="navbarContainer flex">
         <Link href={'/'}>
-          <div className="logo">
+          <div className="logo" role='Logo'>
             UOW Eats
           </div>
         </Link>
