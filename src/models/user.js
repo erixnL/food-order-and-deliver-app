@@ -14,6 +14,10 @@ const UserSchema = new Schema({
         type: String,
         required: [true, 'Invalid password!'],
     },
+    address: {
+        type: String,
+        required: [true, 'Address is required!'],
+    },
     postcode: {
         type: String,
         required: [true, 'Postcode is required!'],

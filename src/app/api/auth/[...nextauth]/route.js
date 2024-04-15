@@ -5,6 +5,7 @@ import { connectToDB } from '@/utlis/database';
 import User from '@/models/user';
 
 const handler = NextAuth({
+    secret: process.env.NEXTAUTH_SECRET, 
     session: {
         strategy: 'jwt',
         maxAge: 30 * 24 * 60 * 60, // 30 days
@@ -31,13 +32,15 @@ const handler = NextAuth({
             }
     
             // Compare the provided password with the stored hashed password
-            const isPasswordValid = await bcrypt.compare(credentials.password, user.password);
-    
-            if (!isPasswordValid) {
-              throw new Error('Incorrect password');
-            }
+            // const isPasswordValid = await bcrypt.compare(credentials.password, user.password);
+
+          // If passwords don't match, throw an error
+          if (credentials.password !== user.password) {
+            throw new Error('Invalid password');
+        }
     
             // If authentication is successful, return the user object
+            
             return user;
           },
         }),

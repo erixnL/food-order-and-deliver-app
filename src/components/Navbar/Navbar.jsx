@@ -9,8 +9,9 @@ import {signIn, signOut, useSession} from "next-auth/react";
 
 
 const Navbar = () => {
-  const [Login, isLogin] = useState(false);
+  
   const { data: session, status } = useSession();
+  console.log();
   
   return (
     <header>
