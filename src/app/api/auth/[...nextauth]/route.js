@@ -45,23 +45,30 @@ const handler = NextAuth({
           },
         }),
       ],
-    callbacks: {
+      callbacks: {
         async session({ session, token }) {
-          // Attach user ID to session object
-          if (token && token.userId) {
-            session.user.id = token.userId;
+          // Attach user ID and username to the session object
+          if (token?.userId) {
+            // Fetch the user details from the database
+            const user = await User.findById(token.userId);
+            if (user) {
+              session.user = {
+                id: user._id.toString(),
+                email: user.email,
+                username: user.username, // Add username to session
+              };
+            }
           }
           return session;
         },
         async jwt({ token, user }) {
-          // Attach user ID to token
+          // Attach user ID to the token
           if (user) {
             token.userId = user._id;
           }
           return token;
         },
       },
-    }
-)
+    });
   
 export { handler as GET, handler as POST }

@@ -11,7 +11,9 @@ import {signIn, signOut, useSession} from "next-auth/react";
 const Navbar = () => {
   
   const { data: session, status } = useSession();
-  console.log();
+  useEffect(() => {
+    console.log(session);
+}, [session]);
   
   return (
     <header>
