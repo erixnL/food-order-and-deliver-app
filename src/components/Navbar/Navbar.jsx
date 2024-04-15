@@ -1,15 +1,16 @@
 'use client';
-import React,{useState } from 'react'
+import React,{useEffect, useState } from 'react'
 import "./Navbar.css"
 import { CiSearch } from "react-icons/ci";
 import { FiShoppingBag } from "react-icons/fi";
 import { FaRegUserCircle } from "react-icons/fa";
 import Link from 'next/link';
-
+import {signIn, signOut, useSession} from "next-auth/react";
 
 
 const Navbar = () => {
-  const [Login, isLogin] = React.useState(false);
+  const [Login, isLogin] = useState(false);
+  const { data: session, status } = useSession();
   
   return (
     <header>
@@ -31,20 +32,22 @@ const Navbar = () => {
             <Link href={'/Cart'}><div className="icon"><FiShoppingBag size={28}/></div></Link>
             <div className="dot"></div>
           </div>
-          {Login 
-            ? 
-              <div className="user flex">
-                <div className="text">Kathy</div>
-                <div className="icon"><FaRegUserCircle size={28}/></div>
-              </div>
-            : 
-              <div className="action flex">
-                <Link href={'/Login'}>
-                  <div className="login">Login</div>
-                </Link>
-                <div className="signup"><a href="">Sign Up</a></div>
-              </div>
-          }
+          {status === 'authenticated' ? (
+                        <div className="user flex">
+                            <div className="text">{session.user.username}</div>
+                            <div className="icon">
+                                <FaRegUserCircle size={28} />
+                            </div>
+                            <button className="logout-btn" onClick={() => signOut()}>Logout</button>
+                        </div>
+                    ) : (
+                        <div className="action flex">
+                            <button className="login" onClick={() => signIn()}>Login</button>
+                            <Link href={'/SignUp'}>
+                                <button className="signup">Sign Up</button>
+                            </Link>
+                        </div>
+                    )}
         </div>
         
       </nav> 

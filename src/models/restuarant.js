@@ -1,26 +1,88 @@
-import mongoose, {model, models, Schema} from "mongoose";
-
-const ExtraPriceSchema = new Schema({
-  name: String,
-  price: Number,
-});
+import { Schema, model, models } from 'mongoose';
 
 const MenuItemSchema = new Schema({
-//   image: {type: String},
-  name: {type: String},
-  description: {type: String},
-  basePrice: {type: Number},
-  sizes: {type:[ExtraPriceSchema]},
-  extraIngredientPrices: {type:[ExtraPriceSchema]},
-}, {timestamps: true});
+    name: {
+        type: String,
+        required: [true, 'Menu item name is required!'],
+    },
+    price: {
+        type: Number,
+        required: [true, 'Menu item price is required!'],
+    },
+    active: {
+        type: Boolean,
+        default: true,
+    },
+});
 
-const ResstaurantInfoSecham = new Schema({
-  name: {type: String},
-  image: {type: String},
-  address: {type: String},
-  phone: {type: String},
-  category: {type: String},
-  menu: {type: [MenuItemSchema]},
-}, {timestamps: true});
+const RestaurantSchema = new Schema({
+    name: {
+        type: String,
+        required: [true, 'Restaurant name is required!'],
+    },
+    email: {
+        type: String,
+        required: [true, 'Restaurant email is required!'],
+    },
+    phone: {
+        type: String,
+        required: [true, 'Restaurant phone number is required!'],
+    },
+    address: {
+      street: {
+          type: String,
+          required: [true, 'Street address is required!'],
+      },
+      city: {
+          type: String,
+          required: [true, 'City is required!'],
+      },
+      postcode: {
+          type: String,
+          required: [true, 'Postcode is required!'],
+      },
+  },
+    openingHours: {
+        type: String,
+        required: [true, 'Opening hours are required!'],
+    },
+    category: {
+        type: String,
+        required: [true, 'Restaurant category is required!'],
+    },
+    ratings: {
+        averageRating: {
+            type: Number,
+            default: 0,
+        },
+        totalReviews: {
+            type: Number,
+            default: 0,
+        },
+    },
+    menu: [MenuItemSchema],
+    orders: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Order',
+        },
+    ],
+    revenueReports: {
+        daily: {
+            type: Number,
+            default: 0,
+        },
+        weekly: {
+            type: Number,
+            default: 0,
+        },
+        monthly: {
+            type: Number,
+            default: 0,
+        },
+    },
+});
 
-export const ResstaurantInfo = models?.ResstaurantInfo || model('ResstaurantInfo', ResstaurantInfoSecham);
+const Restaurant = models.Restaurant || model("Restaurant", RestaurantSchema);
+
+export default Restaurant;
