@@ -32,7 +32,7 @@ const Navbar = () => {
             <Link href={'/Cart'}><div className="icon"><FiShoppingBag size={28}/></div></Link>
             <div className="dot"></div>
           </div>
-          {status === 'authenticated' ? (
+          {status === 'authenticated' && session ? (
                         <div className="user flex">
                             <div className="text">{session.user.username}</div>
                             <div className="icon">

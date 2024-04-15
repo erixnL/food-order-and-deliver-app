@@ -7,12 +7,8 @@ import Footer from "@/components/Footer/Footer";
 // import Footer from "./Components/Footer/Footer"
 import Registration from "./Registration/page"
 import { Route, Routes } from 'react-router-dom';
-import Cart from './Cart/page';
-import FoodDisplay from '../components/FoodDisplay/FoodDisplay';
-import RestDisplay from '../components/RestDisplay/RestDisplay';
-import Login from './Login/page';
-import Home from './page';
 
+import Provider from '@/components/Provider';
 
 
 export const metadata = {
@@ -24,6 +20,7 @@ const RootLayout = ({children}) => {
   return (
     <html lang="en">
         <body>
+          <Provider>
             <div className="App flex">
                 <Navbar />
                 <main className="app">
@@ -31,7 +28,7 @@ const RootLayout = ({children}) => {
                 </main>
                 <Footer />
             </div>
-            
+        </Provider>   
         </body>
     </html>
   )
