@@ -2,6 +2,7 @@
 import React, { useContext } from 'react';
 import "./Cart.css";
 import { AppContext } from '@/Context/AppContext';
+import Image from 'next/image';
 
 const Cart = () => {
 
@@ -19,10 +20,10 @@ const Cart = () => {
         {food_list.map((item, index) => {
           if(cartItems[item._id]>0){
             return (
-              <div className="item-container">
+              <div className="item-container" key={item._id}>
                 <div className="cart-item ">
                   <div className="cart-items-image">
-                    <img src={item.image} alt="" />
+                    <Image src={item.image} alt="" />
                   </div>
                   <div className="cart-items-info flex">
                     <div className="cart-item-restaurant">
