@@ -105,3 +105,23 @@
     border: none;
   }
 }
+
+.text-container{
+  flex-direction: column;
+  margin-top: 50px;
+  gap: 20px;
+  
+  .grey-box{
+    width: 200px;
+    height: 200px;
+    background-color: #D9D9D9;
+  }
+  div{
+    font-size: 24px;
+    font-weight: 500;
+
+  }
+  .btn{
+    
+  }
+}

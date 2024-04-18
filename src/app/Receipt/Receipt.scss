@@ -1,0 +1,64 @@
+.receipt{
+  flex-direction: column;
+  margin: auto;
+  width: 100%;
+  padding: 0 200px;
+  gap: 20px;
+
+  .back{
+    align-self: flex-start;
+    color: #DE250C;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  h2{
+    margin-bottom: 10px;
+  }
+  .receipt-container{
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    background-color: #F5F5F5;
+    border-radius: 10px;
+    width: min(50vw,700px);
+    padding: 20px 40px;
+
+    hr{
+      border-color: #D9D9D9;
+      height: 1px;
+    }
+
+    .order-number-date{
+      flex-direction: column;
+      align-items: flex-start;
+      div{
+        font-size: 13px;
+      }
+      
+    }
+    .receipt-heading{
+      font-size: 20px;
+      font-weight: 600;
+    }
+    .card-record-container{
+      display: grid;
+      grid-template-columns: 3fr 1fr;
+      width: 100%;
+      div{
+        font-size: 13px;
+      }
+      .end{
+        text-align: end;
+      }
+    }
+    .order-total-container{
+      width: 100%;
+      justify-content: space-between;
+      div{
+        font-size: 20px;
+        font-weight: 600;
+      }
+    }
+  }
+}

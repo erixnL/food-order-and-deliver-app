@@ -1,0 +1,84 @@
+.order-history {
+  flex-direction: column;
+  margin: auto;
+  width: 100%;
+  padding: 0 200px;
+  gap: 20px;
+}
+.order-history .back {
+  align-self: flex-start;
+  color: #DE250C;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+}
+.order-history h2 {
+  margin-bottom: 20px;
+}
+.order-history .order-list-container {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+.order-history .order-list-container .order-container {
+  background-color: #F5F5F5;
+  width: min(60vw, 800px);
+  justify-content: space-between;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+.order-history .order-list-container .order-container .description-container {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+.order-history .order-list-container .order-container .description-container div {
+  font-size: 13px;
+}
+.order-history .order-list-container .order-container .description-container > :nth-child(1) {
+  font-weight: 700;
+  font-size: 16px;
+}
+.order-history .order-list-container .order-container .button-container {
+  flex-direction: column;
+  gap: 10px;
+  width: 200px;
+  align-items: flex-end;
+}
+.order-history .order-list-container .order-container .button-container div {
+  font-size: 14px;
+  cursor: pointer;
+}
+.order-history .order-list-container .order-container .button-container .confirm-order {
+  background-color: #FBDA61;
+  border-radius: 10px;
+  padding: 5px;
+}
+.order-history .order-list-container .order-container .button-container .track-order {
+  color: #DE250C;
+  font-weight: 500;
+  text-decoration: underline;
+}
+.order-history .order-list-container .order-container .button-container .button-one {
+  text-decoration: underline;
+}
+.order-history .no-order {
+  flex-direction: column;
+  gap: 30px;
+}
+.order-history .no-order .grey-box {
+  width: 120px;
+  height: 120px;
+  background-color: #D9D9D9;
+}
+.order-history .no-order div {
+  font-size: 24px;
+  font-weight: 600;
+}
+.order-history .no-order .btn {
+  background-color: #FBDA61;
+  width: 200px;
+  border-radius: 10px;
+  color: black;
+  font-weight: 500;
+}/*# sourceMappingURL=OrderHistory.css.map */

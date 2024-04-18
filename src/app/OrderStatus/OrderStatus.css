@@ -1,0 +1,83 @@
+.order-status {
+  flex-direction: column;
+  margin: auto;
+  width: 100%;
+  padding: 0 200px;
+  gap: 10px;
+}
+.order-status .back {
+  align-self: flex-start;
+  color: #DE250C;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+}
+.order-status h2 {
+  margin-bottom: 30px;
+  font-size: 21px;
+}
+.order-status .grey-box {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 15px;
+  background-color: #F5F3F3;
+  border-radius: 30px;
+  width: min(600px, 80vw);
+  padding: 20px 30px;
+}
+.order-status .grey-box div {
+  font-size: 14px;
+}
+.order-status .grey-box .grey-box-heading {
+  font-weight: 700;
+}
+.order-status .grey-box .order-item {
+  margin: 0 10px;
+  width: 80%;
+  justify-content: space-between;
+}
+.order-status .grey-box .order-address {
+  margin: 0 10px;
+}
+.order-status .order-tracking {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(150px, 1fr));
+  grid-gap: 10px;
+  justify-items: center; /* Center items horizontally */
+}
+.order-status .order-tracking div {
+  font-size: 13px;
+  font-weight: 600;
+}
+.order-status .delivered-container {
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 25px;
+}
+.order-status .delivered-container .delivered-confirm {
+  gap: 5px;
+}
+.order-status .delivered-container .delivered-confirm .text {
+  font-size: 22px;
+  color: #DE250C;
+  font-weight: 700;
+}
+.order-status .delivered-container .btn {
+  font-size: 16px;
+  background-color: black;
+}
+.order-status .delivered-container .delivery-person-contact {
+  cursor: pointer;
+  background-color: #DE250C;
+  width: 250px;
+  justify-content: space-between;
+  padding: 5px 20px;
+  border-radius: 50px;
+}
+.order-status .delivered-container .delivery-person-contact .text {
+  color: white;
+}
+.order-status .delivered-container .delivery-person-contact .end {
+  align-self: flex-end;
+}/*# sourceMappingURL=OrderStatus.css.map */

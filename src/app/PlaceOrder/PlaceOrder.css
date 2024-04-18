@@ -1,0 +1,103 @@
+.place-order {
+  flex-direction: column;
+  margin: auto;
+  gap: 10px;
+}
+.place-order .back-to-order {
+  align-self: flex-start;
+  cursor: pointer;
+  color: #DE250C;
+  font-size: 14px;
+}
+.place-order .boxes {
+  align-items: flex-start;
+  gap: 20px;
+}
+.place-order .boxes .first-box {
+  flex-direction: column;
+  align-items: stretch;
+  background-color: #F3F3F3;
+  width: min(40vw, 350px);
+  height: 80%;
+  border-radius: 10px;
+  padding: 30px 30px;
+  gap: 15px;
+}
+.place-order .boxes .first-box .order-item-details .order-item {
+  justify-content: space-between;
+}
+.place-order .boxes .first-box .order-item-details .order-item div {
+  font-size: 13px;
+}
+.place-order .boxes .first-box .order-label {
+  font-size: 20px;
+  font-weight: 500;
+}
+.place-order .boxes .first-box .order-details {
+  gap: 5px;
+}
+.place-order .boxes .first-box .order-details .text {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 3px;
+  font-size: 13px;
+}
+.place-order .boxes .first-box .order-details .text div {
+  font-size: 13px;
+}
+.place-order .boxes .first-box .membership-details {
+  gap: 5px;
+}
+.place-order .boxes .first-box .membership-details .text {
+  width: 100%;
+  justify-content: space-between;
+}
+.place-order .boxes .first-box .membership-details .text div {
+  font-size: 13px;
+}
+.place-order .boxes .second-box {
+  flex-direction: column;
+  align-items: stretch;
+  background-color: #F3F3F3;
+  width: min(40vw, 450px);
+  height: 350px;
+  border-radius: 10px;
+  padding: 30px 30px;
+  gap: 20px;
+}
+.place-order .boxes .second-box .order-label {
+  font-size: 20px;
+  font-weight: 500;
+}
+.place-order .boxes .second-box .order-label div {
+  font-size: 20px;
+  font-weight: 500;
+}
+.place-order .boxes .second-box .order-total {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  grid-gap: 20px;
+}
+.place-order .boxes .second-box .order-total div {
+  font-size: 13px;
+}
+.place-order .boxes .second-box .grand-total {
+  width: 100%;
+  justify-content: space-between;
+}
+.place-order .boxes .second-box .order-button {
+  width: 100%;
+  justify-content: space-evenly;
+}
+.place-order .boxes .second-box .order-button button {
+  font-size: 15px;
+  width: 140px;
+  color: #000000;
+  font-weight: 500;
+}
+.place-order .boxes .second-box .order-button .placeorder {
+  background-color: #FBDA61;
+}
+.place-order .boxes .second-box .order-button .cancel {
+  background-color: #D9D9D9;
+}/*# sourceMappingURL=PlaceOrder.css.map */

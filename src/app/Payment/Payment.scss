@@ -1,0 +1,44 @@
+.payment{
+  flex-direction: column;
+  margin: auto;
+  padding: 30px 30px;
+  gap: 18px;
+
+  h2{
+    
+  }
+
+  .back-to-order{
+    align-self: flex-start;
+    cursor: pointer;
+    color: #DE250C;
+    font-size: 14px;
+
+  }
+
+  input{
+    width: 300px;
+    border: 1px solid #D9D9D9;
+    padding: 10px;
+    outline: none;
+    font-size: 14px;;
+  }
+
+  .card-expirydate{
+    width: 100%;
+    justify-content: space-between;
+    input{
+      width: 90px;
+    }
+  }
+
+  .btn{
+    font-size: 15px;
+    width: 150px;
+    border-radius: 10px;
+  }
+
+
+
+
+}
