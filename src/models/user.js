@@ -24,7 +24,7 @@ const UserSchema = new Schema({
     },
     role: {
         type: String,
-        enum: ['customer', 'delivery_person'],
+        enum: ['customer', 'delivery_person', 'restaurant'],
         required: [true, 'Role is required!'],
     },
     membership: {

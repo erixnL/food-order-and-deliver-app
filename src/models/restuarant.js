@@ -81,6 +81,9 @@ const RestaurantSchema = new Schema({
             default: 0,
         },
     },
+    owner: {
+        type: String
+    }
 });
 
 const Restaurant = models.Restaurant || model("Restaurant", RestaurantSchema);
