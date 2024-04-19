@@ -1,7 +1,8 @@
+'use client'
 import React, { useContext } from 'react'
 import "./OrderHistory.css"
 import Link from 'next/link'
-import { AppContext } from '../../Context/AppContext';
+import { AppContext } from '@/Context/AppContext'
 
 const OrderHistory = () => {
   const {order_list} = useContext(AppContext);

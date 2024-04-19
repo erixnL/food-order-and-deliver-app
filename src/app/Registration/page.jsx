@@ -1,19 +1,20 @@
-import React from 'react';
+'use client'
+import React, {useState} from 'react';
 import "./Registration.css";
 import { MdOutlinePerson } from "react-icons/md";
 import { RiLockPasswordLine } from "react-icons/ri";
 
 const Registration = () => {
 
-  const [action, setAction] = React.useState("Login");
+  const [action, setAction] = useState("Login");
   
-  const [formData, setFormData] = React.useState({
+  const [formData, setFormData] = useState({
     email: '',
     password: '',
     confirmPassword: ''
   })
 
-  const [errors, setErrors] = React.useState({})
+  const [errors, setErrors] = useState({})
 
   const handleChange = (e) => {
     const {name, value} = e.target;
