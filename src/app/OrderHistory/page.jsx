@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import "./OrderHistory.css"
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 import { AppContext } from '../../Context/AppContext';
 
 const OrderHistory = () => {
@@ -9,7 +9,7 @@ const OrderHistory = () => {
 
   return (
     <div className='order-history flex'>
-      <div className="back"><Link href={"/"}>&lt; Back to Home Page</Link></div>
+      <div className="back"><Link to="/">&lt; Back to Home Page</Link></div>
       <h2>Your Orders</h2>
       { hasOrders
       ? (  
@@ -24,13 +24,13 @@ const OrderHistory = () => {
                 </div>
                 {item.status === "Order completed" 
                 ? <div className="button-container flex">
-                    <Link href={" "}>
+                    <Link href={item._id}>
                       <div className="button-one">View Receipt</div>
                     </Link>
                     <div className="button-one">Reorder</div>
                   </div>
                 : <div className="button-container flex">
-                    <Link href={"/orderstatus"}><div className="track-order">Track the progress</div></Link>
+                    <Link to="/orderstatus"><div className="track-order">Track the progress</div></Link>
                     <div className="confirm-order">Confirm Order Completion</div>
                   </div>    
                 }
