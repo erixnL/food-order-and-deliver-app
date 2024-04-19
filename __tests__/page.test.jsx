@@ -6,14 +6,15 @@ describe('Page', () => {
   it('renders categories', () => {
     render(<Page />)
  
-    const heading = screen.getByRole('categories')
+    const categories = screen.getByRole('categories')
  
-    expect(heading).toBeInTheDocument()
+    expect(categories).toBeInTheDocument()
   })
 })
 
 describe('Page', () => {
     it('renders restaruant list', () => {
+      
       render(<Page />)
    
       const heading = screen.getByRole('restaurant-list')
@@ -26,8 +27,19 @@ describe('Page', () => {
     it('renders restaruant list', () => {
       render(<Page />)
    
-      const heading = screen.getByText("Burgers")
+      const restaruant_keywords = screen.getByText("Burgers")
    
-      expect(heading).toBeInTheDocument()
+      expect(restaruant_keywords).toBeInTheDocument()
     })
   })
+
+describe('Page', () => {
+    it('renders filter buttons', () => {
+      render(<Page />)
+   
+      const filter_buttons = screen.getByText("Time Filter")
+   
+      expect(filter_buttons).toBeInTheDocument()
+    })
+  })
+
