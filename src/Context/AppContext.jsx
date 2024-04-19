@@ -2,8 +2,6 @@
 import React, { createContext } from "react";
 import { Restaurant_list, food_list, order_list } from "../../public/assets/images/assets";
 import { useState } from "react";
-import {getServerSession} from "next-auth";
-
 
 
 export const AppContext = createContext(null);
@@ -21,25 +19,6 @@ const AppContextProvider = (props) => {
   const [orderDelivered, setOrderDelivered] = useState(true);
 
   const [showRating, setShowRating] = useState(false);
-
-  //  // New state for the session user
-  //  const [sessionUser, setSessionUser] = useState(null);
-
-  //  // Use effect to fetch session data
-  //  useEffect(() => {
-  //      const fetchSession = async () => {
-  //         await connectToDB();
-  //         const session = await getServerSession(handler);
-  //         const userEmail = session?.user?.email;
-  //         const user = await User.findOne({email: userEmail});
-  //         if (session) {
-  //              setSessionUser(user);
-  //              isLogin(true);
-  //              setUserRole(user.userRole);
-  //          }
-  //      };
-  //      fetchSession();
-  //  }, []);
 
   const addToCart = (itemId) => {
     if (!cartItems[itemId]) {

@@ -10,7 +10,7 @@ const OrderHistory = () => {
 
   return (
     <div className='order-history flex'>
-      <div className="back"><Link to="/">&lt; Back to Home Page</Link></div>
+      <div className="back"><Link href={"/"}>&lt; Back to Home Page</Link></div>
       <h2>Your Orders</h2>
       { hasOrders
       ? (  
@@ -31,7 +31,7 @@ const OrderHistory = () => {
                     <div className="button-one">Reorder</div>
                   </div>
                 : <div className="button-container flex">
-                    <Link to="/orderstatus"><div className="track-order">Track the progress</div></Link>
+                    <Link href={"/OrderStatus"}><div className="track-order">Track the progress</div></Link>
                     <div className="confirm-order">Confirm Order Completion</div>
                   </div>    
                 }
