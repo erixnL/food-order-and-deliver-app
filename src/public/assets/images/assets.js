@@ -109,95 +109,121 @@ export const Restaurant_list = [
         _id: "1",
         name: "FLM restaurant",
         image: food_1,
-        rating: 12,
+        rating: 3.5,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Burgers"
+        category: "Burgers",
+        priceRange: "$$",
+        distance:"Under 30 min"
     },
     {
         _id: "2",
         name: "ALP restaurant",
         image: food_2,
-        rating: 18,
+        rating: 4,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Burgers"
+        category: "Burgers",
+        priceRange: "$$$",
+        distance:"Under 30 min"
     }, {
         _id: "3",
         name: "UAZ restaurant",
         image: food_3,
-        rating: 16,
+        rating: 5,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Burgers"
+        category: "Burgers",
+        priceRange: "$",
+        distance:"Above 30 min"
     }, {
         _id: "4",
         name: "HFV restaurant",
         image: food_4,
-        rating: 24,
+        rating: 3.2,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Burgers"
+        category: "Burgers",
+        priceRange: "$$",
+        distance:"Under 30 min"
     }, {
         _id: "5",
         name: "Lasagna Rolls",
         image: food_5,
-        rating: 14,
+        rating: 2,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Pizza"
+        category: "Pizza",
+        priceRange: "$$$",
+        distance:"Under 30 min"
     }, {
         _id: "6",
         name: "Peri Peri Rolls",
         image: food_6,
-        rating: 12,
+        rating: 1,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Pizza"
+        category: "Pizza",
+        priceRange: "$$$",
+        distance:"Above 30 min"
     }, {
         _id: "7",
         name: "Chicken Rolls",
         image: food_7,
-        rating: 20,
+        rating: 2,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Cafes"
+        category: "Cafes",
+        priceRange: "$$",
+        distance:"Above 30 min"
     }, {
         _id: "8",
         name: "Veg Rolls",
         image: food_8,
-        rating: 15,
+        rating: 5,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Cafes"
+        category: "Cafes",
+        priceRange: "$",
+        distance:"Above 30 min"
     }, {
         _id: "9",
         name: "Ripple Ice Cream",
         image: food_9,
-        rating: 14,
+        rating: 4,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Bubble Tea"
+        category: "Bubble Tea",
+        priceRange: "$",
+        distance:"Under 30 min"
     }, {
         _id: "10",
         name: "Fruit Ice Cream",
         image: food_10,
-        rating: 22,
+        rating: 2,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Bubble Tea"
+        category: "Bubble Tea",
+        priceRange: "$",
+        distance:"Under 30 min"
     }, {
         _id: "11",
         name: "Jar Ice Cream",
         image: food_11,
-        rating: 10,
+        rating: 5,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Asian"
+        category: "Asian",
+        priceRange: "$$$",
+        distance:"Under 30 min"
     }, {
         _id: "12",
         name: "Vanilla Ice Cream",
         image: food_12,
-        rating: 12,
+        rating: 2,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Asian"
+        category: "Asian",
+        priceRange: "$$",
+        distance:"Above 30 min"
     },
     {
         _id: "13",
         name: "Chicken Sandwich",
         image: food_13,
-        rating: 12,
+        rating: 4,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Bubble Tea"
+        category: "Bubble Tea",
+        priceRange: "$$",
+        distance:"Above 30 min"
     }
 ]
 export const food_list = [

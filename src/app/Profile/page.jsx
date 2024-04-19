@@ -1,7 +1,7 @@
 import React from 'react'
 import "./Profile.css"
 import { FaEdit } from "react-icons/fa";
-import photo from "../../Assets/food_18.png"
+import photo from "@/Assets/food_18.png"
 import { FaArrowRight } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 

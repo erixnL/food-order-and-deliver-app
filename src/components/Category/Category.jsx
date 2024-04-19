@@ -1,10 +1,10 @@
 'use client';
 import React from 'react'
-import "./Header.css"
+import "./Category.css"
 import { categories } from '@/public/assets/images/assets';
 import Image from 'next/image';
 
-const Header = ({category, setCategory}) => {
+const Category = ({category, setCategory}) => {
   
   return (
     <div className="header" id="header flex" role="categories">
@@ -31,4 +31,4 @@ const Header = ({category, setCategory}) => {
   )
 }
 
-export default Header
+export default Category

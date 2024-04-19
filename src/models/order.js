@@ -1,12 +1,64 @@
-import {model, models, Schema} from "mongoose";
+import { Schema, model, models } from 'mongoose';
 
 const OrderSchema = new Schema({
-  userEmail: String,
-  phone: String,
-  streetAddress: String,
-  postcode: String,
-  cartProducts: Object,
-  paid: {type: Boolean, default: false},
-}, {timestamps: true});
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: [true, 'User is required!'],
+    },
+    restaurant: {
+        type: Schema.Types.ObjectId,
+        ref: 'Restaurant',
+        required: [true, 'Restaurant is required!'],
+    },
+    items: [
+        {
+            menuItem: {
+                type: String,
+                required: [true, 'Menu item name is required!'],
+            },
+            quantity: {
+                type: Number,
+                required: [true, 'Quantity is required!'],
+            },
+            price: {
+                type: Number,
+                required: [true, 'Price is required!'],
+            },
+        },
+    ],
+    totalPrice: {
+        type: Number,
+        required: [true, 'Total price is required!'],
+    },
+    paid: {
+        type: Boolean,
+        default: false,
+    },
+    orderStatus: {
+        type: String,
+        enum: ['accepted', 'preparing', 'ready_for_delivery', 'delivered'],
+        default: 'accepted',
+    },
+    deliveryPerson: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: [true, 'Delivery person is required!'],
+    },
+    estimatedArrivalTime: {
+        type: String,
+        default: '',
+    },
+    deliveryContactInfo: {
+        type: String,
+        default: '',
+    },
+    feedback: {
+        type: String,
+        default: '',
+    },
+});
 
-export const Order = models?.Order || model('Order', OrderSchema);
+const Order = models.Order || model("Order", OrderSchema);
+
+export default Order;

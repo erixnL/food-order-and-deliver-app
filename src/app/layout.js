@@ -8,12 +8,8 @@ import AppContextProvider from '@/Context/AppContext';
 // import Footer from "./Components/Footer/Footer"
 import Registration from "./Registration/page"
 import { Route, Routes } from 'react-router-dom';
-import Cart from './Cart/page';
-import FoodDisplay from '../components/FoodDisplay/FoodDisplay';
-import RestDisplay from '../components/RestDisplay/RestDisplay';
-import Login from './Login/page';
-import Home from './page';
 
+import Provider from '@/components/Provider';
 
 
 export const metadata = {
@@ -26,13 +22,15 @@ const RootLayout = ({children}) => {
     <html lang="en">
         <body>
           <AppContextProvider>
-            <div className="App flex">
-                <Navbar />
-                <main className="app">
-                    {children}
-                </main>
-                <Footer />
-            </div>
+            <Provider>  
+              <div className="App flex">
+                  <Navbar />
+                  <main className="app">
+                      {children}
+                  </main>
+                  <Footer />
+              </div>
+            </Provider>  
           </AppContextProvider>   
         </body>
         

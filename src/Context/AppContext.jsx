@@ -3,13 +3,13 @@ import React, { createContext } from "react";
 import { Restaurant_list, food_list, order_list } from "@/public/assets/images/assets";
 import { useState } from "react";
 
-export const AppContext = createContext(null)
-
 const AppContextProvider = (props) => {
 
   const [cartItems, setCartItems] = React.useState({});
 
   const [Login, isLogin] = React.useState(true);
+
+  const [userRole, setUserRole] = React.useState(null);
 
   const [showProfileMenu, setShowProfileMenu] = useState(false);
 
@@ -56,7 +56,9 @@ const AppContextProvider = (props) => {
     orderDelivered, 
     setOrderDelivered,
     showRating, 
-    setShowRating
+    setShowRating,
+    userRole, 
+    setUserRole
   }
 
   return (

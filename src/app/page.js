@@ -1,6 +1,6 @@
 'use client'
 import '../styles/globals.css';
-import Header from "@/components/Header/Header";
+import Category from "@/components/Category/Category";
 import RestDisplay from "@/components/RestDisplay/RestDisplay";
 import { useState } from "react";
 
@@ -11,7 +11,7 @@ const Home = () => {
   return ( 
     <>
         
-          <Header category={category} setCategory={setCategory}/>
+          <Category category={category} setCategory={setCategory}/>
           <RestDisplay category = {category} />
         
     </>
