@@ -1,6 +1,5 @@
 'use client';
-import React,{useContext, useState } from 'react'
-import React,{useEffect, useState } from 'react'
+import React,{useContext, useState, useEffect } from 'react'
 import "./Navbar.css"
 import { CiSearch } from "react-icons/ci";
 import { FiShoppingBag } from "react-icons/fi";
@@ -9,6 +8,7 @@ import Link from 'next/link';
 import {signIn, signOut, useSession} from "next-auth/react";
 
 import { AppContext } from '../../Context/AppContext';
+import DropdownButton from '../DropdownButton/DropdownButton';
 
 const Navbar = () => {
   
