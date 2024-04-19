@@ -1,12 +1,12 @@
 import React, { useContext } from 'react'
 import "./ProfileMenu.css"
-import photo from "../../Assets/food_18.png"
+import photo from "@/Assets/food_18.png"
 import { AppContext } from '../../Context/AppContext'
 import { Link } from 'react-router-dom'
 
 const ProfileMenu = () => {
 
-  const {isLogin, setShowProfileMenu} = useContext(AppContext);
+  const {isLogin, setShowProfileMenu, userRole} = useContext(AppContext);
 
     return (
     <div className="profile-menu flex">
@@ -21,9 +21,15 @@ const ProfileMenu = () => {
         <Link to="/profile">
           <div onClick={()=>setShowProfileMenu(false)}>Profile</div>
         </Link>
-        <Link to="/orderhistory">
-          <div onClick={()=>setShowProfileMenu(false)}>Order History</div>
-        </Link>
+        {userRole === "customer"
+          ?
+          <Link to="/orderhistory">
+            <div onClick={()=>setShowProfileMenu(false)}>Order History</div>
+          </Link>
+          :
+          ""
+        }
+        
       </div>
       <div onClick={function(event){isLogin(prev => false);setShowProfileMenu(false) }} className="sign-out">Sign out</div>
     </div>
