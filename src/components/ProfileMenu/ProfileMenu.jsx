@@ -1,8 +1,9 @@
 import React, { useContext } from 'react'
 import "./ProfileMenu.css"
-import photo from "@/Assets/food_18.png"
 import { AppContext } from '../../Context/AppContext'
-import { Link } from 'react-router-dom'
+import Link from 'next/link';
+import Image from 'next/image';
+
 
 const ProfileMenu = () => {
 
@@ -11,7 +12,7 @@ const ProfileMenu = () => {
     return (
     <div className="profile-menu flex">
       <div className="userInfo flex">
-        <img src={photo} alt="" className="user-image" />
+        <Image src='/assets/food_18.png' alt="" className="user-image" />
         <div className="text flex">
           <div className="name">Kathy</div>
           <div className="membership">Membership</div>

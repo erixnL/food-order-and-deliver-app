@@ -1,5 +1,5 @@
 'use client';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import "./RestDisplay.css";
 import RestCard from '../RestCard/RestCard';
 import { AppContext } from '@/Context/AppContext';
