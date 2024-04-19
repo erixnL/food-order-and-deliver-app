@@ -2,8 +2,8 @@ import React, { useContext } from 'react'
 import "./PlaceOrder.css"
 import { CiLocationOn, CiCreditCard1 } from "react-icons/ci";
 import { FaRegDotCircle } from "react-icons/fa";
-import { Link } from 'react-router-dom';
-import { AppContext } from '../../Context/AppContext';
+import Link from "next/link";
+import { AppContext } from '@/Context/AppContext';
 
 
 const PlaceOrder = () => {
@@ -88,8 +88,8 @@ const PlaceOrder = () => {
               <div>${Math.round((getCartTotal()*1.005+0)*100)/100}</div>
           </div>
           <div className="order-button flex">
-            <button className="placeorder btn"><Link to="/payment">Place order</Link></button>
-            <button className="cancel btn"><Link to="/cart">Cancel</Link></button>
+            <button className="placeorder btn"><Link href={"/Payment"}>Place order</Link></button>
+            <button className="cancel btn"><Link href={"/Cart"}>Cancel</Link></button>
           </div>
         </div>
       </div>
