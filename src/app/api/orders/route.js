@@ -2,7 +2,7 @@ import { connectToDB } from "@/utlis/database";
 import Order from "@/models/order";
 import User from "@/models/user";
 import {getServerSession} from "next-auth";
-import {handler} from "../auth/[...nextauth]/route";
+import {hanlder} from "../auth/[...nextauth]/route.js";
 
 export const GET = async(request) => {
     try {

@@ -46,7 +46,7 @@ const PlaceOrder = () => {
             {food_list.map((item, index) => {
               if(cartItems[item._id]>0){
                 return(
-                  <div className="order-item flex">
+                  <div className="order-item flex" key={item._id}>
                     <div>{item.name}</div>
                     <div>${item.price*cartItems[item._id]}
                     </div>

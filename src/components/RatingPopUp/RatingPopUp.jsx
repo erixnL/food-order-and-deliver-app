@@ -17,12 +17,14 @@ const RatingPopUp = () => {
           {[...Array(5)].map((star, index) => {
             const currentRating = index + 1;
             return(
+              // eslint-disable-next-line react/jsx-key
               <label>
                 <input 
                  type="radio"
                  name="rating"
                  value={currentRating}
                  onClick={()=>setRating(currentRating)}
+                 key={index}
                 />
                 <FaStar 
                 className='star'
