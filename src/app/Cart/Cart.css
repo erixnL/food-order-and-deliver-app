@@ -84,4 +84,18 @@
   .cart {
     border: none;
   }
+}
+.text-container {
+  flex-direction: column;
+  margin-top: 50px;
+  gap: 20px;
+}
+.text-container .grey-box {
+  width: 200px;
+  height: 200px;
+  background-color: #D9D9D9;
+}
+.text-container div {
+  font-size: 24px;
+  font-weight: 500;
 }/*# sourceMappingURL=Cart.css.map */

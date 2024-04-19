@@ -1,0 +1,135 @@
+.place-order{
+  flex-direction: column;
+  margin: auto;
+  gap: 10px;
+
+  .back-to-order{
+    align-self: flex-start;
+    cursor: pointer;
+    color: #DE250C;
+    font-size: 14px;
+  }
+
+
+  .boxes{
+    align-items: flex-start;
+    gap: 20px;
+    
+    .first-box{
+      flex-direction: column;
+      align-items: stretch;
+      background-color:#F3F3F3;
+      width: min(40vw, 350px);
+      height: 80%;
+      border-radius: 10px;
+      padding: 30px 30px;
+      gap: 15px;
+      
+      .order-item-details{
+
+        .order-item{
+          justify-content: space-between;
+          div{
+            font-size: 13px;
+          }
+        }
+
+      }
+      .order-label{
+        font-size: 20px;
+        font-weight: 500;
+
+
+      }
+      hr{
+
+      }
+      .order-details{
+        gap: 5px;
+
+        .icon{
+          
+        }
+        .text{
+          flex-direction: column;
+          align-items: stretch;
+          gap: 3px;
+          font-size: 13px;
+          div{
+            font-size: 13px;
+          }
+        }
+
+      }
+      .membership-details{
+        gap: 5px;
+      
+
+        .text{
+          width: 100%;
+          justify-content: space-between;
+          
+          div{
+            font-size: 13px;
+          }
+        }
+      }
+    }
+
+    .second-box{
+      flex-direction: column;
+      align-items: stretch;
+      background-color:#F3F3F3;
+      width: min(40vw, 450px);
+      height: 350px;
+      border-radius: 10px;
+      padding: 30px 30px;
+      gap: 20px;
+
+      .order-label{
+        font-size: 20px;
+        font-weight: 500;
+        div{
+          font-size: 20px;
+          font-weight: 500;
+        }
+      }
+
+      .order-total{
+        display: grid;
+        grid-template-columns: 4fr 1fr;
+        grid-gap: 20px;
+        
+        div{
+          font-size: 13px;
+        }
+      }
+
+      .grand-total{
+        width:100%;
+        justify-content: space-between;
+      }
+
+      .order-button{
+        width:100%;
+        justify-content: space-evenly;
+
+        button{
+          font-size: 15px;
+          width: 140px;
+          color: #000000;
+          font-weight: 500;
+        }
+        .placeorder{
+          background-color: #FBDA61; 
+        }
+        .cancel{
+          background-color: #D9D9D9;
+        }
+      }
+    }
+  }
+
+
+  
+}

@@ -1,0 +1,90 @@
+.profile {
+  flex-direction: column;
+  align-items: stretch;
+  margin: auto;
+  gap: 15px;
+  padding: 20px 0px;
+}
+.profile .back {
+  color: #DE250C;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.profile h2 {
+  align-self: center;
+}
+.profile .first {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 15px;
+  width: min(70vw, 450px);
+  background-color: #F3F3F3;
+  padding: 20px 50px;
+}
+.profile .first .image-icon {
+  justify-content: space-between;
+}
+.profile .first .image-icon .user-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+.profile .first .image-icon .icon {
+  cursor: pointer;
+}
+.profile .first input {
+  padding: 10px 20px;
+  font-size: 14px;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #DE250C;
+  background-color: transparent;
+  outline: none;
+}
+.profile .first .lable {
+  color: #737373;
+  font-size: 14px;
+}
+.profile .first button {
+  width: 150px;
+  font-size: 15px;
+  align-self: center;
+}
+.profile .second {
+  justify-content: space-between;
+  background-color: #F3F3F3;
+  padding: 20px 50px;
+}
+.profile .second .text {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+}
+.profile .second .text div {
+  font-size: 14px;
+}
+.profile .second .icon {
+  cursor: pointer;
+}
+.profile .third {
+  background-color: #F3F3F3;
+  padding: 20px 50px;
+  justify-content: space-between;
+}
+.profile .third .text {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+}
+.profile .third .text div {
+  font-size: 14px;
+}
+.profile .third .text .details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+}
+.profile .third .icon {
+  cursor: pointer;
+}/*# sourceMappingURL=Profile.css.map */

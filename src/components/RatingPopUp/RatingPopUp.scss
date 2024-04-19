@@ -1,0 +1,47 @@
+.ratingPopUp{
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background-color: #00000090;
+  display: flex;
+
+  .ratingpopup-container{
+    margin: 40px auto;
+    width: max(30vw, 500px);
+    height: max(25vw, 450px);
+    border-radius: 20px;
+    box-shadow: 0px 4px 4px 0px #00000040;
+    background-color: #F5F3F3;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px;
+    h2{
+      font-size: 20px;
+    }
+    .star-container{
+      input[type=radio]{
+        display: none;
+      }
+      .star{
+        cursor: pointer;
+      }
+      gap: 15px;
+    }
+    .comment{
+      textarea{
+        border-radius: 15px;
+        border: none;
+        padding: 20px 30px;
+        outline: none;
+        font-size: 12px;
+      }
+
+    }
+    button{
+      font-size: 13px;
+      padding:7px 30px;
+    }
+  }
+
+}

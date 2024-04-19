@@ -39,11 +39,12 @@
 
     }
 
-    .search-input{
+    input{
       border: none;
       color: #000000;
       background: transparent;
-      margin: 5px;
+      margin: 0 5px;;
+      outline: none;
     }
 
     .btn{
@@ -59,9 +60,8 @@
     justify-content: space-evenly;
     color: white;
     width: 200px;
-    align-items: center;
 
-    .cart{
+    .cart-icon{
       justify-content: space-between;
       position: relative;
 
@@ -81,28 +81,28 @@
       .text{
         margin: 0 5px 0 0;
       }
+      .icon {
+        cursor: pointer;
+      }
     }
     .action{  
       gap: 15px;
 
       .login{
-        a{
-          font-size: 14px;
-          color: white;
-        }
+        font-size: 14px;
+        color: white;
 
       }
 
       .signup{
+        height: 25px;
         background-color: #FBDA61;
-        padding: 2px 7px;
+        padding: 5px 10px;
         border: none;
         border-radius: 30px;
-        a{
-          font-weight: 700;
-          color: black;
-          font-size: 13px;
-        }
+        font-weight: 700;
+        color: black;
+        font-size: 13px;
       }
 
     }

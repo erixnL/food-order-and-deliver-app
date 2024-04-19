@@ -3,6 +3,7 @@
   flex-direction: column;
   width: 80%;
   margin: auto;
+  padding: 20px 0;
 }
 .rest-display h2 {
   font-size: max(3vw, 20px);

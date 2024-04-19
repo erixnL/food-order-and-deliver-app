@@ -1,8 +1,8 @@
 
 import '../styles/globals.css';
-import Link from 'next/link';
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
+import AppContextProvider from '@/Context/AppContext';
 // import Navbar from "./Components/Navbar/Navbar"
 // import Footer from "./Components/Footer/Footer"
 import Registration from "./Registration/page"
@@ -20,16 +20,19 @@ const RootLayout = ({children}) => {
   return (
     <html lang="en">
         <body>
-          <Provider>
-            <div className="App flex">
-                <Navbar />
-                <main className="app">
-                    {children}
-                </main>
-                <Footer />
-            </div>
-        </Provider>   
+          <AppContextProvider>
+            <Provider>  
+              <div className="App flex">
+                  <Navbar />
+                  <main className="app">
+                      {children}
+                  </main>
+                  <Footer />
+              </div>
+            </Provider>  
+          </AppContextProvider>   
         </body>
+        
     </html>
   )
 }
