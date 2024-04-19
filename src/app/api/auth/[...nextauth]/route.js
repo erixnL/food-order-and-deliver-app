@@ -56,9 +56,12 @@ const handler = NextAuth({
                 id: user._id.toString(),
                 email: user.email,
                 username: user.username, // Add username to session
+                userRole: user.role
               };
             }
           }
+          console.log(session.user)
+          
           return session;
         },
         async jwt({ token, user }) {

@@ -1,11 +1,11 @@
 import React from 'react'
 import "./Payment.css"
-import { Link } from 'react-router-dom'
+import Link from 'next/link';
 
 const Payment = () => {
   return (
     <div className='payment flex'>
-      <div className="back-to-order"><Link to="/placeorder">&lt; Back to order</Link></div>
+      <div className="back-to-order"><Link  href={"/placeorder"}>&lt; Back to order</Link></div>
       <h2>Payment</h2>
       <div className="card-number">
         <input type="text" placeholder='Card Number*'/>

@@ -1,12 +1,12 @@
 import React from 'react'
 import "./Receipt.css"
-import { Link } from 'react-router-dom'
+import Link from 'next/link';
 
 const Receipt = () => {
   return (
     <div className='receipt flex'>
       <div className="back">
-        <Link to="/orderhistory">&lt; Back to your order</Link>
+        <Link  href={"/orderhistory"}>&lt; Back to your order</Link>
       </div>
       <h2>Your Receipt</h2>
       <div className="receipt-container flex">

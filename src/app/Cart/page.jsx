@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import "./Cart.css";
 import { AppContext } from '@/Context/AppContext';
 import Image from 'next/image';
+import Link from 'next/link'
 
 const Cart = () => {
 
@@ -16,10 +17,10 @@ const Cart = () => {
             {food_list.map((item, index) => {
               if(cartItems[item._id]>0){
                 return (
-                  <div className="item-container">
+                  <div className="item-container" key={item._id}>
                     <div className="cart-item ">
                       <div className="cart-items-image">
-                        <img src={item.image} alt="" />
+                        <Image src={item.image} alt="" />
                       </div>
                       <div className="cart-items-info flex">
                         <div className="cart-item-restaurant">
@@ -55,7 +56,7 @@ const Cart = () => {
             <p>${getCartTotal()}</p>
           </div>
           <div className="cart-checkout">
-            <Link to="/placeorder"><button className='btn'>Go to Checkout</button></Link>
+            <Link href={"/placeorder"}><button className='btn'>Go to Checkout</button></Link>
           </div>
         </div>
       ) 
@@ -64,7 +65,7 @@ const Cart = () => {
           <div className='grey-box'></div>
           <div>OPPS! No items</div>
           <div>Add items to the cart!</div>
-          <Link to="/"><button className='btn'>Start shopping</button></Link>
+          <Link href={"/"}><button className='btn'>Start shopping</button></Link>
         </div>
       )    
   )

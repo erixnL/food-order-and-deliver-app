@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import "./OrderStatus.css"
-import { Link } from 'react-router-dom'
+import Link from 'next/link';
 import { CiLocationOn } from "react-icons/ci";
 import { FaCircle } from "react-icons/fa";
 import { AppContext } from '../../Context/AppContext';
@@ -16,7 +16,7 @@ const OrderStatus = () => {
   return (
     <div className='order-status flex'>
       <div className="back">
-        <Link to="/">&lt; Back to Home Page</Link>
+        <Link  href={'/'}>&lt; Back to Home Page</Link>
       </div>
       <h2>Order Status</h2>
       <div className="grey-box flex">

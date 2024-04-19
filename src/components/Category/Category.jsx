@@ -1,7 +1,7 @@
 'use client';
 import React from 'react'
 import "./Category.css"
-import { categories } from '@/public/assets/images/assets';
+import { categories } from '../../../public/assets/images/assets';
 import Image from 'next/image';
 
 const Category = ({category, setCategory}) => {
