@@ -59,7 +59,7 @@ const Registration = () => {
 
   return (
     <div className="registrationContainer flex">
-        <div className="text">What is your phone number or email?</div>
+        <div className="text">What's your phone number or email?</div>
         <div className="formContainer flex">
           <form onSubmit={handleSubmit}>
            

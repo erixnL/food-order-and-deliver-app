@@ -8,6 +8,7 @@ import Image from 'next/image';
 const ProfileMenu = () => {
 
   const {isLogin, setShowProfileMenu, userRole} = useContext(AppContext);
+  const {isLogin, setShowProfileMenu, userRole} = useContext(AppContext);
 
     return (
     <div className="profile-menu flex">
@@ -22,6 +23,15 @@ const ProfileMenu = () => {
         <Link to="/profile">
           <div onClick={()=>setShowProfileMenu(false)}>Profile</div>
         </Link>
+        {userRole === "customer"
+          ?
+          <Link to="/orderhistory">
+            <div onClick={()=>setShowProfileMenu(false)}>Order History</div>
+          </Link>
+          :
+          ""
+        }
+        
         {userRole === "customer"
           ?
           <Link to="/orderhistory">
