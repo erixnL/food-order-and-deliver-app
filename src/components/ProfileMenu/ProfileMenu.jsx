@@ -1,14 +1,15 @@
+'use client'
 import React, { useContext } from 'react'
 import "./ProfileMenu.css"
-import { AppContext } from '../../Context/AppContext'
+import { AppContext } from '@/Context/AppContext';
 import Link from 'next/link';
 import Image from 'next/image';
 
 
 const ProfileMenu = () => {
 
-  const {isLogin, setShowProfileMenu, userRole} = useContext(AppContext);
-  const {isLogin, setShowProfileMenu, userRole} = useContext(AppContext);
+  // const {isLogin, setShowProfileMenu, userRole} = useContext(AppContext);
+  // const {isLogin, setShowProfileMenu, userRole} = useContext(AppContext);
 
     return (
     <div className="profile-menu flex">
