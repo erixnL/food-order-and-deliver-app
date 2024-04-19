@@ -2,13 +2,13 @@ import { connectToDB } from "@/utlis/database";
 import Order from "@/models/order";
 import User from "@/models/user.js";
 import {getServerSession} from "next-auth";
-import {hanlder} from "../auth/[...nextauth]/route.js";
+import {handler} from "../auth/[...nextauth]/route.js";
 
 
 export const GET = async(request) => {
     try {
         await connectToDB();
-        const session = await getServerSession(hanlder);
+        const session = await getServerSession(handler);
         const userEmail = session?.user?.email;
         const user = await User.findOne({email: userEmail});
 

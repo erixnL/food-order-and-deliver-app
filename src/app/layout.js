@@ -2,7 +2,7 @@
 import '../styles/globals.css';
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
-
+import AppContextProvider from '@/Context/AppContext';
 import Provider from '@/components/Provider';
 
 
@@ -15,7 +15,7 @@ const RootLayout = ({children}) => {
   return (
     <html lang="en">
         <body>
-          
+          <AppContextProvider>
             <Provider>  
               <div className="App flex">
                   <Navbar />
@@ -25,7 +25,7 @@ const RootLayout = ({children}) => {
                   <Footer />
               </div>
             </Provider>  
-            
+          </AppContextProvider> 
         </body>
         
     </html>
