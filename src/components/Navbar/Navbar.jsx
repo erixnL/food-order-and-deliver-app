@@ -7,6 +7,8 @@ import { FaRegUserCircle } from "react-icons/fa";
 import Link from 'next/link';
 import {signIn, signOut, useSession} from "next-auth/react";
 
+import { AppContext } from '../../Context/AppContext';
+
 const Navbar = () => {
   
   const { data: session, status } = useSession();
@@ -22,7 +24,6 @@ const Navbar = () => {
             UOW Eats
           </div>
         </Link>
-        {}
         <div className='searchBar flex'>
           <div className="icon"><CiSearch size={20} /></div>
           <div>

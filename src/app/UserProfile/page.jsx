@@ -1,21 +1,19 @@
 import React from 'react'
 import "./Profile.css"
 import { FaEdit } from "react-icons/fa";
-
 import { FaArrowRight } from "react-icons/fa";
-import Link from 'next/link';
-import Image from 'next/image';
-
+import Link from 'next/link'
+import Image from 'next/image'
 
 
 const Profile = () => {
   return (
     <div className='profile flex'>
-      <Link href={'/'}><div className="back">&lt; Back to Home Page</div></Link>
+      <Link href={"/"}><div className="back">&lt; Back to Home Page</div></Link>
       <h2>Profile</h2>
       <div className="first flex">
         <div className="image-icon flex">
-          <Image src={"/assets/images/food_18.png"}  width="10" height="10" alt="" className="user-image" />
+          <Image src="/assets/images/food_18.png" width="10" height="10" alt="" className="user-image" />
           <div className="icon"><FaEdit /></div>
         </div>
         <div className="lable">

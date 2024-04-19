@@ -1,3 +1,4 @@
+'use client'
 import React, { useContext } from 'react'
 import "./PlaceOrder.css"
 import { CiLocationOn, CiCreditCard1 } from "react-icons/ci";
@@ -12,7 +13,7 @@ const PlaceOrder = () => {
   return (
     <div className='place-order flex'>
       
-      <div className="back-to-order"><Link to="/cart">&lt; Back to your cart</Link></div>
+      <div className="back-to-order"><Link href={"/Cart"}>&lt; Back to your cart</Link></div>
       
       <div className="boxes flex">
         <div className="first-box flex">

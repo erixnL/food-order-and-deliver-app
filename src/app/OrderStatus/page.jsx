@@ -1,9 +1,10 @@
+'use client'
 import React, { useContext } from 'react'
 import "./OrderStatus.css"
-import Link from 'next/link';
+import Link from 'next/link'
 import { CiLocationOn } from "react-icons/ci";
 import { FaCircle } from "react-icons/fa";
-import { AppContext } from '../../Context/AppContext';
+import { AppContext } from '@/Context/AppContext';
 import { IoCheckmarkDoneCircleOutline, IoPersonCircleOutline } from "react-icons/io5";
 import { FaPhoneVolume } from "react-icons/fa6";
 
@@ -16,7 +17,7 @@ const OrderStatus = () => {
   return (
     <div className='order-status flex'>
       <div className="back">
-        <Link  href={'/'}>&lt; Back to Home Page</Link>
+        <Link href={"/"}>&lt; Back to Home Page</Link>
       </div>
       <h2>Order Status</h2>
       <div className="grey-box flex">
