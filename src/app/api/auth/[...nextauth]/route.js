@@ -55,8 +55,12 @@ const handler = NextAuth({
               session.user = {
                 id: user._id.toString(),
                 email: user.email,
+                phone: user.phone,
                 username: user.username, // Add username to session,
-                userRole: user.role
+                userRole: user.role,
+                membership: user.membership,
+                payment: user.payment,
+                cart: user.cart
               };
             }
           }

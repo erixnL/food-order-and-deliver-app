@@ -1,5 +1,6 @@
 'use client'
-import React, { useContext } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
+import { useSession } from 'next-auth/react'
 import "./OrderStatus.css"
 import Link from 'next/link'
 import { CiLocationOn } from "react-icons/ci";
@@ -13,6 +14,19 @@ import { FaPhoneVolume } from "react-icons/fa6";
 
 const OrderStatus = () => {
   const {orderDelivered, setShowRating} = useContext(AppContext);
+
+  const [orderStatus, setOrderStatus] = useState([]);
+  useEffect(() => {
+    const fetchOrderStatus = async () => {
+      const response = await fetch(`/api/orders`);
+      const data = await response.json();
+      console.log(data)
+
+      setOrderStatus(data)
+    };
+
+     fetchOrderStatus();
+  }, []);
 
   return (
     <div className='order-status flex'>

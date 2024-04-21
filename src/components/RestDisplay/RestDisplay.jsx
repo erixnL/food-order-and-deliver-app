@@ -8,7 +8,6 @@ import DropdownButton from '../DropdownButton/DropdownButton';
 const RestDisplay = ({category}) => {
 
   const {Restaurant_list} = useContext(AppContext);
-  console.log(Restaurant_list)
 
   const [timeFilter, setTimeFilter] = useState("All");
   const [ratingFilter, setRatingFilter] = useState("All");
