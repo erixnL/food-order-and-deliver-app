@@ -5,6 +5,27 @@
   margin: auto;
   padding: 20px 0;
 }
+.rest-display .filters {
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+.rest-display .filters .postcode-input {
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  padding: 8px 20px;
+  background-color: #D9D9D9;
+  font-size: 14px;
+  font-weight: 500;
+}
+.rest-display .filters .clear-filters {
+  cursor: pointer;
+  color: #DE250C;
+  text-decoration: underline;
+  font-size: 12px;
+}
 .rest-display h2 {
   font-size: max(3vw, 20px);
   font-weight: 700;

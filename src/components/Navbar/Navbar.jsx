@@ -48,7 +48,7 @@ const Navbar = () => {
                     ) : (
                         <div className="action flex">
                             <button className="login" onClick={() => signIn()}>Login</button>
-                            <Link href={'/SignUp'}>
+                            <Link href={'/Registration'}>
                                 <button className="signup">Sign Up</button>
                             </Link>
                         </div>

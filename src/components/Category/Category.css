@@ -3,7 +3,8 @@
   padding: 20px 60px;
   justify-content: center;
   width: 100%;
-  margin: auto;
+  height: 180px;
+  margin-top: 55px;
 }
 .header .categories-list {
   justify-content: space-between;
@@ -15,16 +16,16 @@
 .header .categories-list::-webkit-scrollbar {
   display: none;
 }
-.header .categories-list .categories-list-item Image {
-  width: 7.5vw;
-  min-width: 100px;
+.header .categories-list .categories-list-item .category-image {
+  width: max(5.8vw, 120px);
+  height: max(5.8vw, 120px);
   cursor: pointer;
   border-radius: 50%;
   transition: 0.2s;
 }
 .header .categories-list .categories-list-item p {
   font-weight: 900;
-  font-size: max(1.4vw, 16px);
+  font-size: max(1vw, 16px);
   cursor: pointer;
 }
 .header .categories-list .categories-list-item .active {
