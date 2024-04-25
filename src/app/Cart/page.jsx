@@ -1,13 +1,15 @@
 'use client';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import "./Cart.css";
 import { AppContext } from '@/Context/AppContext';
 import Image from 'next/image';
 import Link from 'next/link'
+import { useSession } from 'next-auth/react';
 
 const Cart = () => {
 
   const {cartItems, food_list, removeFromCart, getCartTotal} = useContext(AppContext);
+  const { data: session, status } = useSession();
 
   return (
     getCartTotal() 

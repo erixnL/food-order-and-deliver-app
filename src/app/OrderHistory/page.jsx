@@ -1,12 +1,28 @@
 'use client'
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import "./OrderHistory.css"
 import Link from 'next/link'
 import { AppContext } from '@/Context/AppContext'
+import { useSession } from 'next-auth/react'
 
 const OrderHistory = () => {
   const {order_list} = useContext(AppContext);
   const hasOrders = order_list.length > 0;
+
+  
+  const [orderHistory, setOrderHistory] = useState([]);
+  useEffect(() => {
+    const fetchOrders = async () => {
+      const response = await fetch(`/api/orders`);
+      const data = await response.json();
+      console.log(data)
+
+      setOrderHistory(data)
+    };
+
+    fetchOrders();
+  }, []);
+
 
   return (
     <div className='order-history flex'>

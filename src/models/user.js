@@ -1,10 +1,40 @@
 import { Schema, model, models } from 'mongoose';
 
+const CartItemSchema = new Schema({
+    itemId: {
+        type: Schema.Types.ObjectId,
+        ref: 'restaurant',
+        required: true,
+    },
+    quantity: {
+        type: Number,
+        required: true,
+        default: 1, // Default quantity
+    },
+    itemName: {
+        type: String,
+        required: true,
+    },
+    restuarant: {
+        type: String,
+        required: true,
+    },
+    price: {
+        type: Number,
+        required: true,
+    },
+});
+
 const UserSchema = new Schema({
     email: {
         type: String,
         unique: [true, 'Email already exists!'],
         required: [true, 'Email is required!'],
+    },
+    phone: {
+        type: String,
+        unique: [true, 'Phone already exists!'],
+        required: [true, 'Phone is required!'],
     },
     username: {
         type: String,
@@ -58,6 +88,13 @@ const UserSchema = new Schema({
             ref: 'Order',
         },
     ],
+    cart: {
+        items: [CartItemSchema], // Use the CartItemSchema for items array
+    },
+    restaurant: {
+        type: Schema.Types.ObjectId,
+        ref: 'resturant'
+    }
 });
 
 const User = models.User || model("User", UserSchema);

@@ -29,19 +29,13 @@ const RestaurantSchema = new Schema({
         required: [true, 'Restaurant phone number is required!'],
     },
     address: {
-      street: {
-          type: String,
-          required: [true, 'Street address is required!'],
-      },
-      city: {
-          type: String,
-          required: [true, 'City is required!'],
-      },
-      postcode: {
-          type: String,
-          required: [true, 'Postcode is required!'],
-      },
-  },
+        type: String,
+        required: [true, 'Street address is required!'],
+    },
+    postcode: {
+        type: String,
+        required: [true, 'Postcode is required!'],
+    },
     openingHours: {
         type: String,
         required: [true, 'Opening hours are required!'],
