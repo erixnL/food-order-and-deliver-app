@@ -10,6 +10,7 @@ import { useSession } from "next-auth/react";
 
 const Profile = () => {
   const { data: session, status } = useSession();
+  console.log(session);
 
   return (
     <div className='profile flex'>

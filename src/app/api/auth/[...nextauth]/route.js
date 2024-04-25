@@ -60,8 +60,10 @@ const handler = NextAuth({
                 userRole: user.role,
                 membership: user.membership,
                 payment: user.payment,
-                cart: user.cart
+                cart: user.cart,
+                restaurant: user.restaurant,
               };
+              console.log(session.user);
             }
           }
           return session;

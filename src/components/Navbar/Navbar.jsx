@@ -12,8 +12,7 @@ import DropdownButton from '../DropdownButton/DropdownButton';
 
 const Navbar = () => {
   
-  const { data: session, status } = useSession();
-  
+  const { data: session, status } = useSession(); 
 
   return (
     <header>

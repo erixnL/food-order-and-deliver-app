@@ -90,11 +90,11 @@ const UserSchema = new Schema({
     ],
     cart: {
         items: [CartItemSchema], // Use the CartItemSchema for items array
-        total: {
-            type: Number,
-            default: 0, // Default total
-        },
     },
+    restaurant: {
+        type: Schema.Types.ObjectId,
+        ref: 'resturant'
+    }
 });
 
 const User = models.User || model("User", UserSchema);
