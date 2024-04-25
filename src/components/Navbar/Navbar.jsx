@@ -12,11 +12,8 @@ import DropdownButton from '../DropdownButton/DropdownButton';
 
 const Navbar = () => {
   
-  const { data: session, status } = useSession();
-  useEffect(() => {
-    console.log(session);
-}, [session]);
-  
+  const { data: session, status } = useSession(); 
+
   return (
     <header>
       <nav className="navbarContainer flex">
