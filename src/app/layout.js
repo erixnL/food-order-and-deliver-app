@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import AppContextProvider from '@/Context/AppContext';
 import Provider from '@/components/Provider';
+import { Suspense } from 'react';
 
 
 export const metadata = {
@@ -18,7 +19,9 @@ const RootLayout = ({children}) => {
           <AppContextProvider>
             <Provider>  
               <div className="App flex">
+                <Suspense>
                   <Navbar />
+                </Suspense>
                   <main className="app">
                       {children}
                   </main>
