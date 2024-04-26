@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import AppContextProvider from '@/Context/AppContext';
 import Provider from '@/components/Provider';
+import { Suspense } from 'react';
 
 
 export const metadata = {
@@ -19,13 +20,15 @@ const RootLayout = ({children}) => {
     <html lang="en">
         <body>
           <AppContextProvider>
-            <Provider>
+            <Provider>  
               <div className="App">
-                  <Navbar />
+                <Suspense>
+                  <Navbar />              
                   <main className="app-main">
                       {children}
                   </main>
-                  <Footer />
+                </Suspense>
+                <Footer />         
               </div>
             </Provider>  
           </AppContextProvider> 
