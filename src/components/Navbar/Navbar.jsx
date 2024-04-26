@@ -6,6 +6,7 @@ import { FiShoppingBag } from "react-icons/fi";
 import { FaRegUserCircle } from "react-icons/fa";
 import Link from 'next/link';
 import {signIn, signOut, useSession} from "next-auth/react";
+import SearchRestaurants from '../Search/SearchBar';
 
 import { AppContext } from '../../Context/AppContext';
 import DropdownButton from '../DropdownButton/DropdownButton';
@@ -25,7 +26,7 @@ const Navbar = () => {
         <div className='searchBar flex'>
           <div className="icon"><CiSearch size={20} /></div>
           <div>
-            <input type="text" placeholder='Find a restaurant or dishes' />
+            <SearchRestaurants />
           </div>
           <button className="btn">Go</button>
         </div>
