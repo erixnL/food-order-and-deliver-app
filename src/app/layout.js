@@ -12,14 +12,17 @@ export const metadata = {
 }
 
 const RootLayout = ({children}) => {
+
+  
+
   return (
     <html lang="en">
         <body>
           <AppContextProvider>
-            <Provider>  
-              <div className="App flex">
+            <Provider>
+              <div className="App">
                   <Navbar />
-                  <main className="app">
+                  <main className="app-main">
                       {children}
                   </main>
                   <Footer />
@@ -27,7 +30,6 @@ const RootLayout = ({children}) => {
             </Provider>  
           </AppContextProvider> 
         </body>
-        
     </html>
   )
 }
