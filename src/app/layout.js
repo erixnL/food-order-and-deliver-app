@@ -20,12 +20,12 @@ const RootLayout = ({children}) => {
             <Provider>  
               <div className="App flex">
                 <Suspense>
-                  <Navbar />
-                </Suspense>
+                  <Navbar />              
                   <main className="app">
                       {children}
                   </main>
-                  <Footer />
+                </Suspense>
+                <Footer />         
               </div>
             </Provider>  
           </AppContextProvider> 
