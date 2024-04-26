@@ -19,7 +19,7 @@ const Category = ({category, setCategory}) => {
               key={index} 
               className="categories-list-item"
             >
-              <Image className={category===item.category_name?"active":""} 
+              <Image className={category===item.category_name?"category-image active":"category-image"} 
                 src={item.category_image} alt="" />
               <p>{item.category_name}</p>
             </div>

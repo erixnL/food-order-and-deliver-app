@@ -16,6 +16,7 @@
   height: 60px;
   background-color: #DE250C;
   justify-content: space-between;
+  align-items: center;
   position: fixed;
   top: 0;
   z-index: 100;
@@ -48,8 +49,25 @@
   margin-left: auto;
   line-height: 15px;
 }
+.navbarContainer .nav-menu-list {
+  gap: 40px;
+}
+.navbarContainer .nav-menu-list .menu-item {
+  color: #FFFFFF;
+  font-size: 15px;
+  cursor: pointer;
+}
+.navbarContainer .nav-menu-list .menu-item.selected {
+  font-weight: 700;
+  text-decoration: underline;
+}
+.navbarContainer .nav-menu-list .menu-item:hover {
+  text-decoration: underline;
+}
 .navbarContainer .iconContainer {
-  justify-content: space-evenly;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
   color: white;
   width: 200px;
 }
@@ -67,7 +85,8 @@
   right: -3px;
 }
 .navbarContainer .iconContainer .user {
-  justify-content: space-between;
+  gap: 5px;
+  align-items: center;
 }
 .navbarContainer .iconContainer .user .text {
   margin: 0 5px 0 0;
@@ -77,10 +96,12 @@
 }
 .navbarContainer .iconContainer .action {
   gap: 15px;
+  align-items: center;
 }
 .navbarContainer .iconContainer .action .login {
-  font-size: 14px;
+  font-size: 15px;
   color: white;
+  cursor: pointer;
 }
 .navbarContainer .iconContainer .action .signup {
   height: 25px;

@@ -40,9 +40,21 @@ const RestDisplay = ({category}) => {
     <div className='rest-display' id='rest-display' role='restaurant-list'>
       <div className="filters flex">
         <input className='postcode-input input' placeholder='Enter suburb or postcode'/>
-        <DropdownButton label="Time Filter"  options={[{label: "Any Time", value: "All"}, {label: "Under 30 mins", value: "Under 30 min"}]} onChange={setTimeFilter} />
-        <DropdownButton label="Ratings" options={ratingOptions} onChange={setRatingFilter} />
-        <DropdownButton label="Price Range" options={[{label: "Any Price", value: "All"}, {label: "$", value: "$"}, {label: "$$", value: "$$"}, {label: "$$$", value: "$$$"}]} onChange={setPriceFilter} />
+        <DropdownButton 
+          label="Time Filter"  
+          options={[{label: "Any Time", value: "All"}, {label: "Under 30 mins", value: "Under 30 min"}]} 
+          onChange={setTimeFilter} 
+        />
+        <DropdownButton 
+          label="Ratings" 
+          options={ratingOptions} 
+          onChange={setRatingFilter} 
+        />
+        <DropdownButton 
+          label="Price Range" 
+          options={[{label: "Any Price", value: "All"}, {label: "$", value: "$"}, {label: "$$", value: "$$"}, {label: "$$$", value: "$$$"}]} 
+          onChange={setPriceFilter} 
+        />
         <div onClick={clearFilters} className="clear-filters">Clear Filters</div>
       </div>
       <h2>{category}</h2>

@@ -1,6 +1,8 @@
 .cart {
   flex-direction: column;
+  align-items: center;
   width: 50%;
+  height: 100%;
   margin: 50px auto;
   padding: 20px 10px;
   border: 1px solid;
@@ -87,12 +89,14 @@
 }
 .text-container {
   flex-direction: column;
-  margin-top: 50px;
+  align-items: center;
+  margin-top: 60px;
+  padding: 30px 10px;
   gap: 20px;
 }
 .text-container .grey-box {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   background-color: #D9D9D9;
 }
 .text-container div {

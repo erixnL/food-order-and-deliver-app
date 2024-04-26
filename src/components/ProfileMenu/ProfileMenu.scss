@@ -5,16 +5,18 @@
   left: 92%;
   transform: translate(-50%, -50%);
   flex-direction: column;
+  align-items: flex-start;
   width: max(15vw, 200px);
   height: 300px;
   background-color: white;
-  align-items: stretch;
-  padding: 20px 15px;
+  padding: 20px 30px;
   gap: 40px;
 
 
   .userInfo{  
     gap: 10px;
+    align-self: flex-start;
+
     .user-image{
       width: 50px;
       height: 50px;
@@ -33,7 +35,8 @@
   }
   .user-menu{
     flex-direction: column;
-    align-items: stretch;
+    align-items: flex-start;
+    align-self: flex-start;
     gap: 15px;
     div{
       cursor: pointer;
@@ -45,6 +48,7 @@
     }
   }
   .sign-out{
+    align-self: flex-start;
     cursor: pointer;
     color: #DE250C;
     font-weight: 400;

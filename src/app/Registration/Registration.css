@@ -8,4 +8,71 @@
   --inputColor: rgb(239, 239, 239);
   --bodyColor: rgb(240, 240, 246);
   --cardBG: rgb(225, 225, 235);
+}
+
+.registrationContainer {
+  margin: auto;
+  width: 600px;
+  height: 330px;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  row-gap: 10px;
+}
+.registrationContainer .text {
+  margin: 10px 0px;
+  font-weight: 700;
+}
+.registrationContainer .formContainer {
+  flex-direction: column;
+}
+.registrationContainer .formContainer form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 10px;
+}
+.registrationContainer .formContainer form .input {
+  justify-content: space-around;
+  align-items: center;
+  margin: auto;
+  width: 325px;
+  height: 57px;
+  background-color: #D9D9D9;
+  border-radius: 10px;
+}
+.registrationContainer .formContainer form .input input {
+  height: 30px;
+  width: 250px;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 0.5rem 1.5rem;
+}
+.registrationContainer .formContainer form .input .icon {
+  margin: 0px 10px;
+  font-size: 30px;
+}
+.registrationContainer .formContainer form .error {
+  color: red;
+  font-size: 14px;
+}
+.registrationContainer .formContainer form .submit {
+  justify-content: center;
+}
+.registrationContainer .formContainer form .submit .btn {
+  background-color: #000000;
+  color: white;
+  font-size: 14px;
+}
+.registrationContainer .forgot-password {
+  margin: 8px 0px;
+}
+.registrationContainer .forgot-password span {
+  font-size: 13px;
+  color: #000000;
+}
+.registrationContainer .forgot-password span a {
+  font-size: 13px;
+  color: #000000;
 }/*# sourceMappingURL=Registration.css.map */
