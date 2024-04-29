@@ -35,13 +35,6 @@
   padding: 5px;
   justify-content: flex-start;
 }
-.navbarContainer .searchBar input {
-  border: none;
-  color: #000000;
-  background: transparent;
-  margin: 0 5px;
-  outline: none;
-}
 .navbarContainer .searchBar .btn {
   background-color: #DE250C;
   width: 72px;

@@ -19,8 +19,9 @@ const RootLayout = ({children}) => {
   return (
     <html lang="en">
         <body>
-          <AppContextProvider>
-            <Provider>  
+          
+          <Provider>
+            <AppContextProvider>  
               <div className="App">
                 <Suspense>
                   <Navbar />              
@@ -30,8 +31,9 @@ const RootLayout = ({children}) => {
                 </Suspense>
                 <Footer />         
               </div>
-            </Provider>  
-          </AppContextProvider> 
+            </AppContextProvider> 
+          </Provider>  
+          
         </body>
     </html>
   )

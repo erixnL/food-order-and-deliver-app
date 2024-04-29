@@ -1,8 +1,8 @@
 'use client'
-
+import "./SearchBar.css"
 import { useSearchParams, useRouter } from "next/navigation"
 
-const SearchRestaurants = () => {
+const SearchBar = () => {
     //access the query parameters in the URL
     const searchParams = useSearchParams()
     //returns the current URL path without the query parameters     
@@ -20,17 +20,27 @@ const SearchRestaurants = () => {
         console.log(params)
         router.push(`/Search?${params.toString()}`)
     }
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            handleSearch(e.target.value);
+        }
+    }
 
     return (
         <>
-            
-            <input type="text" name="search" placeholder="Find a restuarant" defaultValue={searchParams.get('query')?.toString()}
-            onChange={(e)=> {
-                handleSearch(e.target.value)
-            }}/>
+            <input 
+                type="text" 
+                name="search" 
+                placeholder="Find a restuarant" 
+                defaultValue={searchParams.get('query')?.toString()}
+                onKeyDown={handleKeyDown}
+                // onChange={(e)=> {
+                //     handleSearch(e.target.value)
+                // }}
+            />
         </>
 
     )
 }
 
-export default SearchRestaurants;
+export default SearchBar;

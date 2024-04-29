@@ -27,7 +27,7 @@ const Search =  () => {
     // filter according to the query
     // const filteredRestaruants = 
   return (
-
+        // can use Restcard (reference to restdisplay)
         <div>Search</div>
 
   )

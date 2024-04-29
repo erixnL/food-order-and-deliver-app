@@ -6,7 +6,7 @@ import { AppContext } from '@/Context/AppContext';
 import DropdownButton from '../DropdownButton/DropdownButton';
 
 const RestDisplay = ({category}) => {
-
+  // Change to API fetching data (similar to the search page)
   const {Restaurant_list} = useContext(AppContext);
 
   const [timeFilter, setTimeFilter] = useState("All");
