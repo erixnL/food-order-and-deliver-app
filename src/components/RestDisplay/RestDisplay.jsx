@@ -1,17 +1,26 @@
 'use client';
-import React, { useContext, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import "./RestDisplay.css";
 import RestCard from '../RestCard/RestCard';
-import { AppContext } from '@/Context/AppContext';
 import DropdownButton from '../DropdownButton/DropdownButton';
 
 const RestDisplay = ({category}) => {
-  // Change to API fetching data (similar to the search page)
-  const {Restaurant_list} = useContext(AppContext);
-
+  const [restaurants, setRestaurants] = useState([]);
   const [timeFilter, setTimeFilter] = useState("All");
   const [ratingFilter, setRatingFilter] = useState("All");
   const [priceFilter, setPriceFilter] = useState("All");
+
+  useEffect(()=> {
+        const fetchRestaurants = async () => {
+
+            const response = await fetch(`/api/restaurants`)
+            const data = await response.json()
+            console.log(data)
+
+            setRestaurants(data) 
+        }
+        fetchRestaurants();
+    }, [])
 
   const clearFilters = () => {
     setTimeFilter("All");
@@ -19,7 +28,7 @@ const RestDisplay = ({category}) => {
     setPriceFilter("All");
   };
 
-  const filteredRestaurants = Restaurant_list.filter((item) => {
+  const filteredRestaurants = restaurants.filter((item) => {
     const matchesCategory = category === "All" || item.category === category;
     const matchesTime = timeFilter === "All" || item.distance === timeFilter;
     const matchesRating = ratingFilter === "All" || item.rating >= parseFloat(ratingFilter);
@@ -64,8 +73,7 @@ const RestDisplay = ({category}) => {
               key={index}
               id={item._id}
               name={item.name}
-              rating={item.rating}
-              image={item.image}
+              rating={item.ratings.averageRating}
             />
         })}
       </div>
