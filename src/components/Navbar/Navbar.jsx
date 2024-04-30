@@ -1,5 +1,5 @@
 'use client';
-import React,{useContext} from 'react'
+import React,{useContext, useEffect} from 'react'
 import "./Navbar.css"
 import { CiSearch } from "react-icons/ci";
 import { FiShoppingBag } from "react-icons/fi";
@@ -16,11 +16,27 @@ const Navbar = () => {
   
   const { data: session, status } = useSession(); 
 
-  console.log(session);
+  console.log("Navbar session:",session);
 
-  const {getCartTotal, showProfileMenu, setShowProfileMenu} = useContext(AppContext);
+  const {cartItems, setCartItems, getCartTotal, showProfileMenu, setShowProfileMenu} = useContext(AppContext);
 
   const showCartIcon = !session || session?.user?.userRole === "customer";
+
+  useEffect(() => {
+    console.log("Session status:", status);
+    console.log("Session data:", session);
+    if (status === 'authenticated' && session?.user?.cart?.items) {
+      // Assuming session.cart.items is an array and needs to be transformed to an object
+      const newCartItems = session.user.cart.items.reduce((acc, item) => ({
+        ...acc,
+        [item.itemId]: { ...item }
+      }), {});
+      setCartItems(newCartItems);
+      console.log('CartItems from navbar page:',cartItems);
+    }
+  }, [session, status]);
+  
+
 
   return (
     <header>

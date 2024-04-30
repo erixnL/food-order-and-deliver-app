@@ -8,7 +8,7 @@ import Link from 'next/link';
 
 
 
-const RestCard = ({id, name, rating, image}) => {
+const RestCard = ({id, name, rating}) => {
 
   return (
     <div className='rest-card'>

@@ -4,13 +4,14 @@
   border-radius: 15px;
   border: 1px solid #7B7474;
   padding: 10px;
-  gap: 10px;
+  gap: 20px;
 }
 .food-item .food-item-image-container {
   width: 40%;
 }
 .food-item .food-item-image-container .food-item-image {
   width: 100%;
+  height: 100%;
   border-radius: 15px;
 }
 .food-item .food-item-info {
@@ -28,6 +29,7 @@
 .food-item .food-item-info .food-item-icons .btn {
   font-size: 13px;
   padding: 5px 15px;
+  background-color: #DE250C;
 }
 .food-item .food-item-info .food-item-icons .icon {
   cursor: pointer;
