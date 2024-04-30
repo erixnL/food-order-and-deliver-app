@@ -29,7 +29,7 @@ const Navbar = () => {
       : "green" ;
 
     setNavbarColor(color);
-    console.log("Color",navbarColor);  
+    // console.log("Color",navbarColor);  
   },[session, status]); 
 
   useEffect(() => {
@@ -61,7 +61,7 @@ const Navbar = () => {
         {session && session?.user?.userRole === "restaurant" 
           ?
           <div className="nav-menu-list flex">
-            <div className="menu-item">Restaurant Profile</div>
+            <Link href="./RestaurantProfile" className="menu-item">Restaurant Profile</Link>
             <div className="menu-item">Order</div>
             <div className="menu-item">Menu</div>
             <div className="menu-item">Report</div>
