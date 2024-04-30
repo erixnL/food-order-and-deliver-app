@@ -1,5 +1,5 @@
 'use client';
-import React,{useContext, useEffect} from 'react'
+import React,{useContext, useEffect, useState} from 'react'
 import "./Navbar.css"
 import { CiSearch } from "react-icons/ci";
 import { FiShoppingBag } from "react-icons/fi";
@@ -7,7 +7,6 @@ import { FaRegUserCircle } from "react-icons/fa";
 import Link from 'next/link';
 import {signIn, signOut, useSession} from "next-auth/react";
 import SearchRestaurants from '../Search/SearchBar';
-import DropdownButton from '../DropdownButton/DropdownButton';
 import { AppContext } from '@/Context/AppContext';
 import ProfileMenu from '../ProfileMenu/ProfileMenu';
 
@@ -16,15 +15,26 @@ const Navbar = () => {
   
   const { data: session, status } = useSession(); 
 
-  console.log("Navbar session:",session);
+  // console.log("Navbar session:",session);
 
-  const {cartItems, setCartItems, getCartTotal, showProfileMenu, setShowProfileMenu} = useContext(AppContext);
+  const {setCartItems, getCartTotal, showProfileMenu, setShowProfileMenu} = useContext(AppContext);
 
   const showCartIcon = !session || session?.user?.userRole === "customer";
 
+  const [navbarColor, setNavbarColor] = useState("");
+
   useEffect(() => {
-    console.log("Session status:", status);
-    console.log("Session data:", session);
+    const color = !session || session?.user?.userRole === "customer" ? "red" 
+      : session?.user?.userRole === "delivery_person" ? "blue" 
+      : "green" ;
+
+    setNavbarColor(color);
+    console.log("Color",navbarColor);  
+  },[session, status]); 
+
+  useEffect(() => {
+    // console.log("Session status:", status);
+    // console.log("Session data:", session);
     if (status === 'authenticated' && session?.user?.cart?.items) {
       // Assuming session.cart.items is an array and needs to be transformed to an object
       const newCartItems = session.user.cart.items.reduce((acc, item) => ({
@@ -32,7 +42,7 @@ const Navbar = () => {
         [item.itemId]: { ...item }
       }), {});
       setCartItems(newCartItems);
-      console.log('CartItems from navbar page:',cartItems);
+      // console.log('CartItems from navbar page:',cartItems);
     }
   }, [session, status]);
   
@@ -41,7 +51,7 @@ const Navbar = () => {
   return (
     <header>
       {showProfileMenu? <ProfileMenu /> : <></>}
-      <nav className="navbarContainer flex">
+      <nav className={`navbarContainer ${navbarColor} flex`}>
         <Link href={'/'}>
           <div className="logo" role='Logo'>
             UOW Eats

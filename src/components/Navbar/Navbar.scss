@@ -9,17 +9,29 @@
   --bodyColor: rgb(240, 240, 246);
   --cardBG: rgb(225, 225, 235);
 }
+.red {
+  background-color: #DE250C;
+}
 
+.green {
+  background-color: darkolivegreen !important;
+}
+
+.blue {
+  background-color: #2861D1 !important;
+}
 .navbarContainer{
   padding: 10px 30px;
   width: 100%;
   height: 60px;
-  background-color: #DE250C;
+
   justify-content: space-between;
   align-items: center;
   position: fixed;
   top: 0;
   z-index: 100;
+
+
   
   .logo{
     color: white;
