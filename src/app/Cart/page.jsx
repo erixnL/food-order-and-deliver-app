@@ -11,6 +11,32 @@ const Cart = () => {
   const {cartItems, food_list, removeFromCart, getCartTotal} = useContext(AppContext);
   const { data: session, status } = useSession();
 
+  const updateQuantity = async (e) => {
+    //should have a form here
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    if (!promptId) return alert("Missing PromptId!");
+
+    try {
+      const response = await fetch(`/api/prompt/${promptId}`, {
+        method: "PATCH",
+        body: JSON.stringify({
+          prompt: post.prompt,
+          tag: post.tag,
+        }),
+      });
+
+      if (response.ok) {
+        router.push("/");
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     getCartTotal() 
       ? (
