@@ -11,6 +11,32 @@ const Cart = () => {
   console.log('CartItems from cart page:',cartItems);
   console.log ('Object.values:',Object.values(cartItems));
 
+  const updateQuantity = async (e) => {
+    //should have a form here
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    if (!promptId) return alert("Missing PromptId!");
+
+    try {
+      const response = await fetch(`/api/prompt/${promptId}`, {
+        method: "PATCH",
+        body: JSON.stringify({
+          prompt: post.prompt,
+          tag: post.tag,
+        }),
+      });
+
+      if (response.ok) {
+        router.push("/");
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     Object.keys(cartItems).length > 0  
       ? (

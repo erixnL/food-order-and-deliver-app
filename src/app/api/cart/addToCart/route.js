@@ -33,3 +33,4 @@ export const POST = async(request) => {
         res.status(500).json({ error: 'Failed to add item to cart' });
       }
     }
+
