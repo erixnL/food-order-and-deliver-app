@@ -4,7 +4,6 @@ import Category from "@/components/Category/Category";
 import RestDisplay from "@/components/RestDisplay/RestDisplay";
 import { useState } from "react";
 import AppContextProvider, { AppContext } from '@/Context/AppContext';
-import FoodDisplay from '@/components/FoodDisplay/FoodDisplay';
 
 
 const Home = () => {

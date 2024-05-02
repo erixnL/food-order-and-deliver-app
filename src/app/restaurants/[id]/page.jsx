@@ -23,7 +23,7 @@ const RestaurantPage = () => {
 
           const response = await fetch(`/api/restaurant/${id}`)
           const data = await response.json()
-          console.log("Fetched data:", data)
+          console.log("Fetched data from restaurant page:", data)
 
           setRestaurant(data);
           setMenu(data.menu);
@@ -32,6 +32,8 @@ const RestaurantPage = () => {
       fetchRestaurants();
       
   }, [id])
+
+  console.log("restaurant menu", menu);
 
   return (
     <div className="food-display" id="food-display">
@@ -61,7 +63,7 @@ const RestaurantPage = () => {
         {menu.map((item, index) => {
           return <FoodItem 
             key = {index}
-            id = {item._id}
+            id = {item.id}
             name = {item.name}
             itemPrice = {item.price}
             restaurant= {restaurant.name}

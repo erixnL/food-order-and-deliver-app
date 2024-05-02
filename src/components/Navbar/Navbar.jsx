@@ -15,9 +15,9 @@ const Navbar = () => {
   
   const { data: session, status } = useSession(); 
 
-  // console.log("Navbar session:",session);
+  console.log("Navbar session:",session);
 
-  const {setCartItems, getCartTotal, showProfileMenu, setShowProfileMenu} = useContext(AppContext);
+  const {cartItems, setCartItems, getCartTotal, showProfileMenu, setShowProfileMenu} = useContext(AppContext);
 
   const showCartIcon = !session || session?.user?.userRole === "customer";
 
@@ -42,10 +42,9 @@ const Navbar = () => {
         [item.itemId]: { ...item }
       }), {});
       setCartItems(newCartItems);
-      // console.log('CartItems from navbar page:',cartItems);
+      console.log('CartItems from navbar page:',cartItems);
     }
   }, [session, status]);
-  
 
 
   return (
