@@ -57,6 +57,9 @@ const OrderSchema = new Schema({
         type: String,
         default: '',
     },
+    
+}, {
+    timestamps: true // Add createdAt and updatedAt fields
 });
 
 const Order = models.Order || model("Order", OrderSchema);

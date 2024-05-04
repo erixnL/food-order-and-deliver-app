@@ -61,7 +61,7 @@ const handler = NextAuth({
                 membership: user.membership,
                 payment: user.payment,
                 cart: user.cart,
-                restaurant: user.restaurant,
+                
               };
               console.log(session.user);
             }

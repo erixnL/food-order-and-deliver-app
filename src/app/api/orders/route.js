@@ -9,7 +9,7 @@ export const GET = async(request) => {
     try {
         await connectToDB();
         const session = await getServerSession(handler);
-        const userEmail = session?.user?.email;
+        const userEmail = session?.user?.email; 
         const user = await User.findOne({email: userEmail});
 
         if (user) {
