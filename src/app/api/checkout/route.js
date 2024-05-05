@@ -11,7 +11,7 @@ export const POST = async(request) => {
         const session = await getServerSession(handler);
         const userEmail = session?.user?.email;
         const user = await User.findOne({ email: userEmail });
-        const { userId, items, serviceFee, restaurantId, totalPrice } = await request.json();
+        const { userId, items, serviceFee, restaurantId, restaurantName, totalPrice } = await request.json();
         const orderStatus = "accepted";
         
         if (userId) {
@@ -22,6 +22,7 @@ export const POST = async(request) => {
             const order = await Order.create({
                 user: userId,
                 restaurant: restaurantId,
+                restaurantName: restaurantName,
                 items: items,
                 deliveryFee: 1.99,
                 serviceFee: serviceFee,

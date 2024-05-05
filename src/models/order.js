@@ -11,6 +11,11 @@ const OrderSchema = new Schema({
         ref: 'Restaurant',
         required: [true, 'Restaurant is required!'],
     },
+    restaurantName: {
+        type: String,
+        ref: 'Restaurant',
+        required: [true, 'Restaurant name is required!'],
+    },
     items: [
         {
             itemId: {
