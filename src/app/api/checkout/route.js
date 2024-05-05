@@ -12,7 +12,7 @@ export const POST = async(request) => {
         const userEmail = session?.user?.email;
         const user = await User.findOne({ email: userEmail });
         console.log(userEmail);
-        const { userId, items, restaurantId, totalPrice } = await request.json();
+        const { userId, items, serviceFee, restaurantId, totalPrice } = await request.json();
         
         if (userId) {
             // Calculate estimated arrival time (20 mins later than current time)
@@ -23,6 +23,8 @@ export const POST = async(request) => {
                 user: userId,
                 restaurant: restaurantId,
                 items: items,
+                deliveryFee: 1.99,
+                serviceFee: serviceFee,
                 totalPrice: totalPrice,
                 paid: true, // Set to "paid"
                 orderStatus: 'accepted', // default status is 'accepted'

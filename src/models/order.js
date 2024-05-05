@@ -13,6 +13,10 @@ const OrderSchema = new Schema({
     },
     items: [
         {
+            itemId: {
+                type: Schema.Types.ObjectId,
+                required: [true, 'Menu item id is required!'],
+            },
             menuItem: {
                 type: String,
                 required: [true, 'Menu item name is required!'],
@@ -27,6 +31,14 @@ const OrderSchema = new Schema({
             },
         },
     ],
+    deliveryFee: {
+        type: Number,
+        required: [true, 'Delivery Fee is required!'],
+    },
+    serviceFee: {
+        type: Number,
+        default: 0,
+    },
     totalPrice: {
         type: Number,
         required: [true, 'Total price is required!'],
