@@ -15,7 +15,7 @@ const CartItemSchema = new Schema({
         type: String,
         required: true,
     },
-    restuarant: {
+    restaurant: {
         type: String,
         required: true,
     },
