@@ -13,6 +13,7 @@ export const POST = async(request) => {
         const user = await User.findOne({ email: userEmail });
         console.log(userEmail);
         const { userId, items, serviceFee, restaurantId, totalPrice } = await request.json();
+        const orderStatus = "accept";
         
         if (userId) {
             // Calculate estimated arrival time (20 mins later than current time)
@@ -27,7 +28,7 @@ export const POST = async(request) => {
                 serviceFee: serviceFee,
                 totalPrice: totalPrice,
                 paid: true, // Set to "paid"
-                orderStatus: 'accepted', // default status is 'accepted'
+                orderStatus: orderStatus, // default status is 'accepted'
                 deliveryPerson: "661cdf8d644e4f76e1ccccfe", // delivery person id
                 estimatedArrivalTime: estimatedArrivalTime.toISOString(), // Convert to ISO string
                 deliveryContactInfo: '0411225566', // Set contact info
