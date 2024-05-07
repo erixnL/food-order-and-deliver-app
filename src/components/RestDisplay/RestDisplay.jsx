@@ -6,7 +6,7 @@ import DropdownButton from '../DropdownButton/DropdownButton';
 
 const RestDisplay = ({category}) => {
   const [restaurants, setRestaurants] = useState([]);
-  const [timeFilter, setTimeFilter] = useState("All");
+  const [distanceFilter, setDistanceFilter] = useState("All");
   const [ratingFilter, setRatingFilter] = useState("All");
   const [priceFilter, setPriceFilter] = useState("All");
 
@@ -30,7 +30,9 @@ const RestDisplay = ({category}) => {
 
   const filteredRestaurants = restaurants.filter((item) => {
     const matchesCategory = category === "All" || item.category === category;
-    const matchesTime = timeFilter === "All" || item.distance === timeFilter;
+    const matchesTime = distanceFilter === "All" || 
+                        (distanceFilter === "30mins" && (item.postcode === '2500' || item.postcode === '2522')) ||
+                        (distanceFilter === "30miles" && (item.postcode === '2500' || item.postcode === '2522' || item.postcode === '2518'));
     const matchesRating = ratingFilter === "All" || item.rating >= parseFloat(ratingFilter);
     const matchesPrice = priceFilter === "All" || item.priceRange === priceFilter;
     
@@ -48,11 +50,11 @@ const RestDisplay = ({category}) => {
    return (
     <div className='rest-display' id='rest-display' role='restaurant-list'>
       <div className="filters flex">
-        <input className='postcode-input input' placeholder='Enter suburb or postcode'/>
+        <input className='postcode-input input' placeholder='2500'/>
         <DropdownButton 
-          label="Time Filter"  
-          options={[{label: "Any Time", value: "All"}, {label: "Under 30 mins", value: "Under 30 min"}]} 
-          onChange={setTimeFilter} 
+          label="Distance"  
+          options={[{label: "Any", value: "All"}, {label: "< 30 mins", value: "30mins"}, {label: "< 30 miles", value: "30miles"}]} 
+          onChange={setDistanceFilter} 
         />
         <DropdownButton 
           label="Ratings" 
