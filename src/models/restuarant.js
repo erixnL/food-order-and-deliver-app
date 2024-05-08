@@ -1,10 +1,6 @@
 import { Schema, model, models } from 'mongoose';
 
 const MenuItemSchema = new Schema({
-    itemId: {
-        type: Schema.Types.ObjectId,
-        required: [true, 'Menu item id is required!'],
-    },
     name: {
         type: String,
         required: [true, 'Menu item name is required!'],
