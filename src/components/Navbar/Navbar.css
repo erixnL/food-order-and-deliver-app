@@ -26,17 +26,23 @@
   padding: 10px 30px;
   width: 100%;
   height: 60px;
-  justify-content: space-between;
-  align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   position: fixed;
   top: 0;
   z-index: 100;
 }
+
 .navbarContainer .logo {
   color: white;
   font-weight: 800;
   font-size: 22px;
 }
+
 .navbarContainer .searchBar {
   width: 400px;
   height: 38px;
@@ -44,8 +50,11 @@
   border: none;
   border-radius: 80px;
   padding: 5px;
-  justify-content: flex-start;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
+
 .navbarContainer .searchBar .btn {
   background-color: #DE250C;
   width: 72px;
@@ -53,32 +62,44 @@
   margin-left: auto;
   line-height: 15px;
 }
+
 .navbarContainer .nav-menu-list {
   gap: 40px;
 }
+
 .navbarContainer .nav-menu-list .menu-item {
   color: #FFFFFF;
   font-size: 15px;
   cursor: pointer;
 }
+
 .navbarContainer .nav-menu-list .menu-item.selected {
   font-weight: 700;
   text-decoration: underline;
 }
+
 .navbarContainer .nav-menu-list .menu-item:hover {
   text-decoration: underline;
 }
+
 .navbarContainer .iconContainer {
-  justify-content: space-around;
-  align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   gap: 10px;
   color: white;
   width: 200px;
 }
+
 .navbarContainer .iconContainer .cart-icon {
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   position: relative;
 }
+
 .navbarContainer .iconContainer .cart-icon .dot {
   position: absolute;
   min-width: 7px;
@@ -88,25 +109,35 @@
   top: -3px;
   right: -3px;
 }
+
 .navbarContainer .iconContainer .user {
   gap: 5px;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
+
 .navbarContainer .iconContainer .user .text {
   margin: 0 5px 0 0;
 }
+
 .navbarContainer .iconContainer .user .icon {
   cursor: pointer;
 }
+
 .navbarContainer .iconContainer .action {
   gap: 15px;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
+
 .navbarContainer .iconContainer .action .login {
   font-size: 15px;
   color: white;
   cursor: pointer;
 }
+
 .navbarContainer .iconContainer .action .signup {
   height: 25px;
   background-color: #FBDA61;
@@ -116,4 +147,5 @@
   font-weight: 700;
   color: black;
   font-size: 13px;
-}/*# sourceMappingURL=Navbar.css.map */
+}
+/*# sourceMappingURL=Navbar.css.map */

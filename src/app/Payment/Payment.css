@@ -1,15 +1,21 @@
 .payment {
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   margin: auto;
   padding: 30px 30px;
   gap: 18px;
 }
+
 .payment .back-to-order {
-  align-self: flex-start;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
   cursor: pointer;
   color: #DE250C;
   font-size: 14px;
 }
+
 .payment input {
   width: 300px;
   border: 1px solid #D9D9D9;
@@ -17,15 +23,21 @@
   outline: none;
   font-size: 14px;
 }
+
 .payment .card-expirydate {
   width: 100%;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
+
 .payment .card-expirydate input {
   width: 90px;
 }
+
 .payment .btn {
   font-size: 15px;
   width: 150px;
   border-radius: 10px;
-}/*# sourceMappingURL=Payment.css.map */
+}
+/*# sourceMappingURL=Payment.css.map */
