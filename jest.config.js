@@ -9,10 +9,7 @@ const config = {
   rootDir: './',
   coverageProvider: 'v8',
   testEnvironment: 'jsdom',
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'], // Add this line
-  transform: {
-    '^.+\\.(js|jsx)$': 'babel-jest',
-  },
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'], 
   
   moduleNameMapper: {
     
