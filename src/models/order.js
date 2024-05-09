@@ -55,7 +55,7 @@ const OrderSchema = new Schema({
     orderStatus: {
         type: String,
         enum: ['new', 'accepted', 'preparing', 'ready_for_pickup', 'delivered'],
-        default: 'accepted',
+        default: 'new',
     },
     deliveryPerson: {
         type: Schema.Types.ObjectId,
