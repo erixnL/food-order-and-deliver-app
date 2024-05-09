@@ -11,8 +11,7 @@ export const POST = async(request) => {
         const session = await getServerSession(handler);
         const userEmail = session?.user?.email;
         const user = await User.findOne({ email: userEmail });
-        const { userId, items, serviceFee, restaurantId, restaurantName, totalPrice } = await request.json();
-        const orderStatus = "accepted";
+        const { userId, items, serviceFee, orderStatus, restaurantId, restaurantName, totalPrice } = await request.json();
         
         if (userId) {
             // Calculate estimated arrival time (20 mins later than current time)

@@ -54,7 +54,7 @@ const OrderSchema = new Schema({
     },
     orderStatus: {
         type: String,
-        enum: ['accepted', 'preparing', 'ready_for_delivery', 'delivered'],
+        enum: ['new', 'accepted', 'preparing', 'ready_for_pickup', 'delivered'],
         default: 'accepted',
     },
     deliveryPerson: {
