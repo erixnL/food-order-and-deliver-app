@@ -4,38 +4,16 @@ import "./Cart.css";
 import { AppContext } from '@/Context/AppContext';
 import Link from 'next/link'
 import FoodItemContainer from '@/components/FoodItemContainer/FoodItemContainer';
+import { useSession } from 'next-auth/react';
 
 const Cart = () => {
 
   const {cartItems, getCartTotal} = useContext(AppContext);
-  console.log('CartItems from cart page:',cartItems);
-  console.log ('Object.values:',Object.values(cartItems));
+  console.log ('cartItems from cart page:',cartItems);
 
-  const updateQuantity = async (e) => {
-    //should have a form here
-    e.preventDefault();
-    setIsSubmitting(true);
+  const { data: session, status } = useSession();
+  console.log('Session from cart page:',session);
 
-    if (!promptId) return alert("Missing PromptId!");
-
-    try {
-      const response = await fetch(`/api/prompt/${promptId}`, {
-        method: "PATCH",
-        body: JSON.stringify({
-          prompt: post.prompt,
-          tag: post.tag,
-        }),
-      });
-
-      if (response.ok) {
-        router.push("/");
-      }
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   return (
     Object.keys(cartItems).length > 0  
@@ -47,9 +25,10 @@ const Cart = () => {
               <FoodItemContainer 
                 key = {index}
                 restaurant = {item.restaurant}
+                restaurantId = {item.restaurantId}
                 itemId = {item.itemId}
                 itemName = {item.itemName}
-                price = {item.price}
+                itemPrice = {item.price}
                 quantity = {item.quantity}
               />
             ))}
@@ -57,10 +36,10 @@ const Cart = () => {
           </div>
           <div className="cart-amount flex">
             <p>Subtotal</p>
-            <p>${getCartTotal()}</p>
+            <p>${getCartTotal().toFixed(2)}</p>
           </div>
           <div className="cart-checkout">
-            <Link href={"/placeorder"}><button className='btn'>Go to Checkout</button></Link>
+            <Link href={"/PlaceOrder"}><button className='check-out-btn btn'>Go to Checkout</button></Link>
           </div>
         </div>
       ) 

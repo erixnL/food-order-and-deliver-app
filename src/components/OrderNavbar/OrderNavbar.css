@@ -1,0 +1,17 @@
+.order-navbar {
+  justify-content: space-evenly;
+  margin-bottom: 40px;
+}
+.order-navbar .order-navbar-item {
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 600;
+}
+.order-navbar .order-navbar-item:hover {
+  color: #FA9232;
+  text-decoration: underline;
+}
+.order-navbar .order-navbar-item .active {
+  color: #FA9232;
+  text-decoration: underline;
+}/*# sourceMappingURL=OrderNavbar.css.map */

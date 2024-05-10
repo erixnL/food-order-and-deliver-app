@@ -32,7 +32,7 @@ const RestaurantPage = () => {
       fetchRestaurants();
       
   }, [id])
-
+  console.log("restaurant", restaurant);
   console.log("restaurant menu", menu);
 
   return (
@@ -63,10 +63,11 @@ const RestaurantPage = () => {
         {menu.map((item, index) => {
           return <FoodItem 
             key = {index}
-            id = {item.id}
+            id = {item._id}
             name = {item.name}
             itemPrice = {item.price}
             restaurant= {restaurant.name}
+            restaurantId = {restaurant._id}
           />
         })}
       </div>

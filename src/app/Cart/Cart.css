@@ -25,9 +25,10 @@
   width: 368px;
   justify-content: space-between;
 }
-.cart .cart-checkout .btn {
+.cart .cart-checkout .check-out-btn {
   font-size: 15px;
-  color: black;
+  background-color: #DE250C;
+  color: white;
   font-weight: 500;
   border-radius: 10px;
   width: max(15vw, 388px);

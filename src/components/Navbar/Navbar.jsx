@@ -60,10 +60,10 @@ const Navbar = () => {
         {session && session?.user?.userRole === "restaurant" 
           ?
           <div className="nav-menu-list flex">
-            <Link href="./RestaurantProfile" className="menu-item">Restaurant Profile</Link>
-            <div className="menu-item">Order</div>
-            <div className="menu-item">Menu</div>
-            <div className="menu-item">Report</div>
+            <Link href="/RestaurantProfile" className="menu-item">Restaurant Profile</Link>
+            <Link href="/RestaurantOrderList" className="menu-item">Order</Link>
+            <Link href="/MenuList" className="menu-item">Menu</Link>
+            <Link href="/MenuList" className="menu-item">Report</Link>
           </div> 
           
           : 
