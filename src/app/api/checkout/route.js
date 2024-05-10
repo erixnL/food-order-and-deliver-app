@@ -11,7 +11,7 @@ export const POST = async(request) => {
         const session = await getServerSession(handler);
         const userEmail = session?.user?.email;
         const user = await User.findOne({ email: userEmail });
-        const { userId, items, serviceFee, orderStatus, restaurantId, restaurantName, totalPrice } = await request.json();
+        const { userId, items, serviceFee, orderStatus, restaurantId, restaurantName, totalPrice, deliveryAddress } = await request.json();
         
         if (userId) {
             // Calculate estimated arrival time (20 mins later than current time)
@@ -28,6 +28,7 @@ export const POST = async(request) => {
                 totalPrice: totalPrice,
                 paid: true, // Set to "paid"
                 orderStatus: orderStatus, // default status is 'accepted'
+                deliveryAddress: deliveryAddress,
                 deliveryPerson: "661cdf8d644e4f76e1ccccfe", // delivery person id
                 estimatedArrivalTime: estimatedArrivalTime.toISOString(), // Convert to ISO string
                 deliveryContactInfo: '0411225566', // Set contact info
