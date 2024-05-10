@@ -60,19 +60,19 @@ const MenuList = () => {
 
         {menuData.map((item, index)=>{
           return(
-            <>
-            <div className="menu-item-container flex" key={index}>
-              <div className="description-container flex">
-                <Image className="menu-image" src={image1} width="50" height="50" alt="" /> 
-                <div>{item.name}</div>
+            <React.Fragment key={item._id}>
+              <div className="menu-item-container flex" key={index}>
+                <div className="description-container flex">
+                  <Image className="menu-image" src={image1} width="50" height="50" alt="" /> 
+                  <div>{item.name}</div>
+                </div>
+                <div className="right flex">
+                  <div className="menu-price">${item.price.toFixed(2)}</div>
+                  <Link href={`/EditMenu/${item._id}`}><FaEdit /></Link>
+                </div>
               </div>
-              <div className="right flex">
-                <div className="menu-price">${item.price.toFixed(2)}</div>
-                <Link href={`/EditMenu/${item._id}`}><FaEdit /></Link>
-              </div>
-            </div>
-            <hr/>
-            </>
+              <hr/>
+            </React.Fragment>
           )
         })
         }
