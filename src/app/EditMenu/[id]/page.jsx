@@ -13,7 +13,7 @@ const EditMenu = () => {
 
   const [menuItems, setMenuItems] = useState([]);
   const [editingItem, setEditingItem] = useState({});
-  
+ 
 
   const pathname = usePathname();
   const itemId = pathname.split('/').pop();
@@ -35,7 +35,7 @@ const EditMenu = () => {
 
           // Find the item by itemId and set it for editing
           const itemToEdit = data.menu.find(item => item._id === itemId);
-          console.log("itemToEdit",itemToEdit)
+          
           if (itemToEdit) {
             setEditingItem(itemToEdit);
           }

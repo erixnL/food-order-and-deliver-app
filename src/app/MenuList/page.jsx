@@ -1,8 +1,7 @@
 'use client'
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./MenuList.css"
 import Link from 'next/link'
-import { AppContext } from '@/Context/AppContext'
 import { useSession } from 'next-auth/react'
 import Image from 'next/image'
 import image1 from "../../../public/assets/images/food_13.png"
