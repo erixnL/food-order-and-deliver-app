@@ -2,7 +2,7 @@
   flex-direction: column;
   margin: auto;
   width: 100%;
-  padding: 0 200px;
+  padding: 20px 200px;
   gap: 10px;
 }
 .order-status .back {
@@ -63,8 +63,9 @@
   color: #DE250C;
   font-weight: 700;
 }
-.order-status .delivered-container .btn {
-  font-size: 16px;
+.order-status .delivered-container .rating-btn {
+  font-size: 15px;
+  width: 150px;
   background-color: black;
 }
 .order-status .delivered-container .delivery-person-contact {

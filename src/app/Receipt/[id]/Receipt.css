@@ -2,7 +2,7 @@
   flex-direction: column;
   margin: auto;
   width: 100%;
-  padding: 0 200px;
+  padding: 30px 200px;
   gap: 20px;
 }
 .receipt .back {

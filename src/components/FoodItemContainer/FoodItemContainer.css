@@ -43,6 +43,7 @@
 .cart-items .item-container .cart-item .cart-item-quantities .cart-item-remove .btn {
   font-size: 10px;
   background-color: grey;
+  width: 100px;
 }
 .cart-items .item-container hr {
   height: 2px;
