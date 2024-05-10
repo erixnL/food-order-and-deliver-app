@@ -57,6 +57,10 @@ const OrderSchema = new Schema({
         enum: ['new', 'accepted', 'preparing', 'ready_for_pickup', 'delivered'],
         default: 'new',
     },
+    deliveryAddress: {
+        type: String,
+        default: "U4, 15 Simith Street, Wollongong"
+    },
     deliveryPerson: {
         type: Schema.Types.ObjectId,
         ref: 'User',
