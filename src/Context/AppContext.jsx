@@ -15,7 +15,9 @@ const AppContextProvider = (props) => {
 
   const [showRating, setShowRating] = useState(false);
 
-  const [orderHistory, setOrderHistory] = useState({});
+  const [orderHistory, setOrderHistory] = useState([]);
+
+  const [currentOrder, setCurrentOrder] = useState({});
 
   const removeFromCart = (itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }))
@@ -46,7 +48,10 @@ const AppContextProvider = (props) => {
     showRating, 
     setShowRating,
     orderHistory, 
-    setOrderHistory
+    setOrderHistory,
+    currentOrder, 
+    setCurrentOrder
+
   }
 
   return (
