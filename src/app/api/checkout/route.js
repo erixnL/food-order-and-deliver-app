@@ -27,7 +27,7 @@ export const POST = async(request) => {
                 serviceFee: serviceFee,
                 totalPrice: totalPrice,
                 paid: true, // Set to "paid"
-                orderStatus: orderStatus, // default status is 'accepted'
+                orderStatus: orderStatus, // default status is 'new'
                 deliveryAddress: deliveryAddress,
                 deliveryPerson: "661cdf8d644e4f76e1ccccfe", // delivery person id
                 estimatedArrivalTime: estimatedArrivalTime.toISOString(), // Convert to ISO string

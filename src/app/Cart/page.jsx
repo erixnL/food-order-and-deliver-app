@@ -24,7 +24,7 @@ const Cart = () => {
 
               <FoodItemContainer 
                 key = {index}
-                restaurant = {item.restaurant}
+                restaurant = {item.restaurantName}
                 restaurantId = {item.restaurantId}
                 itemId = {item.itemId}
                 itemName = {item.itemName}

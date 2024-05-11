@@ -40,6 +40,8 @@ const OrderHistory = () => {
 
   const statusDescriptions = {
     'new': 'New Order',
+    'rejected': 'Order Rejected', 
+    'refund': 'Refund will be deposited to your bank account within 7 business days.',
     'accepted': 'Order Accepted',
     'preparing': 'Preparing',
     'ready_for_pickup': 'Ready for Pickup',
@@ -62,19 +64,21 @@ const OrderHistory = () => {
                   <div>{formatDate(item.createdAt)}</div>
                   <div>Order Status: {statusDescriptions[item.orderStatus]}</div>
                 </div>
-
-                <div className="button-container flex">
-                  <Link href={`/OrderStatus/${item._id}`}><div className="track-order">Track the progress</div></Link>
-                  {item.orderStatus === "delivered" 
-                  ? <div className="button-receipt flex">
-                      <Link href={`/Receipt/${item._id}`}>
-                        <div className="button-one">View Receipt</div>
-                      </Link>
-                      <div className="button-one">Reorder</div>
-                    </div>
-                  : ""
-                  }
-                </div> 
+                {item.orderStatus === 'rejected' || item.orderStatus === 'refund'
+                ? ""
+                : <div className="button-container flex">
+                    <Link href={`/OrderStatus/${item._id}`}><div className="track-order">Track the progress</div></Link>
+                    {item.orderStatus === "delivered" 
+                    ? <div className="button-receipt flex">
+                        <Link href={`/Receipt/${item._id}`}>
+                          <div className="button-one">View Receipt</div>
+                        </Link>
+                        <div className="button-one">Reorder</div>
+                      </div>
+                    : ""
+                    }
+                  </div> 
+                }
               </div>
             )
           })

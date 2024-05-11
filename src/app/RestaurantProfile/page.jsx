@@ -55,19 +55,19 @@ const RestaurantProfile = () => {
             <input type="text" value={session.user.username} />
           </div>
           <div className="lable">
-            Phone Number
-          </div>
-          <div className="user-detail">
-            <input type="text" value={session.user.phone} />
-          </div>
-          <div className="lable">
             Email
           </div>
           <div className="user-detail">
             <input type="text" value={session.user.email} />
           </div>
           <div className="lable">
-            Operating time
+            Restaurant Name
+          </div>
+          <div className="user-detail">
+            <input type="text" value={restaurantData.name} />
+          </div>
+          <div className="lable">
+            Restaurant Operating time
           </div>
           <div className="user-detail">
             <input type="text" value={restaurantData.openingHours} />
