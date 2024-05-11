@@ -78,6 +78,16 @@ const RestaurantOrderList = () => {
       alert('Error updating order status: ' + error.message);
     }
   };
+  function formatDate(dateString) {
+    const optionsDate = { year: 'numeric', month: 'long', day: 'numeric' };  // Options for the date part
+    const optionsTime = { hour: 'numeric', minute: 'numeric', hour12: true };  // Options for the time part
+
+    const date = new Date(dateString);
+    const formattedDate = date.toLocaleDateString('en-US', optionsDate);
+    const formattedTime = date.toLocaleTimeString('en-US', optionsTime);
+
+    return `${formattedDate}, ${formattedTime}`;
+  }
 
   return (
     <div className='order-list'>
@@ -97,7 +107,8 @@ const RestaurantOrderList = () => {
           <React.Fragment key={item._id}>
             <div className="order-item-container" key={index}>
               <div className="data-item">
-                Order ID: {item._id}
+                <div className="data-item">Order ID: {item._id}</div>
+                <div className="data-item">{formatDate(item.createdAt)}</div>
               </div>
               <div className="data-item">
                 {item.totalPrice}
