@@ -60,7 +60,7 @@ const Profile = () => {
                   <div>Plan</div>
                   <div>Monthly</div>
                   <div>Next Bill date</div>
-                  <div>17 March, 2024</div>
+                  <div>17 June, 2024</div>
                 </div>
                 <div className="membership-btns flex">
                   <button classname="membership-btn btn">Renew</button>

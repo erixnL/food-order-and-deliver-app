@@ -8,7 +8,7 @@ const RestDisplay = ({category}) => {
   const [restaurants, setRestaurants] = useState([]);
   const [distanceFilter, setDistanceFilter] = useState("All");
   const [ratingFilter, setRatingFilter] = useState("All");
-  const [priceFilter, setPriceFilter] = useState("All");
+  // const [priceFilter, setPriceFilter] = useState("All");
 
   useEffect(()=> {
         const fetchRestaurants = async () => {
@@ -23,9 +23,9 @@ const RestDisplay = ({category}) => {
     }, [])
 
   const clearFilters = () => {
-    setTimeFilter("All");
+    setDistanceFilter("All");
     setRatingFilter("All");
-    setPriceFilter("All");
+    // setPriceFilter("All");
   };
 
   const filteredRestaurants = restaurants.filter((item) => {
@@ -33,10 +33,10 @@ const RestDisplay = ({category}) => {
     const matchesTime = distanceFilter === "All" || 
                         (distanceFilter === "30mins" && (item.postcode === '2500' || item.postcode === '2522')) ||
                         (distanceFilter === "30miles" && (item.postcode === '2500' || item.postcode === '2522' || item.postcode === '2518'));
-    const matchesRating = ratingFilter === "All" || item.rating >= parseFloat(ratingFilter);
-    const matchesPrice = priceFilter === "All" || item.priceRange === priceFilter;
+    const matchesRating = ratingFilter === "All" || item.ratings.averageRating >= parseFloat(ratingFilter);
+    // const matchesPrice = priceFilter === "All" || item.priceRange === priceFilter;
     
-    return matchesCategory && matchesTime && matchesRating && matchesPrice;
+    return matchesCategory && matchesTime && matchesRating;
   });
 
   const ratingOptions = [
@@ -61,11 +61,11 @@ const RestDisplay = ({category}) => {
           options={ratingOptions} 
           onChange={setRatingFilter} 
         />
-        <DropdownButton 
+        {/* <DropdownButton 
           label="Price Range" 
           options={[{label: "Any Price", value: "All"}, {label: "$", value: "$"}, {label: "$$", value: "$$"}, {label: "$$$", value: "$$$"}]} 
           onChange={setPriceFilter} 
-        />
+        /> */}
         <div onClick={clearFilters} className="clear-filters">Clear Filters</div>
       </div>
       <h2>{category}</h2>
