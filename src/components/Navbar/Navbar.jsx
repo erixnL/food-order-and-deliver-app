@@ -6,9 +6,10 @@ import { FiShoppingBag } from "react-icons/fi";
 import { FaRegUserCircle } from "react-icons/fa";
 import Link from 'next/link';
 import {signIn, signOut, useSession} from "next-auth/react";
-import SearchRestaurants from '../Search/SearchBar';
+import SearchBar from '../Search/SearchBar';
 import { AppContext } from '@/Context/AppContext';
 import ProfileMenu from '../ProfileMenu/ProfileMenu';
+import { useSearchParams, useRouter } from "next/navigation"
 
 
 const Navbar = () => {
@@ -23,6 +24,19 @@ const Navbar = () => {
 
   const [navbarColor, setNavbarColor] = useState("");
 
+  const searchParams = useSearchParams();
+  const router = useRouter();
+
+  const handleSearch = (searchTerm) => {
+      const params = new URLSearchParams(searchParams)
+      if (searchTerm) {
+          params.set("query", searchTerm)
+      } else {
+          params.delete("query")
+      }
+      router.push(`/Search?${params.toString()}`)
+  }
+
   useEffect(() => {
     const color = !session || session?.user?.userRole === "customer" ? "red" 
       : session?.user?.userRole === "delivery_person" ? "blue" 
@@ -32,6 +46,7 @@ const Navbar = () => {
     // console.log("Color",navbarColor);  
   },[session, status]); 
 
+  
   useEffect(() => {
     // console.log("Session status:", status);
     // console.log("Session data:", session);
@@ -70,9 +85,9 @@ const Navbar = () => {
           <div className='searchBar flex'>
             <div className="icon"><CiSearch size={20} /></div>
             <div>
-              <SearchRestaurants />
+              <SearchBar handleSearch={handleSearch}/>
             </div>
-            <button className="btn">Go</button>
+            <button className="btn" onClick={() => handleSearch(document.querySelector('[name="search"]').value)}>Go</button>
           </div>
         }
 

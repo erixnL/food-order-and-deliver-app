@@ -43,7 +43,8 @@ const ProfileMenu = () => {
         }
         
       </div>
-      <div onClick={function(event){signOut();setShowProfileMenu(false) }} className="sign-out">Sign out</div>
+      <div onClick={function(event){signOut({callbackUrl: '/'  // URL to redirect to after sign out
+    });setShowProfileMenu(false) }} className="sign-out">Sign out</div>
     </div>
   )
 }
