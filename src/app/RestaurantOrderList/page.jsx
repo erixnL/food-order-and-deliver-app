@@ -4,6 +4,8 @@ import Link from 'next/link'
 import { useSession } from 'next-auth/react'
 import "./RestaurantOrderList.css"
 import OrderNavbar from '@/components/OrderNavbar/Ordernavbar'
+import { MdContentPaste } from "react-icons/md";
+
 
 
 const RestaurantOrderList = () => {
@@ -25,7 +27,9 @@ const RestaurantOrderList = () => {
 
         if (session?.user?.restaurant) {
           const filteredOrders = data.filter(order => order.restaurant === session.user.restaurant);
-          setOrderList(filteredOrders);
+
+          const sortedOrders = filteredOrders.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+          setOrderList(sortedOrders);
         }
 
       }else {
@@ -142,7 +146,9 @@ const RestaurantOrderList = () => {
                 </div>
               : <div></div>
               }
-              
+                <Link href={`/OrderDetails/${item._id}`} className="order-icon">
+                  <MdContentPaste />
+                </Link>
             </div>
             <hr/>
           </React.Fragment>

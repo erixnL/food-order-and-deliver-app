@@ -1,6 +1,6 @@
 'use client'
-import React, { useEffect, useState } from 'react'
-import "./EditMenu.css"
+import React, { useEffect, useState } from 'react';
+import "./EditMenu.css";
 import { useSession } from 'next-auth/react';
 import { FaEdit } from "react-icons/fa";
 import Image from 'next/image';
@@ -11,18 +11,17 @@ const EditMenu = () => {
   const { data: session, status } = useSession();
   console.log("Edit Menu session data", session);
 
-  const [menuItems, setMenuItems] = useState([]);
-  const [editingItem, setEditingItem] = useState({});
- 
-
   const pathname = usePathname();
   const itemId = pathname.split('/').pop();
   console.log("EditMenu itemId", itemId);
 
-  const restaurantId = session?.user?.restaurant;
+  const [menuItems, setMenuItems] = useState([]);
+  const [editingItem, setEditingItem] = useState({});
 
   console.log("EditMenu menuItems data", menuItems);
   console.log("EditMenu editingItem", editingItem);
+
+  const restaurantId = session?.user?.restaurant;
 
   useEffect(()=> {
     const fetchRestaurantMenu  = async () => {

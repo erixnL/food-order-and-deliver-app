@@ -34,7 +34,7 @@
     .order-item-container{
       width: 100%;
       display: grid;
-      grid-template-columns: 3fr 1fr 1fr 1fr;
+      grid-template-columns: 3fr 1fr 1fr 1fr auto;
       align-items: flex-end;
       padding: 5px 20px 5px 20px;
       border-radius: 10px;
@@ -63,6 +63,9 @@
           background-color: #000000;
 
         }
+      }
+      .order-icon{
+        margin: 5px;
       }
       
       

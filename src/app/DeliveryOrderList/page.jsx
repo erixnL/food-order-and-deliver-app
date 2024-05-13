@@ -4,6 +4,8 @@ import Link from 'next/link'
 import { useSession } from 'next-auth/react'
 import "./DeliveryOrderList.css"
 import OrderNavbar from '@/components/OrderNavbar/Ordernavbar'
+import { MdContentPaste } from "react-icons/md";
+
 
 
 const DeliveryOrderList = () => {
@@ -24,7 +26,8 @@ const DeliveryOrderList = () => {
       const response = await fetch(`/api/restaurantOrder`);
       if(response.ok){
         const data = await response.json();
-        setOrderList(data);
+        const sortedOrders = data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        setOrderList(sortedOrders);
 
       }else {
         console.error("Failed to fetch orders");
@@ -46,7 +49,7 @@ const DeliveryOrderList = () => {
   const statusDescriptions = {
     'new': 'New Order',
     'rejected': 'Order Rejected', 
-    'refund': 'Refund will be deposited to your bank account within 7 business days.',
+    'refund': 'Refund',
     'accepted': 'Order Accepted',
     'preparing': 'Preparing',
     'ready_for_pickup': 'Ready for Pickup',
@@ -134,7 +137,9 @@ const DeliveryOrderList = () => {
                 </div>
               : <div></div>
               }
-              
+              <Link href={`/OrderDetails/${item._id}`} className="order-icon">
+                  <MdContentPaste />
+              </Link>
             </div>
             <hr/>
           </React.Fragment>

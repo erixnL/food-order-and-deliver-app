@@ -25,7 +25,7 @@ const ProfileMenu = () => {
         /> */}
         <div className="text flex">
           <div className="name">{session.user.username}</div>
-          <div className="membership">Membership</div>
+          {/* <div className="membership">Membership</div> */}
         </div>
       </div>
       <div className="user-menu flex">
