@@ -78,7 +78,7 @@ const Navbar = () => {
             <Link href="/RestaurantProfile" className="menu-item">Restaurant Profile</Link>
             <Link href="/RestaurantOrderList" className="menu-item">Order</Link>
             <Link href="/MenuList" className="menu-item">Menu</Link>
-            <Link href="/MenuList" className="menu-item">Report</Link>
+            <Link href="/RestaurantReport" className="menu-item">Report</Link>
           </div> 
 
           : session && session?.user?.userRole === "delivery_person" 
