@@ -1,11 +1,7 @@
 import React from 'react'
 import "./OrderNavbar.css"
 
-const OrderNavbar = ({ onSelectFilter }) => {
-
-  const handleSelectFilter = (filter) => {
-    onSelectFilter(statusMapping[filter]);  // Pass filter back to the parent component
-  };
+const OrderNavbar = ({ onSelectFilter, filtersToShow  }) => {
 
   const statusMapping = {
     'New Order': ['new'],
@@ -17,9 +13,16 @@ const OrderNavbar = ({ onSelectFilter }) => {
     'All': ['all']  // 'all' means no filtering
   };
 
+  const visibleFilters = filtersToShow ? Object.keys(statusMapping).filter(key => filtersToShow.includes(key)) : Object.keys(statusMapping);
+
+  const handleSelectFilter = (filter) => {
+    onSelectFilter(statusMapping[filter]);  // Pass filter back to the parent component
+  };
+
+
   return (
     <div className='order-navbar flex'>
-      {Object.keys(statusMapping).map(filter => (
+      {visibleFilters.map(filter => (
         <div 
           key={filter} 
           className="order-navbar-item" 

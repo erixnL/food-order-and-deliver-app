@@ -80,6 +80,13 @@ const Navbar = () => {
             <Link href="/MenuList" className="menu-item">Menu</Link>
             <Link href="/MenuList" className="menu-item">Report</Link>
           </div> 
+
+          : session && session?.user?.userRole === "delivery_person" 
+          ?
+          <div className="nav-menu-list flex">
+            <Link href="/DeliveryProfile" className="menu-item">Profile</Link>
+            <Link href="/DeliveryOrderList" className="menu-item">Order</Link>
+          </div> 
           
           : 
           <div className='searchBar flex'>

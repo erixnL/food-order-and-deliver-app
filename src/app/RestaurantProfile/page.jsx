@@ -79,7 +79,8 @@ const RestaurantProfile = () => {
             <input type="text" value={restaurantData.address} />
           </div>
           <button className="btn">Save</button>
-        </div><div className="second flex">
+        </div>
+        <div className="second flex">
             <div className="text flex">
               <div>Password</div>
               <div>................</div>

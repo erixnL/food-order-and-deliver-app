@@ -2,11 +2,11 @@
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useSession } from 'next-auth/react'
-import "./RestaurantOrderList.css"
+import "./DeliveryOrderList.css"
 import OrderNavbar from '@/components/OrderNavbar/Ordernavbar'
 
 
-const RestaurantOrderList = () => {
+const DeliveryOrderList = () => {
 
   const { data: session, status } = useSession();
   const [orderList, setOrderList] = useState([]);
@@ -17,16 +17,14 @@ const RestaurantOrderList = () => {
   console.log("OrderList orderList", orderList);
   console.log("OrderList filteredOrderList", filteredOrderList);
 
+  const filtersToShow = ['Ready for pick up', 'Delivery', 'Delivered', 'All'];
+
   useEffect(()=>{
     const fetchOrders = async() => {
       const response = await fetch(`/api/restaurantOrder`);
       if(response.ok){
         const data = await response.json();
-
-        if (session?.user?.restaurant) {
-          const filteredOrders = data.filter(order => order.restaurant === session.user.restaurant);
-          setOrderList(filteredOrders);
-        }
+        setOrderList(data);
 
       }else {
         console.error("Failed to fetch orders");
@@ -48,7 +46,7 @@ const RestaurantOrderList = () => {
   const statusDescriptions = {
     'new': 'New Order',
     'rejected': 'Order Rejected', 
-    'refund': 'Refund',
+    'refund': 'Refund will be deposited to your bank account within 7 business days.',
     'accepted': 'Order Accepted',
     'preparing': 'Preparing',
     'ready_for_pickup': 'Ready for Pickup',
@@ -91,7 +89,7 @@ const RestaurantOrderList = () => {
 
   return (
     <div className='order-list'>
-      <OrderNavbar onSelectFilter={setCurrentFilters}/>
+      <OrderNavbar onSelectFilter={setCurrentFilters} filtersToShow={filtersToShow}/>
       <div className="order-list-container flex">
         <div className="heading">
           <div className="heading-item">Order ID</div>
@@ -116,28 +114,22 @@ const RestaurantOrderList = () => {
               <div className="data-item">
                 {statusDescriptions[item.orderStatus]}
               </div>
-              {item.orderStatus === "new" ? 
+              {item.orderStatus === "ready_for_pickup" ? 
                 <div className="order-action flex">
                   <button 
                     className='order-button red btn' 
-                    onClick={()=>updateOrderStatus(item._id, 'accepted')}
+                    onClick={()=>updateOrderStatus(item._id, 'on_the_way')}
                   >
-                    Accept
-                  </button>
-                  <button 
-                    className='order-button black btn' 
-                    onClick={()=>updateOrderStatus(item._id, 'rejected')}
-                  >
-                    Reject
+                    On the Way
                   </button>
                 </div>
-              : item.orderStatus === "accepted" || item.orderStatus === "preparing" ? 
+              : item.orderStatus === "on_the_way"? 
                 <div className="order-action flex">
                   <button 
                     className='order-button red btn' 
-                    onClick={()=>updateOrderStatus(item._id, 'ready_for_pickup')}
+                    onClick={()=>updateOrderStatus(item._id, 'delivered')}
                   >
-                    Ready for pick up
+                    Delivered
                   </button>
                 </div>
               : <div></div>
@@ -160,4 +152,4 @@ const RestaurantOrderList = () => {
   )
 }
 
-export default RestaurantOrderList
+export default DeliveryOrderList
