@@ -13,7 +13,7 @@ const DeliveryOrderList = () => {
   const { data: session, status } = useSession();
   const [orderList, setOrderList] = useState([]);
   const [filteredOrderList, setFilteredOrderList] = useState([]);
-  const [currentFilters, setCurrentFilters] = useState(['all']); 
+  const [currentFilters, setCurrentFilters] = useState(['ready_for_pickup']); 
 
   console.log("OrderList session", session?.user);
   console.log("OrderList orderList", orderList);

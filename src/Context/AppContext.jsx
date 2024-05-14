@@ -19,6 +19,8 @@ const AppContextProvider = (props) => {
 
   const [currentOrder, setCurrentOrder] = useState({});
 
+  const [showNotification, setShowNotification] = useState(false);
+
   const removeFromCart = (itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }))
   }
@@ -50,7 +52,9 @@ const AppContextProvider = (props) => {
     orderHistory, 
     setOrderHistory,
     currentOrder, 
-    setCurrentOrder
+    setCurrentOrder,
+    showNotification, 
+    setShowNotification
 
   }
 

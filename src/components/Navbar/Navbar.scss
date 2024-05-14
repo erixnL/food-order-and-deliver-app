@@ -89,9 +89,31 @@
     color: white;
     width: 200px;
 
+    .notification-icon{
+      position: relative;
+      .icon {
+        cursor: pointer;
+      }
+
+      .dot{
+        position: absolute;
+        min-width: 7px;
+        min-height: 7px;
+        background-color: yellow;
+        border-radius: 5px;
+        top: -3px;
+        right: -3px;
+      }
+
+    }
+
     .cart-icon{
       justify-content: space-between;
       position: relative;
+
+      .icon {
+        cursor: pointer;
+      }
 
       .dot{
         position: absolute;
