@@ -3,9 +3,10 @@
   margin: auto;
   padding: 30px 30px;
   gap: 18px;
+  align-items: stretch;
 
   h2{
-    
+    align-self: center;
   }
 
   .back-to-order{
@@ -14,6 +15,9 @@
     color: #DE250C;
     font-size: 14px;
 
+  }
+  .payment-label{
+    font-size: 13px;
   }
 
   input{
@@ -32,10 +36,12 @@
     }
   }
 
-  .btn{
+  .payment-btn{
     font-size: 15px;
     width: 150px;
     border-radius: 10px;
+    color: white;
+    background-color: #DE250C;
   }
 
 

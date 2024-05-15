@@ -1,31 +1,42 @@
 'use client';
-import React, { useContext, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import "./RestDisplay.css";
 import RestCard from '../RestCard/RestCard';
-import { AppContext } from '@/Context/AppContext';
 import DropdownButton from '../DropdownButton/DropdownButton';
 
 const RestDisplay = ({category}) => {
-
-  const {Restaurant_list} = useContext(AppContext);
-
-  const [timeFilter, setTimeFilter] = useState("All");
+  const [restaurants, setRestaurants] = useState([]);
+  const [distanceFilter, setDistanceFilter] = useState("All");
   const [ratingFilter, setRatingFilter] = useState("All");
-  const [priceFilter, setPriceFilter] = useState("All");
+  // const [priceFilter, setPriceFilter] = useState("All");
+
+  useEffect(()=> {
+        const fetchRestaurants = async () => {
+
+            const response = await fetch(`/api/restaurants`)
+            const data = await response.json()
+            console.log(data)
+
+            setRestaurants(data) 
+        }
+        fetchRestaurants();
+    }, [])
 
   const clearFilters = () => {
-    setTimeFilter("All");
+    setDistanceFilter("All");
     setRatingFilter("All");
-    setPriceFilter("All");
+    // setPriceFilter("All");
   };
 
-  const filteredRestaurants = Restaurant_list.filter((item) => {
+  const filteredRestaurants = restaurants.filter((item) => {
     const matchesCategory = category === "All" || item.category === category;
-    const matchesTime = timeFilter === "All" || item.distance === timeFilter;
-    const matchesRating = ratingFilter === "All" || item.rating >= parseFloat(ratingFilter);
-    const matchesPrice = priceFilter === "All" || item.priceRange === priceFilter;
+    const matchesTime = distanceFilter === "All" || 
+                        (distanceFilter === "30mins" && (item.postcode === '2500' || item.postcode === '2522')) ||
+                        (distanceFilter === "30miles" && (item.postcode === '2500' || item.postcode === '2522' || item.postcode === '2518'));
+    const matchesRating = ratingFilter === "All" || item.ratings.averageRating >= parseFloat(ratingFilter);
+    // const matchesPrice = priceFilter === "All" || item.priceRange === priceFilter;
     
-    return matchesCategory && matchesTime && matchesRating && matchesPrice;
+    return matchesCategory && matchesTime && matchesRating;
   });
 
   const ratingOptions = [
@@ -39,22 +50,22 @@ const RestDisplay = ({category}) => {
    return (
     <div className='rest-display' id='rest-display' role='restaurant-list'>
       <div className="filters flex">
-        <input className='postcode-input input' placeholder='Enter suburb or postcode'/>
+        <input className='postcode-input input' placeholder='2500'/>
         <DropdownButton 
-          label="Time Filter"  
-          options={[{label: "Any Time", value: "All"}, {label: "Under 30 mins", value: "Under 30 min"}]} 
-          onChange={setTimeFilter} 
+          label="Distance"  
+          options={[{label: "Any", value: "All"}, {label: "< 30 mins", value: "30mins"}, {label: "< 30 miles", value: "30miles"}]} 
+          onChange={setDistanceFilter} 
         />
         <DropdownButton 
           label="Ratings" 
           options={ratingOptions} 
           onChange={setRatingFilter} 
         />
-        <DropdownButton 
+        {/* <DropdownButton 
           label="Price Range" 
           options={[{label: "Any Price", value: "All"}, {label: "$", value: "$"}, {label: "$$", value: "$$"}, {label: "$$$", value: "$$$"}]} 
           onChange={setPriceFilter} 
-        />
+        /> */}
         <div onClick={clearFilters} className="clear-filters">Clear Filters</div>
       </div>
       <h2>{category}</h2>
@@ -64,8 +75,7 @@ const RestDisplay = ({category}) => {
               key={index}
               id={item._id}
               name={item.name}
-              rating={item.rating}
-              image={item.image}
+              rating={item.ratings.averageRating}
             />
         })}
       </div>

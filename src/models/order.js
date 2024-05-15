@@ -11,8 +11,17 @@ const OrderSchema = new Schema({
         ref: 'Restaurant',
         required: [true, 'Restaurant is required!'],
     },
+    restaurantName: {
+        type: String,
+        ref: 'Restaurant',
+        required: [true, 'Restaurant name is required!'],
+    },
     items: [
         {
+            itemId: {
+                type: Schema.Types.ObjectId,
+                required: [true, 'Menu item id is required!'],
+            },
             menuItem: {
                 type: String,
                 required: [true, 'Menu item name is required!'],
@@ -27,6 +36,14 @@ const OrderSchema = new Schema({
             },
         },
     ],
+    deliveryFee: {
+        type: Number,
+        required: [true, 'Delivery Fee is required!'],
+    },
+    serviceFee: {
+        type: Number,
+        default: 0,
+    },
     totalPrice: {
         type: Number,
         required: [true, 'Total price is required!'],
@@ -37,8 +54,12 @@ const OrderSchema = new Schema({
     },
     orderStatus: {
         type: String,
-        enum: ['accepted', 'preparing', 'ready_for_delivery', 'delivered'],
-        default: 'accepted',
+        enum: ['new', 'accepted', 'rejected', 'refund','preparing', 'ready_for_pickup', 'on_the_way', 'delivered'],
+        default: 'new',
+    },
+    deliveryAddress: {
+        type: String,
+        default: "U4, 15 Simith Street, Wollongong"
     },
     deliveryPerson: {
         type: Schema.Types.ObjectId,
@@ -57,6 +78,9 @@ const OrderSchema = new Schema({
         type: String,
         default: '',
     },
+    
+}, {
+    timestamps: true // Add createdAt and updatedAt fields
 });
 
 const Order = models.Order || model("Order", OrderSchema);

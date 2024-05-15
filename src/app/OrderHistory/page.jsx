@@ -1,28 +1,53 @@
 'use client'
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import "./OrderHistory.css"
 import Link from 'next/link'
 import { AppContext } from '@/Context/AppContext'
 import { useSession } from 'next-auth/react'
 
 const OrderHistory = () => {
-  const {order_list} = useContext(AppContext);
-  const hasOrders = order_list.length > 0;
+  const {orderHistory, setOrderHistory} = useContext(AppContext);
+  console.log("orderHistory from Order History", orderHistory)
+  const { data: session, status } = useSession();
 
-  
-  const [orderHistory, setOrderHistory] = useState([]);
+  const hasOrders = orderHistory.length > 0;
+
   useEffect(() => {
     const fetchOrders = async () => {
-      const response = await fetch(`/api/orders`);
-      const data = await response.json();
-      console.log(data)
-
-      setOrderHistory(data)
+      const response = await fetch(`/api/orders/${session?.user.id}`);
+      if (response.ok) {
+        const data = await response.json();
+        setOrderHistory(data);
+      } else {
+        console.error("Failed to fetch orders");
+        setOrderHistory([]);  // Ensure state is clear if fetch fails
+      }
     };
 
     fetchOrders();
-  }, []);
+  }, [session]);
 
+  function formatDate(dateString) {
+    const optionsDate = { year: 'numeric', month: 'long', day: 'numeric' };  // Options for the date part
+    const optionsTime = { hour: 'numeric', minute: 'numeric', hour12: true };  // Options for the time part
+
+    const date = new Date(dateString);
+    const formattedDate = date.toLocaleDateString('en-US', optionsDate);
+    const formattedTime = date.toLocaleTimeString('en-US', optionsTime);
+
+    return `${formattedDate}, ${formattedTime}`;
+  }
+
+  const statusDescriptions = {
+    'new': 'New Order',
+    'rejected': 'Order Rejected', 
+    'refund': 'Refund will be deposited to your bank account within 7 business days.',
+    'accepted': 'Order Accepted',
+    'preparing': 'Preparing',
+    'ready_for_pickup': 'Ready for Pickup',
+    'on_the_way': 'On the Way',
+    'delivered': 'Delivered'
+  };
 
   return (
     <div className='order-history flex'>
@@ -31,25 +56,28 @@ const OrderHistory = () => {
       { hasOrders
       ? (  
         <div className="order-list-container flex">
-          {order_list.map((item, index)=>{
+          {orderHistory.map((item, index)=>{
             return(
               <div className="order-container flex" key={index}>
                 <div className="description-container flex">
                   <div>{item.restaurantName}</div>
-                  <div>{item.dateAndTime}</div>
-                  <div>{item.deliveryAddress}</div>
+                  <div>{formatDate(item.createdAt)}</div>
+                  <div>Order Status: {statusDescriptions[item.orderStatus]}</div>
                 </div>
-                {item.status === "Order completed" 
-                ? <div className="button-container flex">
-                    <Link href={" "}>
-                      <div className="button-one">View Receipt</div>
-                    </Link>
-                    <div className="button-one">Reorder</div>
-                  </div>
+                {item.orderStatus === 'rejected' || item.orderStatus === 'refund'
+                ? ""
                 : <div className="button-container flex">
-                    <Link href={"/OrderStatus"}><div className="track-order">Track the progress</div></Link>
-                    <div className="confirm-order">Confirm Order Completion</div>
-                  </div>    
+                    <Link href={`/OrderStatus/${item._id}`}><div className="track-order">Track the progress</div></Link>
+                    {item.orderStatus === "delivered" 
+                    ? <div className="button-receipt flex">
+                        <Link href={`/Receipt/${item._id}`}>
+                          <div className="button-one">View Receipt</div>
+                        </Link>
+                        <div className="button-one">Reorder</div>
+                      </div>
+                    : ""
+                    }
+                  </div> 
                 }
               </div>
             )

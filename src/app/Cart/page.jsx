@@ -2,63 +2,44 @@
 import React, { useContext, useEffect } from 'react';
 import "./Cart.css";
 import { AppContext } from '@/Context/AppContext';
-import Image from 'next/image';
 import Link from 'next/link'
+import FoodItemContainer from '@/components/FoodItemContainer/FoodItemContainer';
 import { useSession } from 'next-auth/react';
 
 const Cart = () => {
 
-  const {cartItems, food_list, removeFromCart, getCartTotal} = useContext(AppContext);
+  const {cartItems, getCartTotal} = useContext(AppContext);
+  console.log ('cartItems from cart page:',cartItems);
+
   const { data: session, status } = useSession();
+  console.log('Session from cart page:',session);
+
 
   return (
-    getCartTotal() 
+    Object.keys(cartItems).length > 0  
       ? (
         <div className='cart flex'>
           <div className="cart-items flex">
-            {food_list.map((item, index) => {
-              if(cartItems[item._id]>0){
-                return (
-                  <div className="item-container" key={item._id}>
-                    <div className="cart-item ">
-                      <div className="cart-items-image">
-                        <Image src={item.image} alt="" />
-                      </div>
-                      <div className="cart-items-info flex">
-                        <div className="cart-item-restaurant">
-                          {/* to be replaced by restaurant name */}
-                          {item.category} 
-                        </div>
-                        <div className="cart-item-name">
-                          {item.name}
-                        </div>
-                        <div className="cart-item-price">
-                          ${item.price*cartItems[item._id] }
-                        </div>
-                      </div>
-                      <div className="cart-item-quantities flex">
-                        <div className="cart-item-quantity">
-                          x {cartItems[item._id]}
-                        </div>
-                        <div className="cart-item-remove">
-                          <button onClick={()=>removeFromCart(item._id)}className='btn'>Remove</button>
-                        </div>
-                      </div>
-                    </div>
-                    <hr />
-                  </div>
+            {Object.values(cartItems).map((item, index) => (
 
-                )
-              }
-            })}
+              <FoodItemContainer 
+                key = {index}
+                restaurant = {item.restaurantName}
+                restaurantId = {item.restaurantId}
+                itemId = {item.itemId}
+                itemName = {item.itemName}
+                itemPrice = {item.price}
+                quantity = {item.quantity}
+              />
+            ))}
 
           </div>
           <div className="cart-amount flex">
             <p>Subtotal</p>
-            <p>${getCartTotal()}</p>
+            <p>${getCartTotal().toFixed(2)}</p>
           </div>
           <div className="cart-checkout">
-            <Link href={"/placeorder"}><button className='btn'>Go to Checkout</button></Link>
+            <Link href={"/PlaceOrder"}><button className='check-out-btn btn'>Go to Checkout</button></Link>
           </div>
         </div>
       ) 

@@ -1,0 +1,29 @@
+.notification{
+  position: fixed;
+  z-index: 1;
+  top: max(130px, 10%);
+  left: 85%;
+  transform: translate(-50%, -50%);
+  flex-direction: column;
+  align-items: stretch;
+  width: max(15vw, 280px);
+  height: 150px;
+  background-color: #FFFAF0;
+  padding: 20px 30px;
+  gap: 20px;
+
+  .notificaiton-heading{
+    align-self: flex-start;
+    font-weight: 600;
+  }
+  .notification-text{  
+    gap: 5px;
+    align-self: flex-start;
+    font-weight: 500;
+
+    &:hover{
+      color: #FF4500;
+    }
+  }
+
+}

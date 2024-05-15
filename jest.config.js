@@ -9,7 +9,8 @@ const config = {
   rootDir: './',
   coverageProvider: 'v8',
   testEnvironment: 'jsdom',
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'], // Add this line
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'], 
+  
   moduleNameMapper: {
     
     '^@/components/(.*)$': '<rootDir>/components/$1',
@@ -18,5 +19,6 @@ const config = {
     '^@/api/(.*)$': '<rootDir>/src/app/api/$1',
   },
 };
+
 
 module.exports = createJestConfig(config);

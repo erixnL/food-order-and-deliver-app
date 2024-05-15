@@ -47,20 +47,40 @@ const Profile = () => {
               <div>Last changed December 23, 2023</div>
             </div>
             <div className="icon"><FaArrowRight color="#7B7474" size="30" /></div>
-          </div><div className="third flex">
-            <div className="text flex">
-              <div>Membership</div>
-              <div className='details'>
-                <div>Start from</div>
-                <div>17 December 2023</div>
-                <div>Plan</div>
-                <div>Monthly</div>
-                <div>Next Bill date</div>
-                <div>17 March, 2024</div>
+          </div>
+          <div className="third flex">
+            {
+              session?.user?.membership !== 'none' ?
+              <>
+              <div className="text flex">
+                <div>Membership</div>
+                <div className='details'>
+                  <div>Start from</div>
+                  <div>17 December 2023</div>
+                  <div>Plan</div>
+                  <div>Monthly</div>
+                  <div>Next Bill date</div>
+                  <div>17 June, 2024</div>
+                </div>
+                <div className="membership-btns flex">
+                  <button classname="membership-btn btn">Renew</button>
+                  <button classname="membership-btn btn">Cancel</button>
+                </div>
               </div>
-            </div>
-            <div className="icon"><FaArrowRight color="#7B7474" size="30" /></div>
-          </div></>) : (
+              <div className="icon"><FaArrowRight color="#7B7474" size="30" /></div>
+              </>
+              : 
+              <div className="text flex">
+                <div>Welcome to join our membership!</div>
+                <div className="membership-btns flex">
+                  <button classname="membership-btn btn">Join</button>
+                </div>
+
+              </div>
+            }
+            
+          </div>
+        </>) : (
           <div>
           </div>
         )}

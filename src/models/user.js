@@ -1,6 +1,7 @@
 import { Schema, model, models } from 'mongoose';
 
 const CartItemSchema = new Schema({
+    _id: false,
     itemId: {
         type: Schema.Types.ObjectId,
         ref: 'restaurant',
@@ -15,8 +16,13 @@ const CartItemSchema = new Schema({
         type: String,
         required: true,
     },
-    restuarant: {
+    restaurantName: {
         type: String,
+        required: true,
+    },
+    restaurantId: {
+        type: Schema.Types.ObjectId,
+        ref: 'restaurant',
         required: true,
     },
     price: {

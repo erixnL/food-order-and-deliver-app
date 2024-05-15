@@ -1,0 +1,43 @@
+.food-display {
+  margin-top: 60px;
+  padding: 30px;
+  margin: auto;
+}
+.food-display .restaurant-details {
+  display: flex;
+  gap: 20px;
+  align-items: flex-end;
+}
+.food-display .restaurant-details .restaurant-name-container .restaurant-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+}
+.food-display .restaurant-details .restaurant-name-container .restaurant-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #DE250C;
+}
+.food-display .restaurant-details .restaurant-info {
+  color: #7B7474;
+}
+.food-display .restaurant-details .restaurant-info .restaurant-address {
+  font-size: 14px;
+}
+.food-display .restaurant-details .restaurant-info .second-row {
+  display: flex;
+  gap: 10px;
+}
+.food-display .restaurant-details .restaurant-info .second-row .restaurant-ratings {
+  font-size: 14px;
+}
+.food-display .restaurant-details .restaurant-info .second-row .operating-time {
+  font-size: 14px;
+}
+.food-display .food-display-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  margin-top: 30px;
+  gap: 30px;
+  row-gap: 50px;
+}/*# sourceMappingURL=restaurant.css.map */

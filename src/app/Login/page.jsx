@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import "./Login.css";
 import { MdOutlinePerson } from "react-icons/md";
 import { RiLockPasswordLine } from "react-icons/ri";
-
+import {signIn, signOut, useSession} from "next-auth/react";
 
 const Login = () => {
 
@@ -29,9 +29,7 @@ const Login = () => {
 
     if(!formData.email.trim()){
       validationErrors.email = "email is required"
-    } else if (!/\S+@uowmail\.edu\.au/.test(formData.email)){
-      validationErrors.email = "This email is not a valid UOW email"
-    }
+    } 
 
     if(!formData.password.trim()){
       validationErrors.password = "password  is required"
@@ -39,9 +37,7 @@ const Login = () => {
     
     setErrors(validationErrors)
 
-    if(Object.keys(validationErrors).length === 0) {
-      alert("Form Submitted successfully")
-    }
+    
   }
 
   const handleClearForm = (actionType) => {
@@ -81,7 +77,7 @@ const Login = () => {
             </div>
             {errors.password && <span className="error">{errors.password}</span>}
             <div className="submit flex">
-              <input className="btn" type="submit" value="Login" />
+              <input className="btn" type="submit" value="Login" onClick={()=> signIn()}/>
             </div>            
           </form>
         </div>

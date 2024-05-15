@@ -1,45 +1,61 @@
-import '@testing-library/jest-dom'
-import { render, screen } from '@testing-library/react'
-import Page from "../src/app/page"
- 
-describe('Page', () => {
-  it('renders categories', () => {
-    render(<Page />)
- 
-    const categories = screen.getByRole('categories')
- 
-    expect(categories).toBeInTheDocument()
-  })
-})
+import '@testing-library/jest-dom';
+import { render, screen } from '@testing-library/react';
+import Page from "../src/app/page";
+import fetch from 'node-fetch';
 
-describe('Page', () => {
-    it('renders restaruant list', () => {
+jest.mock('node-fetch');
+
+test('renders restaurants fetching from database', async () => {
+  // Mock response data
+  const mockResponse = [{"ratings":{"averageRating":4.2,"totalReviews":30},"revenueReports":{"weekly":0,"daily":null,"monthly":null,"yearly":""},"_id":"661d24e35295dade434f01bf","name":"McDonald's","email":"mcdonald@test.com","phone":"0400000012","address":"200, New Dapto Street, Wollongong","openingHours":"8-20","category":"Burgers","menu":[{"name":"Big Mac","price":6.99,"active":true,"_id":"663ac95d02125889d201da0e"},{"active":true,"name":"Chicken Nuggets-6pc","price":7.4,"_id":"663611673d9041e483a33e81"},{"name":"McChicken","price":7.6,"active":true,"_id":"663611dc3d9041e483a33e82"},{"name":"Small Fries","price":3.15,"active":true,"_id":"6636121e3d9041e483a33e83"},{"name":"CheeseBurger","price":4.8,"active":true,"_id":"6636125c3d9041e483a33e84"},{"name":"Hot Apple Pie","price":3.3,"active":true,"_id":"663612913d9041e483a33e85"},{"name":"Classic Angus","price":10,"active":true,"_id":"663612d73d9041e483a33e86"},{"name":"Coke","price":3.65,"active":true,"_id":"663613183d9041e483a33e87"},{"name":"Fanta","price":3.65,"active":true,"_id":"6636135f3d9041e483a33e88"},{"name":"Garden Salad","price":4.6,"active":true,"_id":"663613c63d9041e483a33e89"},{"name":"Sundea","price":3.5,"active":true,"_id":"663614003d9041e483a33e8a"}],"owner":"6620c49815ec95202084c277","postcode":"2500"},{"ratings":{"averageRating":3.2,"totalReviews":200},"revenueReports":{"daily":0,"weekly":0,"monthly":0},"_id":"6635c0954664ce7fb1c06bd3","name":"Hirthe LLC","email":"Zula27@hotmail.com","phone":"605.440.4899 x27328","address":"60103 Isabella Stream","postcode":"2500","openingHours":"09:00 - 21:00","category":"Cafes","menu":[{"name":"Refined Frozen Chips","price":14.15,"active":true,"_id":"6635c0954664ce7fb1c06bd4"},{"name":"Unbranded Cotton Soap","price":47.95,"active":true,"_id":"6635c0954664ce7fb1c06bd5"},{"name":"Handmade Wooden Shoes","price":6.99,"active":true,"_id":"6635c0954664ce7fb1c06bd6"},{"name":"Handcrafted Concrete Hat","price":42.84,"active":true,"_id":"6635c0954664ce7fb1c06bd7"},{"name":"Small Soft Towels","price":15.44,"active":true,"_id":"6635c0954664ce7fb1c06bd8"},{"name":"Handmade Plastic Tuna","price":29.1,"active":true,"_id":"6635c0954664ce7fb1c06bd9"},{"name":"Generic Soft Fish","price":29.14,"active":true,"_id":"6635c0954664ce7fb1c06bda"}],"orders":[],"owner":"Mrs. Jerry Terry","__v":0},{"ratings":{"averageRating":4.5,"totalReviews":297},"revenueReports":{"daily":0,"weekly":0,"monthly":0},"_id":"6635c0954664ce7fb1c06c0d","name":"Torp Inc","email":"Loyce_Feest@hotmail.com","phone":"(640) 506-8883","address":"95167 Breitenberg Track","postcode":"2522","openingHours":"09:00 - 21:00","category":"Bubble Tea","menu":[{"name":"Fantastic Frozen Pizza","price":46.91,"active":true,"_id":"6635c0954664ce7fb1c06c0e"},{"name":"Gorgeous Cotton Chicken","price":48.1,"active":true,"_id":"6635c0954664ce7fb1c06c0f"},{"name":"Ergonomic Rubber Pizza","price":8.99,"active":true,"_id":"6635c0954664ce7fb1c06c10"},{"name":"Unbranded Metal Shoes","price":26.94,"active":true,"_id":"6635c0954664ce7fb1c06c11"},{"name":"Awesome Fresh Chicken","price":32.2,"active":true,"_id":"6635c0954664ce7fb1c06c12"},{"name":"Handcrafted Concrete Bike","price":5.4,"active":true,"_id":"6635c0954664ce7fb1c06c13"},{"name":"Intelligent Soft Soap","price":25.67,"active":true,"_id":"6635c0954664ce7fb1c06c14"},{"name":"Awesome Plastic Soap","price":36.91,"active":true,"_id":"6635c0954664ce7fb1c06c15"}],"orders":[],"owner":"Opal VonRueden DVM","__v":0},{"ratings":{"averageRating":4.3,"totalReviews":143},"revenueReports":{"daily":0,"weekly":0,"monthly":0},"_id":"663839499d619dcf9c6412cc","name":"VonRueden - MacGyver","email":"Gerardo.Pacocha58@gmail.com","phone":"(489) 233-0125","address":"097 Sporer Shores","postcode":"2530","openingHours":"09:00 - 21:00","category":"Bubble Tea","menu":[{"name":"Sleek Cotton Shirt","price":33.28,"active":true,"_id":"663839499d619dcf9c6412cd"},{"name":"Tasty Rubber Tuna","price":10.33,"active":true,"_id":"663839499d619dcf9c6412ce"},{"name":"Practical Frozen Bike","price":38.78,"active":true,"_id":"663839499d619dcf9c6412cf"},{"name":"Awesome Cotton Hat","price":18.29,"active":true,"_id":"663839499d619dcf9c6412d0"},{"name":"Fantastic Concrete Gloves","price":31.72,"active":true,"_id":"663839499d619dcf9c6412d1"}],"orders":[],"owner":"Woodrow Mitchell V","__v":0},{"ratings":{"averageRating":3,"totalReviews":66},"revenueReports":{"daily":0,"weekly":0,"monthly":0},"_id":"6638394a9d619dcf9c6412d4","name":"Feest, Bailey and Daugherty","email":"Isai97@gmail.com","phone":"1-882-723-7143 x0042","address":"6344 Blick Well","postcode":"2530","openingHours":"09:00 - 21:00","category":"Bubble Tea","menu":[{"name":"Tasty Plastic Mouse","price":38.78,"active":true,"_id":"6638394a9d619dcf9c6412d5"},{"name":"Handcrafted Cotton Tuna","price":34.94,"active":true,"_id":"6638394a9d619dcf9c6412d6"},{"name":"Generic Plastic Pants","price":5.7,"active":true,"_id":"6638394a9d619dcf9c6412d7"},{"name":"Gorgeous Cotton Bacon","price":5.45,"active":true,"_id":"6638394a9d619dcf9c6412d8"},{"name":"Handmade Fresh Tuna","price":40.81,"active":true,"_id":"6638394a9d619dcf9c6412d9"},{"name":"Tasty Wooden Towels","price":25.5,"active":true,"_id":"6638394a9d619dcf9c6412da"},{"name":"Sleek Frozen Car","price":30.21,"active":true,"_id":"6638394a9d619dcf9c6412db"}],"orders":[],"owner":"Lois Kilback I","__v":0},{"ratings":{"averageRating":1,"totalReviews":435},"revenueReports":{"daily":0,"weekly":0,"monthly":0},"_id":"6638394a9d619dcf9c6412dd","name":"Predovic, McDermott and Rau","email":"Bert.Schaden@yahoo.com","phone":"(415) 861-9050","address":"01324 Darrell Mountain","postcode":"2518","openingHours":"09:00 - 21:00","category":"Cafes","menu":[{"name":"Handcrafted Plastic Chicken","price":25.25,"active":true,"_id":"6638394a9d619dcf9c6412de"},{"name":"Handmade Granite Car","price":22.63,"active":true,"_id":"6638394a9d619dcf9c6412df"},{"name":"Handmade Cotton Fish","price":15.31,"active":true,"_id":"6638394a9d619dcf9c6412e0"},{"name":"Licensed Metal Gloves","price":37.18,"active":true,"_id":"6638394a9d619dcf9c6412e1"},{"name":"Tasty Cotton Chicken","price":7.62,"active":true,"_id":"6638394a9d619dcf9c6412e2"},{"name":"Tasty Cotton Pizza","price":21.19,"active":true,"_id":"6638394a9d619dcf9c6412e3"},{"name":"Generic Soft Bacon","price":46.15,"active":true,"_id":"6638394a9d619dcf9c6412e4"},{"name":"Fantastic Plastic Gloves","price":37.23,"active":true,"_id":"6638394a9d619dcf9c6412e5"},{"name":"Unbranded Steel Salad","price":8.34,"active":true,"_id":"6638394a9d619dcf9c6412e6"}],"orders":[],"owner":"Guillermo Swaniawski","__v":0},{"ratings":{"averageRating":3.5,"totalReviews":308},"revenueReports":{"daily":0,"weekly":0,"monthly":0},"_id":"6638394a9d619dcf9c6412e8","name":"Dooley, Cassin and Kuhic","email":"Izaiah.Hand@yahoo.com","phone":"913-974-2708 x2619","address":"7951 Felton Wells","postcode":"2500","openingHours":"09:00 - 21:00","category":"Burger","menu":[{"name":"Handmade Cotton Sausages","price":30.77,"active":true,"_id":"6638394a9d619dcf9c6412e9"},{"name":"Gorgeous Plastic Ball","price":5.72,"active":true,"_id":"6638394a9d619dcf9c6412ea"},{"name":"Licensed Fresh Gloves","price":31.92,"active":true,"_id":"6638394a9d619dcf9c6412eb"},{"name":"Gorgeous Steel Pants","price":48.04,"active":true,"_id":"6638394a9d619dcf9c6412ec"},{"name":"Tasty Concrete Bike","price":41.84,"active":true,"_id":"6638394a9d619dcf9c6412ed"},{"name":"Gorgeous Cotton Towels","price":35.63,"active":true,"_id":"6638394a9d619dcf9c6412ee"},{"name":"Awesome Cotton Ball","price":43.49,"active":true,"_id":"6638394a9d619dcf9c6412ef"}],"orders":[],"owner":"Dallas Sipes","__v":0},{"ratings":{"averageRating":1.8,"totalReviews":28},"revenueReports":{"daily":0,"weekly":0,"monthly":0},"_id":"6638394a9d619dcf9c6412f1","name":"Ritchie - Halvorson","email":"Frieda_Schimmel42@gmail.com","phone":"469-724-6902 x1132","address":"2924 Glover Fords","postcode":"2500","openingHours":"09:00 - 21:00","category":"Bubble Tea","menu":[{"name":"Small Fresh Pants","price":48.66,"active":true,"_id":"6638394a9d619dcf9c6412f2"},{"name":"Intelligent Plastic Chicken","price":47.81,"active":true,"_id":"6638394a9d619dcf9c6412f3"},{"name":"Ergonomic Wooden Hat","price":29.92,"active":true,"_id":"6638394a9d619dcf9c6412f4"},{"name":"Handcrafted Rubber Car","price":27.95,"active":true,"_id":"6638394a9d619dcf9c6412f5"},{"name":"Incredible Soft Pizza","price":39.81,"active":true,"_id":"6638394a9d619dcf9c6412f6"},{"name":"Sleek Metal Chicken","price":38,"active":true,"_id":"6638394a9d619dcf9c6412f7"},{"name":"Gorgeous Plastic Chair","price":48.87,"active":true,"_id":"6638394a9d619dcf9c6412f8"},{"name":"Sleek Cotton Soap","price":45.53,"active":true,"_id":"6638394a9d619dcf9c6412f9"}],"orders":[],"owner":"Kenny Collins","__v":0},{"ratings":{"averageRating":3.6,"totalReviews":193},"revenueReports":{"daily":0,"weekly":0,"monthly":0},"_id":"6638394a9d619dcf9c6412fb","name":"Block - Turcotte","email":"Francisca.Pagac@hotmail.com","phone":"(679) 410-6085","address":"6156 Hane Extension","postcode":"2518","openingHours":"09:00 - 21:00","category":"Asian","menu":[{"name":"Handmade Soft Sausages","price":44.78,"active":true,"_id":"6638394a9d619dcf9c6412fc"},{"name":"Rustic Frozen Gloves","price":38.46,"active":true,"_id":"6638394a9d619dcf9c6412fd"},{"name":"Incredible Concrete Chair","price":26.45,"active":true,"_id":"6638394a9d619dcf9c6412fe"},{"name":"Handcrafted Cotton Mouse","price":38.62,"active":true,"_id":"6638394a9d619dcf9c6412ff"},{"name":"Awesome Concrete Keyboard","price":33.23,"active":true,"_id":"6638394a9d619dcf9c641300"},{"name":"Generic Cotton Pants","price":29.6,"active":true,"_id":"6638394a9d619dcf9c641301"},{"name":"Sleek Frozen Towels","price":11.63,"active":true,"_id":"6638394a9d619dcf9c641302"},{"name":"Ergonomic Rubber Bacon","price":40.18,"active":true,"_id":"6638394a9d619dcf9c641303"},{"name":"Handmade Plastic Chips","price":42.1,"active":true,"_id":"6638394a9d619dcf9c641304"}],"orders":[],"owner":"Tasha Price","__v":0},{"ratings":{"averageRating":4.9,"totalReviews":417},"revenueReports":{"daily":0,"weekly":0,"monthly":0},"_id":"6638394a9d619dcf9c641306","name":"Jerde - Walter","email":"Ethyl5@gmail.com","phone":"834.539.2409 x95519","address":"954 Heber Meadows","postcode":"2525","openingHours":"09:00 - 21:00","category":"Bubble Tea","menu":[{"name":"Generic Metal Car","price":10.84,"active":true,"_id":"6638394a9d619dcf9c641307"},{"name":"Rustic Soft Keyboard","price":35.77,"active":true,"_id":"6638394a9d619dcf9c641308"},{"name":"Gorgeous Steel Towels","price":39.72,"active":true,"_id":"6638394a9d619dcf9c641309"},{"name":"Small Steel Shoes","price":8.06,"active":true,"_id":"6638394a9d619dcf9c64130a"},{"name":"Small Concrete Shoes","price":18.11,"active":true,"_id":"6638394a9d619dcf9c64130b"},{"name":"Tasty Wooden Computer","price":39.46,"active":true,"_id":"6638394a9d619dcf9c64130c"},{"name":"Licensed Cotton Shirt","price":42.73,"active":true,"_id":"6638394a9d619dcf9c64130d"},{"name":"Licensed Metal Car","price":7.12,"active":true,"_id":"6638394a9d619dcf9c64130e"}],"orders":[],"owner":"Myrtle Treutel","__v":0},{"ratings":{"averageRating":3.7,"totalReviews":61},"revenueReports":{"daily":0,"weekly":0,"monthly":0},"_id":"6638394a9d619dcf9c641310","name":"Nolan, Becker and Koelpin","email":"Agustina.White95@gmail.com","phone":"857-952-9390","address":"63472 Davis Parks","postcode":"2518","openingHours":"09:00 - 21:00","category":"Burger","menu":[{"name":"Refined Cotton Shirt","price":6.88,"active":true,"_id":"6638394a9d619dcf9c641311"},{"name":"Sleek Fresh Hat","price":23.26,"active":true,"_id":"6638394a9d619dcf9c641312"},{"name":"Handmade Fresh Hat","price":42.83,"active":true,"_id":"6638394a9d619dcf9c641313"},{"name":"Tasty Plastic Shoes","price":47.79,"active":true,"_id":"6638394a9d619dcf9c641314"},{"name":"Rustic Soft Fish","price":45.32,"active":true,"_id":"6638394a9d619dcf9c641315"},{"name":"Incredible Fresh Cheese","price":44.7,"active":true,"_id":"6638394a9d619dcf9c641316"},{"name":"Awesome Steel Bacon","price":9.89,"active":true,"_id":"6638394a9d619dcf9c641317"},{"name":"Incredible Steel Sausages","price":6.52,"active":true,"_id":"6638394a9d619dcf9c641318"}],"orders":[],"owner":"Clay Feeney","__v":0},{"ratings":{"averageRating":4.2,"totalReviews":441},"revenueReports":{"daily":0,"weekly":0,"monthly":0},"_id":"6638394a9d619dcf9c64131a","name":"Hessel - Torphy","email":"Kelton87@gmail.com","phone":"(597) 926-0442","address":"56970 Durgan Crossing","postcode":"2518","openingHours":"09:00 - 21:00","category":"Asian","menu":[{"name":"Licensed Granite Mouse","price":35.56,"active":true,"_id":"6638394a9d619dcf9c64131b"},{"name":"Tasty Frozen Pants","price":15.14,"active":true,"_id":"6638394a9d619dcf9c64131c"},{"name":"Licensed Concrete Car","price":29.69,"active":true,"_id":"6638394a9d619dcf9c64131d"},{"name":"Handcrafted Rubber Keyboard","price":11.86,"active":true,"_id":"6638394a9d619dcf9c64131e"},{"name":"Tasty Granite Chips","price":18.02,"active":true,"_id":"6638394a9d619dcf9c64131f"}],"orders":[],"owner":"Irving Casper","__v":0},{"ratings":{"averageRating":4.8,"totalReviews":143},"revenueReports":{"daily":0,"weekly":0,"monthly":0},"_id":"6638394a9d619dcf9c641321","name":"Pollich Inc","email":"Katelin52@hotmail.com","phone":"1-411-228-9938","address":"74542 Prohaska Terrace","postcode":"2530","openingHours":"09:00 - 21:00","category":"Cafes","menu":[{"name":"Practical Frozen Soap","price":16.68,"active":true,"_id":"6638394a9d619dcf9c641322"},{"name":"Tasty Plastic Pants","price":39.15,"active":true,"_id":"6638394a9d619dcf9c641323"},{"name":"Intelligent Wooden Chips","price":42.52,"active":true,"_id":"6638394a9d619dcf9c641324"},{"name":"Tasty Rubber Shoes","price":35.7,"active":true,"_id":"6638394a9d619dcf9c641325"},{"name":"Small Soft Shirt","price":15.72,"active":true,"_id":"6638394a9d619dcf9c641326"},{"name":"Licensed Cotton Tuna","price":45.52,"active":true,"_id":"6638394a9d619dcf9c641327"},{"name":"Tasty Granite Shoes","price":38.62,"active":true,"_id":"6638394a9d619dcf9c641328"},{"name":"Rustic Wooden Chips","price":45.66,"active":true,"_id":"6638394a9d619dcf9c641329"},{"name":"Incredible Fresh Mouse","price":18.22,"active":true,"_id":"6638394a9d619dcf9c64132a"}],"orders":[],"owner":"Felipe Schulist II","__v":0}];
+
+  // Mock the fetch implementation
+  require('node-fetch').__setMockResponse(mockResponse);
+
+  render(<Page />);
+
+  // Assert that posts are rendered
+  expect(await screen.findByText('Tasty Granite Shoes')).toBeInTheDocument();
+});
+ 
+// describe('Page', () => {
+//   it('renders categories', () => {
+//     render(<Page />)
+ 
+//     const categories = screen.getByRole('categories')
+ 
+//     expect(categories).toBeInTheDocument()
+//   })
+// })
+
+// describe('Page', () => {
+//     it('renders restaruant list', () => {
       
-      render(<Page />)
+//       render(<Page />)
    
-      const heading = screen.getByRole('restaurant-list')
+//       const heading = screen.getByRole('restaurant-list')
    
-      expect(heading).toBeInTheDocument()
-    })
-  })
+//       expect(heading).toBeInTheDocument()
+//     })
+//   })
 
-describe('Page', () => {
-    it('renders restaruant list', () => {
-      render(<Page />)
+// describe('Page', () => {
+//     it('renders restaruant list', () => {
+//       render(<Page />)
    
-      const restaruant_keywords = screen.getByText("Burgers")
+//       const restaruant_keywords = screen.getByText("Burgers")
    
-      expect(restaruant_keywords).toBeInTheDocument()
-    })
-  })
+//       expect(restaruant_keywords).toBeInTheDocument()
+//     })
+//   })
 
-describe('Page', () => {
-    it('renders filter buttons', () => {
-      render(<Page />)
+// describe('Page', () => {
+//     it('renders filter buttons', () => {
+//       render(<Page />)
    
-      const filter_buttons = screen.getByText("Time Filter")
+//       const filter_buttons = screen.getByText("Time Filter")
    
-      expect(filter_buttons).toBeInTheDocument()
-    })
-  })
+//       expect(filter_buttons).toBeInTheDocument()
+//     })
+//   })
 

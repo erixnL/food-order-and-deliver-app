@@ -3,12 +3,19 @@
   margin: auto;
   padding: 30px 30px;
   gap: 18px;
+  align-items: stretch;
+}
+.payment h2 {
+  align-self: center;
 }
 .payment .back-to-order {
   align-self: flex-start;
   cursor: pointer;
   color: #DE250C;
   font-size: 14px;
+}
+.payment .payment-label {
+  font-size: 13px;
 }
 .payment input {
   width: 300px;
@@ -24,8 +31,10 @@
 .payment .card-expirydate input {
   width: 90px;
 }
-.payment .btn {
+.payment .payment-btn {
   font-size: 15px;
   width: 150px;
   border-radius: 10px;
+  color: white;
+  background-color: #DE250C;
 }/*# sourceMappingURL=Payment.css.map */

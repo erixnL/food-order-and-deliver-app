@@ -2,7 +2,7 @@
   flex-direction: column;
   margin: auto;
   width: 100%;
-  padding: 0 200px;
+  padding: 20px 200px;
   gap: 20px;
 
 
@@ -48,20 +48,22 @@
           font-size: 14px;
           cursor: pointer;
         }
-
-        .confirm-order{
-          background-color: #FBDA61;
-          border-radius: 10px;
-          padding: 5px;
-        }
         .track-order{
           color: #DE250C;
           font-weight: 500;
           text-decoration: underline;
         }
-        .button-one{
-          text-decoration: underline;
+
+        .button-receipt{
+          flex-direction: column;
+          align-items: flex-end;
+
+          .button-one{
+            text-decoration: underline;
+          }
         }
+
+        
       }
     }
   }

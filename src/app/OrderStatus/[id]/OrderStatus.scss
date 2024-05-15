@@ -1,0 +1,93 @@
+.order-status{
+  flex-direction: column;
+  margin: auto;
+  width: 100%;
+  padding: 20px 200px;
+  gap: 10px;
+  
+  .back{
+    align-self: flex-start;
+    color: #DE250C;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  h2{
+    margin-bottom: 30px;
+    font-size: 21px;
+  }
+  .grey-box{
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+    background-color: #F5F3F3;
+    border-radius: 30px;
+    width: min(600px,80vw);
+    padding: 20px 30px;
+    div{
+      font-size: 14px;
+    }
+    .grey-box-heading{
+      font-weight: 700;
+    }
+    .order-item{
+      margin: 0 10px;
+      width: 80%;
+      justify-content: space-between;
+
+    }
+    .order-address{
+      margin: 0 10px;
+    }
+  }
+
+  .order-tracking{
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(150px, 1fr));
+    grid-gap: 10px;
+    justify-items: center; /* Center items horizontally */
+
+    div{
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+
+  }
+  .delivered-container{
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 25px;
+
+    .delivered-confirm{
+      gap: 5px;
+      .text{
+        font-size: 22px;
+        color: #DE250C;
+        font-weight: 700;
+      }
+    }
+    .rating-btn{
+      font-size: 15px;
+      width: 150px;
+      background-color: black;
+    }
+
+    .delivery-person-contact{
+      cursor: pointer;
+      background-color: #DE250C;
+      width: 250px;
+      justify-content: space-between;
+      padding: 5px 20px;
+      border-radius: 50px;
+      .text{
+        color: white;
+      }
+      .end{
+        align-self: flex-end;
+      }
+    }
+  }
+
+}

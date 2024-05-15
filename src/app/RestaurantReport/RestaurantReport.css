@@ -1,0 +1,29 @@
+.restaurant-report {
+  margin: 30px auto;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 500px;
+  height: auto;
+  gap: 20px;
+}
+.restaurant-report hr {
+  width: 100%;
+  border: 0;
+  height: 2px;
+  color: #D9D9D9;
+}
+.restaurant-report h2 {
+  font-size: 22px;
+  font-weight: 700;
+}
+.restaurant-report .report-list-headings {
+  align-items: center;
+  gap: 150px;
+}
+.restaurant-report .report-list-headings .report-list-heading {
+  color: #737373;
+}
+.restaurant-report .report-list-items {
+  align-items: center;
+  gap: 100px;
+}/*# sourceMappingURL=RestaurantReport.css.map */

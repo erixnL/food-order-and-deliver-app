@@ -1,8 +1,7 @@
 'use client';
-import React, { createContext } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { Restaurant_list, food_list, order_list } from '../../public/assets/images/assets';
-
-import { useState } from "react";
+import { useSession } from 'next-auth/react';
 
 export const AppContext = createContext(null);
 
@@ -10,23 +9,17 @@ const AppContextProvider = (props) => {
 
   const [cartItems, setCartItems] = React.useState({});
 
-  const [Login, isLogin] = React.useState(true);
-
-  const [userRole, setUserRole] = React.useState(null);
-
   const [showProfileMenu, setShowProfileMenu] = useState(false);
 
   const [orderDelivered, setOrderDelivered] = useState(true);
 
   const [showRating, setShowRating] = useState(false);
 
-  const addToCart = (itemId) => {
-    if (!cartItems[itemId]) {
-      setCartItems((prev) => ({ ...prev, [itemId]: 1 }))
-    } else {
-      setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }))
-    }
-  }
+  const [orderHistory, setOrderHistory] = useState([]);
+
+  const [currentOrder, setCurrentOrder] = useState({});
+
+  const [showNotification, setShowNotification] = useState(false);
 
   const removeFromCart = (itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }))
@@ -34,10 +27,9 @@ const AppContextProvider = (props) => {
 
   const getCartTotal = () => {
     let totalAmount = 0;
-    for (const item in cartItems) {
-      if (cartItems[item] > 0) {
-        let itemInfo = food_list.find((product) => product._id === item);
-        totalAmount += itemInfo.price * cartItems[item];
+    for (const item of Object.values(cartItems)) {
+      if (item.quantity > 0) {
+        totalAmount += item.price * item.quantity;
       }
     }
     return totalAmount;
@@ -49,19 +41,21 @@ const AppContextProvider = (props) => {
     order_list,
     cartItems,
     setCartItems,
-    addToCart,
     removeFromCart,
     getCartTotal,
-    Login, 
-    isLogin,
     showProfileMenu, 
     setShowProfileMenu,
     orderDelivered, 
     setOrderDelivered,
     showRating, 
     setShowRating,
-    userRole, 
-    setUserRole
+    orderHistory, 
+    setOrderHistory,
+    currentOrder, 
+    setCurrentOrder,
+    showNotification, 
+    setShowNotification
+
   }
 
   return (

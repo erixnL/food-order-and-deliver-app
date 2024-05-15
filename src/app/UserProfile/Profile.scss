@@ -53,6 +53,8 @@
       width: 150px;
       font-size: 15px;
       align-self: center;
+      color: white;
+      background-color: #DE250C;
     }
   }
   .second{
@@ -87,6 +89,19 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 5px;
+      }
+      .membership-btns{
+        gap: 10px;
+
+        button {
+          background-color: #DE250C;
+          color: white;
+          cursor: pointer;
+          padding: 5px 10px;
+          border: none;
+          border-radius: 10px;
+
+        }
       }
     }
     .icon{

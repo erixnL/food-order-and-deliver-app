@@ -50,6 +50,8 @@
   width: 150px;
   font-size: 15px;
   align-self: center;
+  color: white;
+  background-color: #DE250C;
 }
 .profile .second {
   justify-content: space-between;
@@ -84,6 +86,17 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 5px;
+}
+.profile .third .text .membership-btns {
+  gap: 10px;
+}
+.profile .third .text .membership-btns button {
+  background-color: #DE250C;
+  color: white;
+  cursor: pointer;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 10px;
 }
 .profile .third .icon {
   cursor: pointer;

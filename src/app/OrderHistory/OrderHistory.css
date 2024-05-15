@@ -2,7 +2,7 @@
   flex-direction: column;
   margin: auto;
   width: 100%;
-  padding: 0 200px;
+  padding: 20px 200px;
   gap: 20px;
 }
 .order-history .back {
@@ -49,17 +49,16 @@
   font-size: 14px;
   cursor: pointer;
 }
-.order-history .order-list-container .order-container .button-container .confirm-order {
-  background-color: #FBDA61;
-  border-radius: 10px;
-  padding: 5px;
-}
 .order-history .order-list-container .order-container .button-container .track-order {
   color: #DE250C;
   font-weight: 500;
   text-decoration: underline;
 }
-.order-history .order-list-container .order-container .button-container .button-one {
+.order-history .order-list-container .order-container .button-container .button-receipt {
+  flex-direction: column;
+  align-items: flex-end;
+}
+.order-history .order-list-container .order-container .button-container .button-receipt .button-one {
   text-decoration: underline;
 }
 .order-history .no-order {

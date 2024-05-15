@@ -1,0 +1,14 @@
+.searchPage-container {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: auto;
+  padding: 20px 0;
+}
+.searchPage-container .rest-display-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  margin-top: 30px;
+  gap: 30px;
+  row-gap: 50px;
+}/*# sourceMappingURL=Search.css.map */
