@@ -115,7 +115,7 @@ const RestaurantOrderList = () => {
                 <div className="data-item">{formatDate(item.createdAt)}</div>
               </div>
               <div className="data-item">
-                {item.totalPrice}
+                ${item.totalPrice.toFixed(2)}
               </div>
               <div className="data-item">
                 {statusDescriptions[item.orderStatus]}
@@ -147,7 +147,7 @@ const RestaurantOrderList = () => {
               : <div></div>
               }
                 <Link href={`/OrderDetails/${item._id}`} className="order-icon">
-                  <MdContentPaste />
+                  <MdContentPaste size={18} />
                 </Link>
             </div>
             <hr/>

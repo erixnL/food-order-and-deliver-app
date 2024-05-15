@@ -20,7 +20,7 @@ const Notification = () => {
       <div 
         onClick={() => setShowNotification(false)}
         className="notification-text flex">
-        <IoFastFood />
+        <IoFastFood size={40}/>
         {session?.user.userRole === "customer" 
         ?
         <Link href="/OrderHistory">Your order is accepted!</Link> 

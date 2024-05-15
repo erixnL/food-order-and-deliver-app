@@ -21,18 +21,6 @@ const RestaurantReport = () => {
         <Link href="/ReportMay">May 2024 Monthly report</Link>  
       </div>
       <hr/>
-      <div className="report-list-items flex">
-        <div className="report-date">2024-4-1</div>
-        <Link href="/">Arpil 2024 Monthly report</Link>
-        
-      </div>
-      <hr/>
-      <div className="report-list-items flex">
-        <div className="report-date">2024-3-1</div>
-        <Link href="/">March 2024 Monthly report</Link>
-        
-      </div>
-      <hr/>
     </div>
   )
 }
