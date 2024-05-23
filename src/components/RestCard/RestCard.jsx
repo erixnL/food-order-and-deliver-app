@@ -14,7 +14,7 @@ const RestCard = ({id, name, rating}) => {
     <div className='rest-card'>
       <Link href={`/restaurants/${id}`}>
         <div className="rest-image-container">
-          <Image className='rest-image' src={image1} alt="" />
+          <Image className='rest-image' src={image1} alt="restaurant-image" />
         </div>
         <div className="rest-info flex">
           <div className="rest-name">

@@ -48,6 +48,15 @@ const OrderStatus = () => {
   
     return index < statusLevels[status] ? "#2861D1" : "#D9D9D9";
   }
+  const calculateEstimatedArrivalTime = (createdAt) => {
+    const createdTime = new Date(createdAt);
+    const estimatedTime = new Date(createdTime.getTime() + 30 * 60000); // Add 30 minutes
+    return estimatedTime.toLocaleString(); // Format the date and time to a readable format
+  };
+
+  const estimatedArrivalTime = calculateEstimatedArrivalTime(order.createdAt);
+
+
     
 
   return (
@@ -126,7 +135,11 @@ const OrderStatus = () => {
               <div className="icon end"><FaPhoneVolume color="white" size="18"/></div>
             </div>
           </div>
-        :  ""
+        :  order.orderStatus === "new" || order.orderStatus === "accepted" ?
+        <div className="delivered-container flex">
+          <h2>Estimated Arrival Time: {estimatedArrivalTime}</h2>
+        </div>
+        : ""
         }
       </div>
     </>
