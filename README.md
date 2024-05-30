@@ -30,7 +30,7 @@ npm run test
 ```
 **View Product Deployment**
 
+https://food-order-and-deliver-app.vercel.app/
 
-https://food-order-and-deliver-gsdtjhsva-erins-projects-0c6423b1.vercel.app/
 
 
